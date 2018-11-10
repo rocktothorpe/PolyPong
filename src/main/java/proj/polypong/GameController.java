@@ -20,8 +20,6 @@ public class GameController extends Application {
     @Override
     public void start(Stage stage) {
     	
-    	System.out.println("smelly");
-    	
     	final Game game = new Game();
     	
     	stage.setTitle(Game.GAMETITLE);
