@@ -20,11 +20,11 @@ public class GameController extends Application {
     @Override
     public void start(Stage stage) {
     	
-    	Game game = new Game();
+    	final Game game = new Game();
     	
-    	stage.setTitle(game.GAMETITLE);
+    	stage.setTitle(Game.GAMETITLE);
     	Pane canvas = new Pane();
-    	Scene scene = new Scene(canvas, game.GAMEWIDTH, game.GAMEHEIGHT, game.BACKGROUNDCOLOR);
+    	Scene scene = new Scene(canvas, Game.GAMEWIDTH, Game.GAMEHEIGHT, Game.BACKGROUNDCOLOR);
         
         canvas.getChildren().addAll(game.ball, game.p1Paddle, game.p2Paddle, game.statusBar);
         stage.setScene(scene);
@@ -49,31 +49,31 @@ public class GameController extends Application {
     
     public void releasedKey(KeyEvent event, Game game) {
     	String codeString = event.getCode().toString();
-        if (codeString.equals(game.P1DOWN)) {
+        if (codeString.equals(Game.P1DOWN)) {
         	game.p1Paddle.isLowering = false;
-        } else if (codeString.equals(game.P1UP)) {
+        } else if (codeString.equals(Game.P1UP)) {
         	game.p1Paddle.isRaising = false;
         } 
-        if (codeString.equals(game.P2DOWN)) {
+        if (codeString.equals(Game.P2DOWN)) {
         	game.p2Paddle.isLowering = false;
-        } else if (codeString.equals(game.P2UP)) {
+        } else if (codeString.equals(Game.P2UP)) {
         	game.p2Paddle.isRaising = false;
         }
     }
     
     public void pressedKey(KeyEvent event, Game game) {
     	String codeString = event.getCode().toString();
-        if (codeString.equals(game.P1DOWN)) {
+        if (codeString.equals(Game.P1DOWN)) {
         	game.p1Paddle.isLowering = true;
-        } else if (codeString.equals(game.P1UP)) {
+        } else if (codeString.equals(Game.P1UP)) {
         	game.p1Paddle.isRaising = true;
         } 
-        if (codeString.equals(game.P2DOWN)) {
+        if (codeString.equals(Game.P2DOWN)) {
         	game.p2Paddle.isLowering = true;
-        } else if (codeString.equals(game.P2UP)) {
+        } else if (codeString.equals(Game.P2UP)) {
         	game.p2Paddle.isRaising = true;
         }
-        if (codeString.equals(game.PAUSEBUTTON)) {
+        if (codeString.equals(Game.PAUSEBUTTON)) {
         	if (gameStatus == GameStatus.PAUSE) {
             	timeline.play();
             	gameStatus = GameStatus.PLAY;
