@@ -1,6 +1,8 @@
 # PolyPong
 307-Falessi Group Project 
 
+## Links:
+ 1) [SonarCloud](https://sonarcloud.io/dashboard?id=rocktothorpe_PolyPong)
 
 # Notes about project structure
 
