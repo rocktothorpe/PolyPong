@@ -27,45 +27,45 @@ public class Game {
 	public StatusBar statusBar;
 	
 	public Game() {
-		this.ball = new Ball(this.BALLRADIUS, Color.WHITE);
-        ball.relocate(this.GAMEWIDTH/2, this.GAMEHEIGHT/2 - this.BALLRADIUS/2);
-        this.p1Paddle = new Paddle(5, this.GAMEHEIGHT/2 - this.PADDLEHEIGHT/2, 10, this.PADDLEHEIGHT, Color.WHITE);
-        this.p2Paddle = new Paddle(this.GAMEWIDTH - 15, this.GAMEHEIGHT/2 - this.PADDLEHEIGHT/2, 10, this.PADDLEHEIGHT, Color.WHITE);
-        this.statusBar = new StatusBar(this.GAMEWIDTH, this.STATUSBARHEIGHT);
+		ball = new Ball(BALLRADIUS, Color.WHITE);
+        ball.relocate(GAMEWIDTH/2, GAMEHEIGHT/2 - BALLRADIUS/2);
+        p1Paddle = new Paddle(5, GAMEHEIGHT/2 - PADDLEHEIGHT/2, 10, PADDLEHEIGHT, Color.WHITE);
+        p2Paddle = new Paddle(GAMEWIDTH - 15, GAMEHEIGHT/2 - PADDLEHEIGHT/2, 10, PADDLEHEIGHT, Color.WHITE);
+        statusBar = new StatusBar(GAMEWIDTH, STATUSBARHEIGHT);
 	}
 	
 	public void movePaddles() {
-    	if (this.p1Paddle.isLowering) {
-    		this.p1Paddle.slideDown(this.GAMEHEIGHT);
-    	} else if (this.p1Paddle.isRaising) {
-    		this.p1Paddle.slideUp(this.STATUSBARHEIGHT);
+    	if (p1Paddle.isLowering) {
+    		p1Paddle.slideDown(GAMEHEIGHT);
+    	} else if (p1Paddle.isRaising) {
+    		p1Paddle.slideUp(STATUSBARHEIGHT);
     	}
-    	if (this.p2Paddle.isLowering) {
-    		this.p2Paddle.slideDown(this.GAMEHEIGHT);
-    	} else if (this.p2Paddle.isRaising) {
-    		this.p2Paddle.slideUp(this.STATUSBARHEIGHT);
+    	if (p2Paddle.isLowering) {
+    		p2Paddle.slideDown(GAMEHEIGHT);
+    	} else if (p2Paddle.isRaising) {
+    		p2Paddle.slideUp(STATUSBARHEIGHT);
     	}
     }
 	
 	public void checkCollisions(Pane canvas, Timeline timeline) {
-    	if (this.ball.hitLeftWall()) {
-        	if (this.p1Paddle.ballCollides(this.ball)) {
-        		this.ball.xVelocity *= this.BALLSPEED;
+    	if (ball.hitLeftWall()) {
+        	if (p1Paddle.ballCollides(ball)) {
+        		ball.xVelocity *= BALLSPEED;
         	} else {
         		timeline.pause();
         	}
-        } else if (this.ball.hitRightWall(this.GAMEWIDTH)) {
-        	if (this.p2Paddle.ballCollides(this.ball)) {
-        		this.ball.xVelocity *= this.BALLSPEED;
+        } else if (ball.hitRightWall(GAMEWIDTH)) {
+        	if (p2Paddle.ballCollides(ball)) {
+        		ball.xVelocity *= BALLSPEED;
         	} else {
         		timeline.pause();
         	}
         }
     	Bounds bounds = canvas.getBoundsInLocal();
         
-        if((this.ball.getLayoutY() >= (bounds.getMaxY() - this.ball.getRadius())) || 
-                (this.ball.getLayoutY() <= (bounds.getMinY() + this.STATUSBARHEIGHT + this.ball.getRadius()))){
-        	this.ball.yVelocity = -this.ball.yVelocity;
+        if((ball.getLayoutY() >= (bounds.getMaxY() - ball.getRadius())) || 
+                (ball.getLayoutY() <= (bounds.getMinY() + STATUSBARHEIGHT + ball.getRadius()))){
+        	ball.yVelocity = -ball.yVelocity;
         }
     }
 	
