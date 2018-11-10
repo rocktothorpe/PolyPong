@@ -30,13 +30,9 @@ public class GameController extends Application {
         stage.setScene(scene);
         stage.show();
         
-        scene.setOnKeyPressed(event -> {
-            pressedKey(event, game);
-        });
+        scene.setOnKeyPressed(event -> pressedKey(event, game));
         
-        scene.setOnKeyReleased(event -> {
-            releasedKey(event, game);
-        });
+        scene.setOnKeyReleased(event -> releasedKey(event, game));
         
         EventHandler<ActionEvent> eventHandler = e -> {
         	game.ball.setLayoutX(game.ball.getLayoutX() + game.ball.xVelocity);
@@ -78,7 +74,6 @@ public class GameController extends Application {
         	game.p2Paddle.isRaising = true;
         }
         if (codeString.equals(game.PAUSEBUTTON)) {
-        	System.out.println("pausing");
         	if (gameStatus == GameStatus.PAUSE) {
             	timeline.play();
             	gameStatus = GameStatus.PLAY;

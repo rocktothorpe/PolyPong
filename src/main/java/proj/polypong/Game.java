@@ -7,19 +7,19 @@ import javafx.scene.paint.Color;
 
 public class Game {
 	
-	public final String GAMETITLE = "PolyPong";
-	public final double GAMEWIDTH = 900.0;
-	public final double GAMEHEIGHT = 500.0;
-	public final double PADDLEHEIGHT = 100.0;
-	public final double BALLRADIUS = 10.0;
-	public final double BALLSPEED = -1.05;
-	public final Color BACKGROUNDCOLOR = Color.rgb(29, 32, 44);
-	public final double STATUSBARHEIGHT = 40.0;
-	public final String P1DOWN = "S";
-	public final String P1UP = "W";
-	public final String P2DOWN = "DOWN";
-	public final String P2UP = "UP";
-	public final String PAUSEBUTTON = "P";
+	public static final String GAMETITLE = "PolyPong";
+	public static final double GAMEWIDTH = 900.0;
+	public static final double GAMEHEIGHT = 500.0;
+	public static final double PADDLEHEIGHT = 100.0;
+	public static final double BALLRADIUS = 10.0;
+	public static final double BALLSPEED = -1.05;
+	public static final Color BACKGROUNDCOLOR = Color.rgb(29, 32, 44);
+	public static final double STATUSBARHEIGHT = 40.0;
+	public static final String P1DOWN = "S";
+	public static final String P1UP = "W";
+	public static final String P2DOWN = "DOWN";
+	public static final String P2UP = "UP";
+	public static final String PAUSEBUTTON = "P";
 	
 	public Ball ball;
 	public Paddle p1Paddle;

@@ -35,7 +35,6 @@ public class StatusBar extends HBox {
         imv.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                System.out.println("Tile pressed ");
                 event.consume();
             }
        });
