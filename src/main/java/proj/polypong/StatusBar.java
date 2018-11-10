@@ -1,6 +1,7 @@
-package POLYPONG.POLYPONG;
+package proj.polypong;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+
 import javafx.event.EventHandler;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;

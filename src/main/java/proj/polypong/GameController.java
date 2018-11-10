@@ -1,4 +1,4 @@
-package POLYPONG.POLYPONG;
+package proj.polypong;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;

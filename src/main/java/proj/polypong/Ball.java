@@ -1,4 +1,4 @@
-package POLYPONG.POLYPONG;
+package proj.polypong;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
