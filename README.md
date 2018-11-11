@@ -3,6 +3,7 @@
 
 ## Links:
  1) [SonarCloud](https://sonarcloud.io/dashboard?id=rocktothorpe_PolyPong)
+ 2) [Travis](https://travis-ci.org/rocktothorpe/PolyPong)
 
 # Notes about project structure
 
