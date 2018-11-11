@@ -1,15 +1,20 @@
 package proj.polypong;
 
+import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.geometry.Bounds;
+import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 
 public class Game {
 	
-	public static final String GAMETITLE = "PolyPong";
-	public static final double GAMEWIDTH = 900.0;
-	public static final double GAMEHEIGHT = 500.0;
+	enum GameStatus { PLAY, PAUSE }
 	public static final double PADDLEHEIGHT = 100.0;
 	public static final double BALLRADIUS = 10.0;
 	public static final double BALLSPEED = -1.05;
@@ -21,27 +26,96 @@ public class Game {
 	public static final String P2UP = "UP";
 	public static final String PAUSEBUTTON = "P";
 	
+	private GameStatus gameStatus = GameStatus.PAUSE;
+	
 	public Ball ball;
 	public Paddle p1Paddle;
 	public Paddle p2Paddle;
 	public StatusBar statusBar;
+	public double gamewidth;
+	public double gameheight;
+	private Timeline timeline;
 	
-	public Game() {
+	public Game(double gameWidth, double gameHeight) {
+        gamewidth = gameWidth;
+        gameheight = gameHeight;
 		ball = new Ball(BALLRADIUS, Color.WHITE);
-        ball.relocate(GAMEWIDTH/2, GAMEHEIGHT/2 - BALLRADIUS/2);
-        p1Paddle = new Paddle(5, GAMEHEIGHT/2 - PADDLEHEIGHT/2, 10, PADDLEHEIGHT, Color.WHITE);
-        p2Paddle = new Paddle(GAMEWIDTH - 15, GAMEHEIGHT/2 - PADDLEHEIGHT/2, 10, PADDLEHEIGHT, Color.WHITE);
-        statusBar = new StatusBar(GAMEWIDTH, STATUSBARHEIGHT);
+        ball.relocate(gamewidth/2, gameheight/2 - BALLRADIUS/2);
+        p1Paddle = new Paddle(5, gameheight/2 - PADDLEHEIGHT/2, 10, PADDLEHEIGHT, Color.WHITE);
+        p2Paddle = new Paddle(gamewidth - 15, gameheight/2 - PADDLEHEIGHT/2, 10, PADDLEHEIGHT, Color.WHITE);
+        statusBar = new StatusBar(gamewidth, STATUSBARHEIGHT);
 	}
 	
+    public void runGame(Stage stage) {
+    	Pane canvas = new Pane();
+        Scene scene = new Scene(canvas, gamewidth, gameheight, Game.BACKGROUNDCOLOR);
+        
+        canvas.getChildren().addAll(ball, p1Paddle, p2Paddle, statusBar);
+        stage.setScene(scene);
+        stage.show();
+        
+        scene.setOnKeyPressed(event -> pressedKey(event));
+        
+        scene.setOnKeyReleased(event -> releasedKey(event));
+        
+        EventHandler<ActionEvent> eventHandler = e -> {
+            ball.setLayoutX(ball.getLayoutX() + ball.xVelocity);
+            ball.setLayoutY(ball.getLayoutY() + ball.yVelocity);
+            
+            movePaddles();
+            checkCollisions(canvas, timeline);
+            
+        };
+        
+        timeline = new Timeline(new KeyFrame(Duration.millis(5), eventHandler));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+    }
+    
+    public void releasedKey(KeyEvent event) {
+        String codeString = event.getCode().toString();
+        if (codeString.equals(P1DOWN)) {
+            p1Paddle.isLowering = false;
+        } else if (codeString.equals(P1UP)) {
+            p1Paddle.isRaising = false;
+        } 
+        if (codeString.equals(P2DOWN)) {
+            p2Paddle.isLowering = false;
+        } else if (codeString.equals(P2UP)) {
+            p2Paddle.isRaising = false;
+        }
+    }
+    
+    public void pressedKey(KeyEvent event) {
+        String codeString = event.getCode().toString();
+        if (codeString.equals(P1DOWN)) {
+            p1Paddle.isLowering = true;
+        } else if (codeString.equals(P1UP)) {
+            p1Paddle.isRaising = true;
+        } 
+        if (codeString.equals(P2DOWN)) {
+            p2Paddle.isLowering = true;
+        } else if (codeString.equals(P2UP)) {
+            p2Paddle.isRaising = true;
+        }
+        if (codeString.equals(PAUSEBUTTON)) {
+            if (gameStatus == GameStatus.PAUSE) {
+                timeline.play();
+                gameStatus = GameStatus.PLAY;
+            } else {
+                timeline.pause();
+                gameStatus = GameStatus.PAUSE;
+            }
+        }
+    }
+    
 	public void movePaddles() {
     	if (p1Paddle.isLowering) {
-    		p1Paddle.slideDown(GAMEHEIGHT);
+    		p1Paddle.slideDown(gameheight);
     	} else if (p1Paddle.isRaising) {
     		p1Paddle.slideUp(STATUSBARHEIGHT);
     	}
     	if (p2Paddle.isLowering) {
-    		p2Paddle.slideDown(GAMEHEIGHT);
+    		p2Paddle.slideDown(gameheight);
     	} else if (p2Paddle.isRaising) {
     		p2Paddle.slideUp(STATUSBARHEIGHT);
     	}
@@ -54,7 +128,7 @@ public class Game {
         	} else {
         		timeline.pause();
         	}
-        } else if (ball.hitRightWall(GAMEWIDTH)) {
+        } else if (ball.hitRightWall(gamewidth)) {
         	if (p2Paddle.ballCollides(ball)) {
         		ball.xVelocity *= BALLSPEED;
         	} else {
