@@ -25,7 +25,7 @@ public class Menu {
 		// declare main menu buttons
 		Button playGame = new Button("Play Game");
 		Button viewScoreboard = new Button("Scoreboard");
-		Button Settings  = new Button("Settings");
+		Button settings  = new Button("Settings");
 		
 		// scene and pane declared and set
 		Pane canvas = new Pane();
