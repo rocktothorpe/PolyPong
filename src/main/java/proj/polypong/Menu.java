@@ -14,8 +14,10 @@ public class Menu {
 	public double gamewidth;
 	public double gameheight;
 	public Color backgroundcolor;
+	GameController gc;
 	
-	public Menu(double gameWidth, double gameHeight, Color backgroundColor) {
+	public Menu(double gameWidth, double gameHeight, Color backgroundColor, GameController gc) {
+		this.gc = gc;
 		gamewidth = gameWidth;
 		gameheight = gameHeight;
 		backgroundcolor = backgroundColor;
@@ -33,8 +35,7 @@ public class Menu {
         
         playGame.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even ) {
-    			final Game game = new Game(gamewidth, gameheight,stage);
-    	    	game.runGame();
+    	    	gc.changetoScene("Game");
     		}
     	});
         
