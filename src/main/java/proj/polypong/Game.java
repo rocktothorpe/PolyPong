@@ -25,6 +25,7 @@ public class Game {
 	public static final String P2DOWN = "DOWN";
 	public static final String P2UP = "UP";
 	public static final String PAUSEBUTTON = "P";
+	public static final String RESTARTBUTTON = "R";
 	
 	private GameStatus gameStatus = GameStatus.PAUSE;
 	
@@ -35,10 +36,16 @@ public class Game {
 	public double gamewidth;
 	public double gameheight;
 	private Timeline timeline;
+	private Stage gameStage;
 	
-	public Game(double gameWidth, double gameHeight) {
-        gamewidth = gameWidth;
+	public Game(double gameWidth, double gameHeight, Stage stage) {
+		gamewidth = gameWidth;
         gameheight = gameHeight;
+        gameStage = stage;
+		initGame();
+	}
+	
+	private void initGame() {
 		ball = new Ball(BALLRADIUS, Color.WHITE);
         ball.relocate(gamewidth/2, gameheight/2 - BALLRADIUS/2);
         p1Paddle = new Paddle(5, gameheight/2 - PADDLEHEIGHT/2, 10, PADDLEHEIGHT, Color.WHITE);
@@ -46,13 +53,13 @@ public class Game {
         statusBar = new StatusBar(gamewidth, STATUSBARHEIGHT);
 	}
 	
-    public void runGame(Stage stage) {
+    public void runGame() {
     	Pane canvas = new Pane();
         Scene scene = new Scene(canvas, gamewidth, gameheight, Game.BACKGROUNDCOLOR);
         
         canvas.getChildren().addAll(ball, p1Paddle, p2Paddle, statusBar);
-        stage.setScene(scene);
-        stage.show();
+        gameStage.setScene(scene);
+        gameStage.show();
         
         scene.setOnKeyPressed(event -> pressedKey(event));
         
@@ -91,12 +98,19 @@ public class Game {
             p1Paddle.isLowering = true;
         } else if (codeString.equals(P1UP)) {
             p1Paddle.isRaising = true;
-        } 
+        }
+        
         if (codeString.equals(P2DOWN)) {
             p2Paddle.isLowering = true;
         } else if (codeString.equals(P2UP)) {
             p2Paddle.isRaising = true;
         }
+        
+        if (codeString.equals(RESTARTBUTTON)) {
+        	initGame();
+        	runGame();
+        }
+        
         if (codeString.equals(PAUSEBUTTON)) {
             if (gameStatus == GameStatus.PAUSE) {
                 timeline.play();

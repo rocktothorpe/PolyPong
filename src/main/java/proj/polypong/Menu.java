@@ -33,8 +33,8 @@ public class Menu {
         
         playGame.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even ) {
-    			final Game game = new Game(gamewidth, gameheight);
-    	    	game.runGame(stage);
+    			final Game game = new Game(gamewidth, gameheight, stage);
+    	    	game.runGame();
     		}
     	});
         
