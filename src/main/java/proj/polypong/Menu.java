@@ -39,7 +39,7 @@ public class Menu {
     	});
         
         HBox menuBox = new HBox();
-        menuBox.getChildren().addAll(playGame, viewScoreboard, Settings);
+        menuBox.getChildren().addAll(playGame, viewScoreboard, settings);
         canvas.getChildren().addAll(menuBox);
         stage.setScene(scene);
         stage.show();
