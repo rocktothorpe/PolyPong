@@ -18,7 +18,7 @@ public class Game {
 	public static final double PADDLEHEIGHT = 100.0;
 	public static final double BALLRADIUS = 10.0;
 	public static final double BALLSPEED = -1.05;
-	public static final Color BACKGROUNDCOLOR = Color.rgb(29, 32, 44);
+	public static final Color BACKGROUNDCOLOR = Color.rgb(0,122, 42);
 	public static final double STATUSBARHEIGHT = 40.0;
 	public static final String P1DOWN = "S";
 	public static final String P1UP = "W";
@@ -45,6 +45,14 @@ public class Game {
 		initGame();
 	}
 	
+	public static String toRGBCode( Color color )
+    {
+        return String.format( "#%02X%02X%02X",
+            (int)( color.getRed() * 255 ),
+            (int)( color.getGreen() * 255 ),
+            (int)( color.getBlue() * 255 ) );
+    }
+	
 	private void initGame() {
 		ball = new Ball(BALLRADIUS, Color.WHITE);
         ball.relocate(gamewidth/2, gameheight/2 - BALLRADIUS/2);
@@ -55,9 +63,10 @@ public class Game {
 	
     public void runGame() {
     	Pane canvas = new Pane();
-        Scene scene = new Scene(canvas, gamewidth, gameheight, Game.BACKGROUNDCOLOR);
+        Scene scene = new Scene(canvas, gamewidth, gameheight,Color.WHITE);
         
         canvas.getChildren().addAll(ball, p1Paddle, p2Paddle, statusBar);
+        canvas.setStyle("-fx-background-color: "+ toRGBCode(Game.BACKGROUNDCOLOR)+";");
         gameStage.setScene(scene);
         gameStage.show();
         

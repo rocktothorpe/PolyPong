@@ -29,11 +29,11 @@ public class Menu {
 		
 		// scene and pane declared and set
 		Pane canvas = new Pane();
-        Scene scene = new Scene(canvas, gamewidth, gameheight, Color.RED);
+        Scene scene = new Scene(canvas, gamewidth, gameheight, Color.BLACK);
         
         playGame.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even ) {
-    			final Game game = new Game(gamewidth, gameheight, stage);
+    			final Game game = new Game(gamewidth, gameheight,stage);
     	    	game.runGame();
     		}
     	});
