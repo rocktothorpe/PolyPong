@@ -2,17 +2,16 @@ package proj.polypong;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Bounds;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import javafx.util.Duration;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 
-public class Game {
+public class Game extends Pane implements Window {
 	
 	enum GameStatus { PLAY, PAUSE }
 	public static final double PADDLEHEIGHT = 100.0;
@@ -33,15 +32,10 @@ public class Game {
 	public Paddle p1Paddle;
 	public Paddle p2Paddle;
 	public StatusBar statusBar;
-	public double gamewidth;
-	public double gameheight;
 	private Timeline timeline;
-	private Stage gameStage;
 	
-	public Game(double gameWidth, double gameHeight, Stage stage) {
-		gamewidth = gameWidth;
-        gameheight = gameHeight;
-        gameStage = stage;
+	public Game() {
+		super();
 		initGame();
 	}
 	
@@ -55,20 +49,18 @@ public class Game {
 	
 	private void initGame() {
 		ball = new Ball(BALLRADIUS, Color.WHITE);
-        ball.relocate(gamewidth/2, gameheight/2 - BALLRADIUS/2);
-        p1Paddle = new Paddle(5, gameheight/2 - PADDLEHEIGHT/2, 10, PADDLEHEIGHT, Color.WHITE);
-        p2Paddle = new Paddle(gamewidth - 15, gameheight/2 - PADDLEHEIGHT/2, 10, PADDLEHEIGHT, Color.WHITE);
-        statusBar = new StatusBar(gamewidth, STATUSBARHEIGHT);
+        ball.relocate(width/2, height/2 - BALLRADIUS/2);
+        p1Paddle = new Paddle(5, height/2 - PADDLEHEIGHT/2, 10, PADDLEHEIGHT, Color.WHITE);
+        p2Paddle = new Paddle(width - 15, height/2 - PADDLEHEIGHT/2, 10, PADDLEHEIGHT, Color.WHITE);
+        statusBar = new StatusBar(width, STATUSBARHEIGHT);
 	}
-	
-    public void runGame() {
-    	Pane canvas = new Pane();
-        Scene scene = new Scene(canvas, gamewidth, gameheight,Color.WHITE);
+    
+    @Override
+	public Scene drawWindow() {
+        Scene scene = new Scene(this, width, height, Color.WHITE);
         
-        canvas.getChildren().addAll(ball, p1Paddle, p2Paddle, statusBar);
-        canvas.setStyle("-fx-background-color: "+ toRGBCode(Game.BACKGROUNDCOLOR)+";");
-        gameStage.setScene(scene);
-        gameStage.show();
+        this.getChildren().addAll(ball, p1Paddle, p2Paddle, statusBar);
+        this.setStyle("-fx-background-color: "+ toRGBCode(Game.BACKGROUNDCOLOR)+";");
         
         scene.setOnKeyPressed(event -> pressedKey(event));
         
@@ -79,12 +71,13 @@ public class Game {
             ball.setLayoutY(ball.getLayoutY() + ball.yVelocity);
             
             movePaddles();
-            checkCollisions(canvas, timeline);
+            checkCollisions(this, timeline);
             
         };
         
         timeline = new Timeline(new KeyFrame(Duration.millis(5), eventHandler));
         timeline.setCycleCount(Timeline.INDEFINITE);
+        return scene;
     }
     
     public void releasedKey(KeyEvent event) {
@@ -117,7 +110,7 @@ public class Game {
         
         if (codeString.equals(RESTARTBUTTON)) {
         	initGame();
-        	runGame();
+//        	runGame();
         }
         
         if (codeString.equals(PAUSEBUTTON)) {
@@ -133,12 +126,12 @@ public class Game {
     
 	public void movePaddles() {
     	if (p1Paddle.isLowering) {
-    		p1Paddle.slideDown(gameheight);
+    		p1Paddle.slideDown(height);
     	} else if (p1Paddle.isRaising) {
     		p1Paddle.slideUp(STATUSBARHEIGHT);
     	}
     	if (p2Paddle.isLowering) {
-    		p2Paddle.slideDown(gameheight);
+    		p2Paddle.slideDown(height);
     	} else if (p2Paddle.isRaising) {
     		p2Paddle.slideUp(STATUSBARHEIGHT);
     	}
@@ -151,7 +144,7 @@ public class Game {
         	} else {
         		timeline.pause();
         	}
-        } else if (ball.hitRightWall(gamewidth)) {
+        } else if (ball.hitRightWall(width)) {
         	if (p2Paddle.ballCollides(ball)) {
         		ball.xVelocity *= BALLSPEED;
         	} else {
