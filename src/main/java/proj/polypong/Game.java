@@ -109,8 +109,7 @@ public class Game extends Pane implements Window {
         }
         
         if (codeString.equals(RESTARTBUTTON)) {
-        	initGame();
-//        	runGame();
+        	new GameController().changetoScene("Game");
         }
         
         if (codeString.equals(PAUSEBUTTON)) {
