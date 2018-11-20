@@ -28,6 +28,12 @@ public class Menu extends  Window {
     		}
     	});
         
+        settings.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even ) {
+    			new GameController().changetoScene("Settings");
+    		}
+    	});
+        
         VBox menuBox = new VBox();
         menuBox.getChildren().addAll(playGame, viewScoreboard, settings);
         this.getChildren().addAll(menuBox);

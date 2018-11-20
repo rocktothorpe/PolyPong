@@ -49,10 +49,10 @@ public class Game extends Window {
     
     @Override
 	public Scene drawWindow() {
-        Scene scene = new Scene(this, width, height, Color.WHITE);
-        
-        this.getChildren().addAll(ball, p1Paddle, p2Paddle, statusBar);
-        this.setStyle("-fx-background-color: "+ toRGBCode(Game.BACKGROUNDCOLOR)+";");
+        Pane pane = new Pane();
+        pane.getChildren().addAll(ball, p1Paddle, p2Paddle, statusBar);
+        pane.setStyle("-fx-background-color: "+ toRGBCode(Game.BACKGROUNDCOLOR)+";");
+        Scene scene = new Scene(pane, width, height, Color.WHITE);
         
         scene.setOnKeyPressed(event -> pressedKey(event));
         

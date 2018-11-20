@@ -27,7 +27,11 @@ public class GameController extends Application {
     		Window menu = new Menu();
     		Scene menuScene = menu.drawWindow();
     		theStage.setScene(menuScene);
-    	}
+		} else if (scene == "Settings") {
+			Window settings = new Settings();
+			Scene settingsScene = settings.drawWindow();
+			theStage.setScene(settingsScene);
+		}
 		theStage.show();
     }
     

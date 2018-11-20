@@ -1,10 +1,12 @@
 package proj.polypong;
 
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
-public class Window extends Pane{
+public class Window extends StackPane{
+	public Label windowTitle;
 	public double height = 500.0;
 	public double width = 900.0;
 	public static final Color backgroundcolor = Color.rgb(0, 0, 0);
