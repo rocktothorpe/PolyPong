@@ -17,7 +17,7 @@ public class Game extends Pane implements Window {
 	public static final double PADDLEHEIGHT = 100.0;
 	public static final double BALLRADIUS = 10.0;
 	public static final double BALLSPEED = -1.05;
-	public static final Color BACKGROUNDCOLOR = Color.rgb(0,122, 42);
+	public static final Color BACKGROUNDCOLOR = Color.rgb(0, 0, 0);
 	public static final double STATUSBARHEIGHT = 40.0;
 	public static final String P1DOWN = "S";
 	public static final String P1UP = "W";
