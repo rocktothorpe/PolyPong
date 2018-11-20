@@ -11,7 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
-public class Game extends Pane implements Window {
+public class Game extends Window {
 	
 	enum GameStatus { PLAY, PAUSE }
 	public static final double PADDLEHEIGHT = 100.0;
@@ -38,14 +38,6 @@ public class Game extends Pane implements Window {
 		super();
 		initGame();
 	}
-	
-	public static String toRGBCode( Color color )
-    {
-        return String.format( "#%02X%02X%02X",
-            (int)( color.getRed() * 255 ),
-            (int)( color.getGreen() * 255 ),
-            (int)( color.getBlue() * 255 ) );
-    }
 	
 	private void initGame() {
 		ball = new Ball(BALLRADIUS, Color.WHITE);

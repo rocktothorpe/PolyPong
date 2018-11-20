@@ -4,13 +4,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
-public class Menu extends Pane implements Window {
-	
-	public Color backgroundcolor;
+public class Menu extends  Window {
 	
 	public Menu() {
 		super();
@@ -18,6 +15,7 @@ public class Menu extends Pane implements Window {
 
 	@Override
 	public Scene drawWindow() {
+		this.setStyle("-fx-background-color: "+ toRGBCode(backgroundcolor)+";");
 		Button playGame = new Button("Play Game");
 		Button viewScoreboard = new Button("Scoreboard");
 		Button settings  = new Button("Settings");
@@ -30,7 +28,7 @@ public class Menu extends Pane implements Window {
     		}
     	});
         
-        HBox menuBox = new HBox();
+        VBox menuBox = new VBox();
         menuBox.getChildren().addAll(playGame, viewScoreboard, settings);
         this.getChildren().addAll(menuBox);
         return scene;
