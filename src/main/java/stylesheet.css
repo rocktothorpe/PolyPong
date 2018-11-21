@@ -1,0 +1,24 @@
+.custom-button {
+    -fx-padding: 5 22 5 22;   
+    -fx-border-color: #a4a5a9;
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-background-color: #22262f;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 11pt;
+    -fx-text-fill: #ffffff;
+}
+
+.custom-button:hover {
+    -fx-background-color: #686868;
+}
+
+.back-button {
+    -fx-padding: 5 22 5 22;   
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: #22262f;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 20pt;
+    -fx-text-fill: #ffffff;
+}
