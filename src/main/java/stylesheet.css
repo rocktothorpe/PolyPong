@@ -13,6 +13,12 @@
     -fx-background-color: #686868;
 }
 
+.settings-label {
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 11pt;
+}
+
 .back-button {
     -fx-padding: 5 22 5 22;   
     -fx-border-width: 0;

@@ -25,6 +25,7 @@ public class Settings extends Window {
         scene.getStylesheets().add("stylesheet.css");
 		this.setStyle("-fx-background-color: #22262f;");
 		String buttonStyle = "custom-button";
+		String labelStyle = "settings-label";
 		
 		windowTitle = new Label("SETTINGS");
 		
@@ -35,6 +36,7 @@ public class Settings extends Window {
 		multiPlayer.getStyleClass().add(buttonStyle);
 		singlePlayer.getStyleClass().add(buttonStyle);
 		Label mode = new Label("Mode: ");
+		mode.getStyleClass().add(labelStyle);
 		modeBox.getChildren().addAll(mode, multiPlayer, singlePlayer);
 		modeBox.setAlignment(Pos.CENTER);
 		modeBox.setSpacing(10.0);
@@ -48,6 +50,7 @@ public class Settings extends Window {
 		medium.getStyleClass().add(buttonStyle);
 		large.getStyleClass().add(buttonStyle);
 		Label paddleSize = new Label("Paddle Size: ");
+		paddleSize.getStyleClass().add(labelStyle);
 		paddleBox.getChildren().addAll(paddleSize, small, medium, large);
 		paddleBox.setAlignment(Pos.CENTER);
 		paddleBox.setSpacing(10.0);
@@ -61,12 +64,14 @@ public class Settings extends Window {
 		mediumSpeed.getStyleClass().add(buttonStyle);
 		fastSpeed.getStyleClass().add(buttonStyle);
 		Label ballSpeed = new Label("Ball Speed: ");
+		ballSpeed.getStyleClass().add(labelStyle);
 		ballSpeedBox.getChildren().addAll(ballSpeed, slowSpeed, mediumSpeed, fastSpeed);
 		ballSpeedBox.setAlignment(Pos.CENTER);
 		ballSpeedBox.setSpacing(10.0);
 		
 		// ball image controls
 		Label ballImage = new Label("Ball Image: ");
+		ballImage.getStyleClass().add(labelStyle);
 		
 		// adding all controls to a vbox
 		VBox menuBox = new VBox();
@@ -76,10 +81,10 @@ public class Settings extends Window {
         
 		// back button
 		Button back = new Button("X");
-		//back.getStyleClass().add("back-button");
+		back.getStyleClass().add("back-button");
         
         back.setOnAction(new EventHandler<ActionEvent>() {
-    		public void handle(ActionEvent even ) {
+    		public void handle(ActionEvent even) {
     			gc.changetoScene("Menu");
     		}
     	});
@@ -87,7 +92,7 @@ public class Settings extends Window {
         StackPane.setAlignment(back, Pos.TOP_LEFT);
         StackPane.setAlignment(windowTitle, Pos.TOP_CENTER);
         StackPane.setAlignment(menuBox, Pos.CENTER);
-        this.getChildren().addAll(back, menuBox);
+        this.getChildren().addAll(menuBox, back);
         return scene;
 	}
 }
