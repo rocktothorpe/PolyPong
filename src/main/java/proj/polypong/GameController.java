@@ -20,15 +20,15 @@ public class GameController extends Application {
     
     public void changetoScene(String scene) {
     	if (scene == "Game") {
-    		Window game = new Game();
+    		Window game = new Game(this);
     		Scene gameScene = game.drawWindow();
     		theStage.setScene(gameScene);
     	} else if (scene == "Menu") {
-    		Window menu = new Menu();
+    		Window menu = new Menu(this);
     		Scene menuScene = menu.drawWindow();
     		theStage.setScene(menuScene);
 		} else if (scene == "Settings") {
-			Window settings = new Settings();
+			Window settings = new Settings(this);
 			Scene settingsScene = settings.drawWindow();
 			theStage.setScene(settingsScene);
 		}

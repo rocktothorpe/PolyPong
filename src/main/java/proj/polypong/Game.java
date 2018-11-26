@@ -28,14 +28,17 @@ public class Game extends Window {
 	
 	private GameStatus gameStatus = GameStatus.PAUSE;
 	
+	private GameController gc;
+	
 	public Ball ball;
 	public Paddle p1Paddle;
 	public Paddle p2Paddle;
 	public StatusBar statusBar;
 	private Timeline timeline;
 	
-	public Game() {
+	public Game(GameController gc) {
 		super();
+		this.gc = gc;
 		initGame();
 	}
 	
@@ -101,7 +104,7 @@ public class Game extends Window {
         }
         
         if (codeString.equals(RESTARTBUTTON)) {
-        	new GameController().changetoScene("Game");
+        	gc.changetoScene("Game");
         }
         
         if (codeString.equals(PAUSEBUTTON)) {

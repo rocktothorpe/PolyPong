@@ -10,8 +10,11 @@ import javafx.scene.paint.Color;
 
 public class Menu extends  Window {
 	
-	public Menu() {
+	private GameController gc;
+	
+	public Menu(GameController gc) {
 		super();
+		this.gc = gc;
 	}
 
 	@Override
@@ -25,13 +28,13 @@ public class Menu extends  Window {
         
         playGame.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even ) {
-    			new GameController().changetoScene("Game");
+    			gc.changetoScene("Game");
     		}
     	});
         
         settings.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even ) {
-    			new GameController().changetoScene("Settings");
+    			gc.changetoScene("Settings");
     		}
     	});
         

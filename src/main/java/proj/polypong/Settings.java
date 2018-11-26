@@ -12,8 +12,11 @@ import javafx.scene.layout.VBox;
 
 public class Settings extends Window {
 	
-	public Settings() {
+	private GameController gc;
+	
+	public Settings(GameController gc) {
 		super();
+		this.gc = gc;
 	}
 	
 	@Override
@@ -76,7 +79,7 @@ public class Settings extends Window {
         
         back.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even ) {
-    			new GameController().changetoScene("Menu");
+    			gc.changetoScene("Menu");
     		}
     	});
         
