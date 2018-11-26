@@ -24,6 +24,7 @@ public class Settings extends Window {
         Scene scene = new Scene(this, width, height);
         scene.getStylesheets().add("stylesheet.css");
 		this.setStyle("-fx-background-color: #22262f;");
+		String buttonStyle = "custom-button";
 		
 		windowTitle = new Label("SETTINGS");
 		
@@ -31,8 +32,8 @@ public class Settings extends Window {
 		HBox modeBox = new HBox();
 		Button multiPlayer = new Button("PLAYER VS PLAYER");
 		Button singlePlayer = new Button("PLAYER VS MACHINE");
-		multiPlayer.getStyleClass().add("custom-button");
-		singlePlayer.getStyleClass().add("custom-button");
+		multiPlayer.getStyleClass().add(buttonStyle);
+		singlePlayer.getStyleClass().add(buttonStyle);
 		Label mode = new Label("Mode: ");
 		modeBox.getChildren().addAll(mode, multiPlayer, singlePlayer);
 		modeBox.setAlignment(Pos.CENTER);
@@ -43,9 +44,9 @@ public class Settings extends Window {
 		Button small = new Button("SMALL");
 		Button medium = new Button("MEDIUM");
 		Button large = new Button("LARGE");
-		small.getStyleClass().add("custom-button");
-		medium.getStyleClass().add("custom-button");
-		large.getStyleClass().add("custom-button");
+		small.getStyleClass().add(buttonStyle);
+		medium.getStyleClass().add(buttonStyle);
+		large.getStyleClass().add(buttonStyle);
 		Label paddleSize = new Label("Paddle Size: ");
 		paddleBox.getChildren().addAll(paddleSize, small, medium, large);
 		paddleBox.setAlignment(Pos.CENTER);
@@ -56,9 +57,9 @@ public class Settings extends Window {
 		Button slowSpeed = new Button("SLOW");
 		Button mediumSpeed = new Button("MEDIUM");
 		Button fastSpeed = new Button("FAST");
-		slowSpeed.getStyleClass().add("custom-button");
-		mediumSpeed.getStyleClass().add("custom-button");
-		fastSpeed.getStyleClass().add("custom-button");
+		slowSpeed.getStyleClass().add(buttonStyle);
+		mediumSpeed.getStyleClass().add(buttonStyle);
+		fastSpeed.getStyleClass().add(buttonStyle);
 		Label ballSpeed = new Label("Ball Speed: ");
 		ballSpeedBox.getChildren().addAll(ballSpeed, slowSpeed, mediumSpeed, fastSpeed);
 		ballSpeedBox.setAlignment(Pos.CENTER);
@@ -75,7 +76,7 @@ public class Settings extends Window {
         
 		// back button
 		Button back = new Button("X");
-		back.getStyleClass().add("back-button");
+		//back.getStyleClass().add("back-button");
         
         back.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even ) {

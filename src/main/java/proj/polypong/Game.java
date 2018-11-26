@@ -17,7 +17,7 @@ public class Game extends Window {
 	public static final double PADDLEHEIGHT = 100.0;
 	public static final double BALLRADIUS = 10.0;
 	public static final double BALLSPEED = -1.05;
-	public static final Color BACKGROUNDCOLOR = Color.rgb(0, 0, 0);
+	public static final Color GAMEBACKGROUNDCOLOR = Color.rgb(0, 0, 0);
 	public static final double STATUSBARHEIGHT = 40.0;
 	public static final String P1DOWN = "S";
 	public static final String P1UP = "W";
@@ -54,7 +54,7 @@ public class Game extends Window {
 	public Scene drawWindow() {
         Pane pane = new Pane();
         pane.getChildren().addAll(ball, p1Paddle, p2Paddle, statusBar);
-        pane.setStyle("-fx-background-color: "+ toRGBCode(Game.BACKGROUNDCOLOR)+";");
+        pane.setStyle("-fx-background-color: "+ toRGBCode(Game.GAMEBACKGROUNDCOLOR)+";");
         Scene scene = new Scene(pane, width, height, Color.WHITE);
         
         scene.setOnKeyPressed(event -> pressedKey(event));
