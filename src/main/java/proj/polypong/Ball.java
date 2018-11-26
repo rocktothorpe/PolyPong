@@ -1,4 +1,9 @@
 package proj.polypong;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
@@ -12,6 +17,16 @@ public class Ball extends Circle {
 	
 	public Ball(double radius, Paint fill) {
 		super (radius, fill);
+		Image image;
+		// set image
+		try {
+			image = new Image(new FileInputStream("images/mammenhead.png"));
+			this.setFill(new ImagePattern(image));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("file was not found - oh no");
+		} 
 	}
 	
 	public boolean hitLeftWall() {
