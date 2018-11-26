@@ -38,6 +38,12 @@ public class Menu extends  Window {
     		}
     	});
         
+        viewScoreboard.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even ) {
+    			gc.changetoScene("Scoreboard");
+    		}
+    	});
+        
         VBox menuBox = new VBox();
         menuBox.setAlignment(Pos.CENTER);
         menuBox.setSpacing(10.0);

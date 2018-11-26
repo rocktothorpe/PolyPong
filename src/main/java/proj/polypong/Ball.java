@@ -30,10 +30,10 @@ public class Ball extends Circle {
 	}
 	
 	public boolean hitLeftWall() {
-		return this.getLayoutX() <= this.getRadius() * 2;
+		return this.getLayoutX() <= this.getRadius();
 	}
 	
 	public boolean hitRightWall(double gameWidth) {
-		return this.getLayoutX() >= gameWidth - this.getRadius() * 2;
+		return this.getLayoutX() >= gameWidth - this.getRadius();
 	}
 }

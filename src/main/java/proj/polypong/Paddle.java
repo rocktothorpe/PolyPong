@@ -24,6 +24,12 @@ public class Paddle extends Rectangle {
 		}
 	}
 	public boolean ballCollides(Ball ball) {
-		return ball.getLayoutY() > this.getY() && ball.getLayoutY() < this.getY() + this.getHeight();
+		double ballMin = ball.localToScreen(ball.getBoundsInLocal()).getMinY();
+		double ballMax = ball.localToScreen(ball.getBoundsInLocal()).getMaxY();
+		
+		double paddleMin = this.localToScreen(this.getBoundsInLocal()).getMinY();
+		double paddleMax = this.localToScreen(this.getBoundsInLocal()).getMaxY();
+		
+		return !(ballMin > paddleMax || ballMax < paddleMin);
 	}
 }

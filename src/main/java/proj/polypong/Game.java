@@ -15,7 +15,7 @@ public class Game extends Window {
 	
 	enum GameStatus { PLAY, PAUSE }
 	public static final double PADDLEHEIGHT = 100.0;
-	public static final double BALLRADIUS = 10.0;
+	public static final double BALLRADIUS = 40.0;
 	public static final double BALLSPEED = -1.05;
 	public static final Color GAMEBACKGROUNDCOLOR = Color.rgb(0, 0, 0);
 	public static final double STATUSBARHEIGHT = 40.0;

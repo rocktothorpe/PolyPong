@@ -31,6 +31,10 @@ public class GameController extends Application {
 			Window settings = new Settings(this);
 			Scene settingsScene = settings.drawWindow();
 			theStage.setScene(settingsScene);
+		} else if (scene == "Scoreboard") {
+			Window scoreboard = new Scoreboard(this);
+			Scene scoreboardScene = scoreboard.drawWindow();
+			theStage.setScene(scoreboardScene);
 		}
 		theStage.show();
     }
