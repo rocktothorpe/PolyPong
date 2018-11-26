@@ -10,6 +10,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
+import javafx.scene.transform.Rotate;
 
 public class Game extends Window {
 	
@@ -65,7 +66,7 @@ public class Game extends Window {
         EventHandler<ActionEvent> eventHandler = e -> {
             ball.setLayoutX(ball.getLayoutX() + ball.xVelocity);
             ball.setLayoutY(ball.getLayoutY() + ball.yVelocity);
-            
+            ball.getTransforms().add(new Rotate(-1,0,0));
             movePaddles();
             checkCollisions(pane, timeline);
             
