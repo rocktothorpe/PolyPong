@@ -23,7 +23,7 @@ public class StatusBar extends HBox {
 		imv.setFitWidth(50); 
         Image image2 = null;
 		try {
-			image2 = new Image(new FileInputStream("pause.png"));
+			image2 = new Image(new FileInputStream("images/pause.png"));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} 

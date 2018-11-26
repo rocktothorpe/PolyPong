@@ -66,7 +66,7 @@ public class Game extends Window {
             ball.setLayoutY(ball.getLayoutY() + ball.yVelocity);
             
             movePaddles();
-            checkCollisions(this, timeline);
+            checkCollisions(pane, timeline);
             
         };
         
@@ -145,7 +145,7 @@ public class Game extends Window {
         		timeline.pause();
         	}
         }
-    	Bounds bounds = canvas.getBoundsInLocal();
+    	Bounds bounds = canvas.getBoundsInParent();
         
         if((ball.getLayoutY() >= (bounds.getMaxY() - ball.getRadius())) || 
                 (ball.getLayoutY() <= (bounds.getMinY() + STATUSBARHEIGHT + ball.getRadius()))){
