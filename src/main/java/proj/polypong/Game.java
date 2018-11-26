@@ -27,8 +27,8 @@ public class Game extends Window {
 	public static final String RESTARTBUTTON = "R";
 	
 	private GameStatus gameStatus = GameStatus.PAUSE;
-	
 	private GameController gc;
+	private SettingsValues sv;
 	
 	public Ball ball;
 	public Paddle p1Paddle;
@@ -36,14 +36,15 @@ public class Game extends Window {
 	public StatusBar statusBar;
 	private Timeline timeline;
 	
-	public Game(GameController gc) {
+	public Game(GameController gc, SettingsValues sv) {
 		super();
 		this.gc = gc;
+		this.sv = sv;
 		initGame();
 	}
 	
 	private void initGame() {
-		ball = new Ball(BALLRADIUS, Color.WHITE);
+		ball = new Ball(BALLRADIUS, Color.WHITE, sv.ballImage);
         ball.relocate(width/2, height/2 - BALLRADIUS/2);
         p1Paddle = new Paddle(5, height/2 - PADDLEHEIGHT/2, 10, PADDLEHEIGHT, Color.WHITE);
         p2Paddle = new Paddle(width - 15, height/2 - PADDLEHEIGHT/2, 10, PADDLEHEIGHT, Color.WHITE);

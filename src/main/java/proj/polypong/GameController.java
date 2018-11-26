@@ -10,17 +10,19 @@ public class GameController extends Application {
 	public static final Color BACKGROUNDCOLOR = Color.rgb(29, 32, 44);
 	public static final String GAMETITLE = "PolyPong";
 	public static Stage theStage;
+	public static SettingsValues sv;
 	
     @Override
     public void start(Stage stage) {
     	stage.setTitle(GAMETITLE);
+    	sv = new SettingsValues();
     	theStage = stage;
     	changetoScene("Menu");
     }
     
     public void changetoScene(String scene) {
     	if (scene == "Game") {
-    		Window game = new Game(this);
+    		Window game = new Game(this, sv);
     		Scene gameScene = game.drawWindow();
     		theStage.setScene(gameScene);
     	} else if (scene == "Menu") {
