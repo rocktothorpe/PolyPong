@@ -44,7 +44,7 @@ public class Game extends Window {
 	
 	private void initGame() {
 		ball = new Ball(BALLRADIUS, Color.WHITE);
-        ball.relocate(100, 100 - BALLRADIUS/2);
+        ball.relocate(width/2, height/2 - BALLRADIUS/2);
         p1Paddle = new Paddle(5, height/2 - PADDLEHEIGHT/2, 10, PADDLEHEIGHT, Color.WHITE);
         p2Paddle = new Paddle(width - 15, height/2 - PADDLEHEIGHT/2, 10, PADDLEHEIGHT, Color.WHITE);
         statusBar = new StatusBar(width, STATUSBARHEIGHT);
