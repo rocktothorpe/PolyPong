@@ -18,8 +18,7 @@ public class test2 extends TestCase {
 		Paddle p = new Paddle(5, initialPos, 10, 100, Color.WHEAT);
 		p.slideDown(255);
 		
-		assertTrue(p.getY() > initialPos);
-		
+		assertTrue(p.getY() > initialPos);	
 	}
 	
 	@Test
@@ -29,6 +28,5 @@ public class test2 extends TestCase {
 		p.slideUp(10);
 		
 		assertTrue(p.getY() < initialPos);
-		
 	}
 }
