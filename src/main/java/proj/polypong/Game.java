@@ -152,7 +152,7 @@ public class Game extends Window {
         }
     	Bounds bounds = canvas.getBoundsInParent();
         
-        if((ball.getLayoutY() >= (bounds.getMaxY() - ball.getRadius())) || 
+        if((ball.getLayoutY() >= (bounds.getMaxY() - (ball.getRadius()+.01))) || 
                 (ball.getLayoutY() <= (bounds.getMinY() + STATUSBARHEIGHT + ball.getRadius()))){
         	ball.yVelocity = -ball.yVelocity;
         }
