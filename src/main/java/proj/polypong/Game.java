@@ -66,7 +66,7 @@ public class Game extends Window {
         EventHandler<ActionEvent> eventHandler = e -> {
             ball.setLayoutX(ball.getLayoutX() + ball.xVelocity);
             ball.setLayoutY(ball.getLayoutY() + ball.yVelocity);
-            ball.getTransforms().add(new Rotate(-1,0,0));
+            ball.getTransforms().add(new Rotate(ball.ballRot,0,0));
             movePaddles();
             checkCollisions(pane, timeline);
             
@@ -137,12 +137,14 @@ public class Game extends Window {
     	if (ball.hitLeftWall()) {
         	if (p1Paddle.ballCollides(ball)) {
         		ball.xVelocity *= BALLSPEED;
+        		ball.ballRot*=BALLSPEED;
         	} else {
         		timeline.pause();
         	}
         } else if (ball.hitRightWall(width)) {
         	if (p2Paddle.ballCollides(ball)) {
         		ball.xVelocity *= BALLSPEED;
+        		ball.ballRot*=BALLSPEED;
         	} else {
         		timeline.pause();
         	}

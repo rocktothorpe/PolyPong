@@ -7,6 +7,7 @@ import javafx.scene.shape.Circle;
 public class Ball extends Circle {
 	double xVelocity = 2.0;
 	double yVelocity = 0.5;
+	int ballRot = 1;
 	
 	public Ball(double radius, Paint fill, Image image) {
 		super (radius, fill);
