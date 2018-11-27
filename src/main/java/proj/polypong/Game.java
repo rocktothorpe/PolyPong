@@ -15,11 +15,11 @@ import javafx.scene.transform.Rotate;
 public class Game extends Window {
 	
 	enum GameStatus { PLAY, PAUSE }
-	public static final double PADDLEHEIGHT = 100.0;
 	public static final double BALLRADIUS = 40.0;
 	public static final double BALLSPEED = -1.05;
 	public static final Color GAMEBACKGROUNDCOLOR = Color.rgb(0, 0, 0);
 	public static final double STATUSBARHEIGHT = 40.0;
+	public static double PADDLEHEIGHT = 100.0;
 	public static final String P1DOWN = "S";
 	public static final String P1UP = "W";
 	public static final String P2DOWN = "DOWN";
@@ -46,10 +46,11 @@ public class Game extends Window {
 	
 	private void initGame() {
 		ball = new Ball(BALLRADIUS, Color.WHITE, sv.ballImage);
+		PADDLEHEIGHT = sv.getPaddleSize();
         ball.relocate(width/2, height/2 - BALLRADIUS/2);
         p1Paddle = new Paddle(5, height/2 - PADDLEHEIGHT/2, 10, PADDLEHEIGHT, Color.WHITE);
         p2Paddle = new Paddle(width - 15, height/2 - PADDLEHEIGHT/2, 10, PADDLEHEIGHT, Color.WHITE);
-        statusBar = new StatusBar(width, STATUSBARHEIGHT);
+        statusBar = new StatusBar(width, STATUSBARHEIGHT, gc);
 	}
     
     @Override

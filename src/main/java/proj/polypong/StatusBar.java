@@ -1,46 +1,25 @@
 package proj.polypong;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.effect.ColorAdjust;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 
-public class StatusBar extends HBox {
+public class StatusBar extends HBox { 
 	
-	public StatusBar(double gameWidth, double statusBarHeight) {
+	public StatusBar(double gameWidth, double statusBarHeight, GameController gc) {
 		super ();
 		this.setStyle("-fx-background-color: rgb(166, 161, 159);");
 		this.setPrefWidth(gameWidth);
-		
-		final ImageView imv = new ImageView();
-		imv.setX(50); 
-		imv.setY(25); 
-		imv.setFitHeight(50); 
-		imv.setFitWidth(50); 
-        Image image2 = null;
-		try {
-			image2 = new Image(new FileInputStream("images/pause.png"));
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} 
-		ColorAdjust colorAdjust = new ColorAdjust();
-		colorAdjust.setBrightness(1.0);
-		imv.setEffect(colorAdjust);
-        imv.setImage(image2);
+		Button back = new Button("X");
+		back.getStyleClass().add("back-button");
         
-        imv.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                event.consume();
-            }
-       });
-		
-		
-		this.getChildren().addAll(imv);
+        back.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even) {
+    			gc.changetoScene("Menu");
+    		}
+    	});
+		this.getChildren().addAll(back);
 	}
 	
 }

@@ -13,10 +13,12 @@ import javafx.scene.layout.VBox;
 public class Settings extends Window {
 	
 	private GameController gc;
+	private SettingsValues sv;
 	
-	public Settings(GameController gc) {
+	public Settings(GameController gc, SettingsValues sv) {
 		super();
 		this.gc = gc;
+		this.sv = sv;
 	}
 	
 	@Override
@@ -89,6 +91,25 @@ public class Settings extends Window {
     		}
     	});
         
+        // trash code to get this barely working
+        small.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even) {
+    			sv.setPaddleSize("small");
+    		}
+    	});
+		
+        medium.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even) {
+    			sv.setPaddleSize("medium");
+    		}
+    	});
+		
+		large.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even) {
+    			sv.setPaddleSize("large");
+    		}
+    	});
+		
         StackPane.setAlignment(back, Pos.TOP_LEFT);
         StackPane.setAlignment(windowTitle, Pos.TOP_CENTER);
         StackPane.setAlignment(menuBox, Pos.CENTER);
