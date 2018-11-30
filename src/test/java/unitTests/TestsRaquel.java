@@ -2,7 +2,7 @@
  * Raquel Bonilla's 2 Unit Tests
  * 
  */
-package POLYPONG.POLYPONG;
+package unitTests;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Assert;
@@ -23,7 +23,7 @@ public class TestsRaquel {
 	}
 	
 	@Test
-	public void testGetPaddleSize() {
+	public void testGetPaddleSizeSmall() {
 		SettingsValues set = new SettingsValues();
 		set.paddleSize = "small";
 		

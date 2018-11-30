@@ -1,4 +1,4 @@
-package POLYPONG.POLYPONG;
+package unitTests;
 /*
  * Alec William's 2 Unit Tests
  * 
