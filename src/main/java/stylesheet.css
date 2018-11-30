@@ -19,6 +19,11 @@
     -fx-font-size: 11pt;
 }
 
+.scoreboard-label {
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 13pt;
+}
+
 .back-button {
     -fx-padding: 5 22 5 22;   
     -fx-border-width: 0;
