@@ -1,10 +1,6 @@
 package proj.polypong;
-
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Scanner;
 import java.util.Vector;
 
 import javafx.event.ActionEvent;
@@ -24,15 +20,6 @@ public class Scoreboard extends Window {
 	
 	private Vector<Score> scores = new Vector<Score>();
 	
-	class Score {
-		String name;
-		Integer score;
-		Score(String name, Integer score) {
-			this.name = name;
-			this.score = score;
-		}
-	}
-	
 	class ScoreComparator implements Comparator<Score> {
 	    public int compare(Score o1, Score o2) {
 	        return o2.score.compareTo(o1.score);
@@ -45,27 +32,10 @@ public class Scoreboard extends Window {
 		this.gc = gc;
 	}
 	
-	public void getScores() {
-		File file = new File("scores.txt"); 
-		Scanner sc;
-		try {
-			sc = new Scanner(file);
-		    while (sc.hasNextLine()) {
-		    	String scoreArr[] = sc.nextLine().split("\\s+");
-		    	String name = scoreArr[0];
-		    	int score = Integer.parseInt(scoreArr[1]);
-		    	Score tempScore = new Score(name, score);
-		    	this.scores.add(tempScore);
-		    }
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
-	
 	@Override
 	public Scene drawWindow() {
 		
-		getScores();
+		this.scores = Score.getScores();
 		Comparator<Score> comparator = new ScoreComparator();
 		Collections.sort(this.scores, comparator);
 		
@@ -100,12 +70,12 @@ public class Scoreboard extends Window {
             scores.setAlignment(Pos.CENTER);
             Label name = new Label(this.scores.get(i).name);
             name.getStyleClass().add(labelStyle);
-            name.setTextFill(colors[i]);
+            name.setTextFill(Color.WHITE);
             Label spacer = new Label("      ");
             spacer.getStyleClass().add(labelStyle);
             Label score = new Label("" + this.scores.get(i).score);
             score.getStyleClass().add(labelStyle);
-            score.setTextFill(colors[i]);
+            score.setTextFill(Color.WHITE);
             
             scores.getChildren().addAll(name, spacer, score);
             allScores.getChildren().add(scores);

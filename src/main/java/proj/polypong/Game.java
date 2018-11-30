@@ -36,6 +36,7 @@ public class Game extends Window {
 	public Paddle p2Paddle;
 	public StatusBar statusBar;
 	private Timeline timeline;
+	private Pane pane;
 	
 	public Game(GameController gc, SettingsValues sv) {
 		super();
@@ -55,7 +56,7 @@ public class Game extends Window {
     
     @Override
 	public Scene drawWindow() {
-        Pane pane = new Pane();
+        pane = new Pane();
         pane.getChildren().addAll(ball, p1Paddle, p2Paddle, statusBar);
         pane.setStyle("-fx-background-color: "+ toRGBCode(Game.GAMEBACKGROUNDCOLOR)+";");
         Scene scene = new Scene(pane, width, height, Color.WHITE);
@@ -70,7 +71,7 @@ public class Game extends Window {
             ball.getTransforms().add(new Rotate(ball.ballRot,0,0));
             movePaddles();
             checkCollisions(pane, timeline);
-            
+
         };
         
         timeline = new Timeline(new KeyFrame(Duration.millis(5), eventHandler));
@@ -141,6 +142,7 @@ public class Game extends Window {
         		ball.ballRot*=BALLSPEED;
         	} else {
         		timeline.pause();
+        		gc.changetoScene("NewScore");
         	}
         } else if (ball.hitRightWall(width)) {
         	if (p2Paddle.ballCollides(ball)) {
@@ -148,6 +150,7 @@ public class Game extends Window {
         		ball.ballRot*=BALLSPEED;
         	} else {
         		timeline.pause();
+        		gc.changetoScene("NewScore");
         	}
         }
     	Bounds bounds = canvas.getBoundsInParent();
@@ -157,6 +160,37 @@ public class Game extends Window {
         	ball.yVelocity = -ball.yVelocity;
         }
     }
+	
+//	public void promptUserName() {
+//		usernameField = new TextField();
+//		usernameField.setLayoutY((height/2) - (usernameField.getHeight()/2));
+//		usernameField.setLayoutX((width/2) - (usernameField.getWidth()/2));
+//		
+//		EventHandler<ActionEvent> saveScore = new EventHandler<ActionEvent>() { 
+//            public void handle(ActionEvent e) { 
+//            	Vector<Score> scores = Score.getScores();
+//            	boolean exists = false;
+//            	for (int i = 0; i < scores.size(); i++) {
+//            		if (usernameField.getText().equals(scores.get(i).name)) {
+//            			scores.get(i).score++;
+//            			exists = true;
+//            		}
+//            	}
+//            	if (!exists) {
+//            		scores.add(new Score(usernameField.getText(), 1));
+//            	}
+//            	Score.writeToFile(scores);
+//            } 
+//        }; 
+//		
+//		saveScoreButton = new Button();
+//		saveScoreButton.setText("Save");
+//		saveScoreButton.setLayoutY((height/2) - (usernameField.getHeight()/2) + 50);
+//		saveScoreButton.setLayoutX((width/2) - (saveScoreButton.getWidth()/2));
+//		saveScoreButton.setOnAction(saveScore); 
+//		
+//		pane.getChildren().addAll(usernameField, saveScoreButton);
+//	}
 	
 	
 }
