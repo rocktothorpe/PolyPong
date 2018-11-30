@@ -1,6 +1,10 @@
 package POLYPONG.POLYPONG;
-
+/*
+ * Alec William's 2 Unit Tests
+ * 
+ */
 import javafx.scene.paint.Color;
+
 import org.junit.jupiter.api.Test;
 import junit.framework.TestCase;
 import proj.polypong.Paddle;
