@@ -22,6 +22,21 @@ public class SettingsValues {
 			else if (head == "falessi") {
 				ballImage = new Image(new FileInputStream("images/falessihead.png"));
 			}
+			else if (head == "gharibyan") {
+				ballImage = new Image(new FileInputStream("images/gharibyeanhead.png"));
+			}
+			else if (head == "lupo") {
+				ballImage = new Image(new FileInputStream("images/lupohead.png"));
+			}
+			else if (head == "staley") {
+				ballImage = new Image(new FileInputStream("images/staleyhead.png"));
+			}
+			else if (head == "clements") {
+				ballImage = new Image(new FileInputStream("images/clementshead.png"));
+			}
+			else if (head == "eckhardt") {
+				ballImage = new Image(new FileInputStream("images/eckhardthead.png"));
+			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

@@ -125,16 +125,25 @@ public class Settings extends Window {
 		falessi.setToggleGroup(ballImageGroup);
 		mammen.setToggleGroup(ballImageGroup);
 		gharibyan.setToggleGroup(ballImageGroup);
+		lupo.setToggleGroup(ballImageGroup);
+		staley.setToggleGroup(ballImageGroup);
+		clements.setToggleGroup(ballImageGroup);
+		eckhardt.setToggleGroup(ballImageGroup);
 		
 		// add button style
 		falessi.getStyleClass().addAll(imageBtnStyle, "falessi");
 		mammen.getStyleClass().addAll(imageBtnStyle, "mammen");
+		gharibyan.getStyleClass().addAll(imageBtnStyle, "gharibyan");
+		lupo.getStyleClass().addAll(imageBtnStyle, "lupo");
+		staley.getStyleClass().addAll(imageBtnStyle, "staley");
+		clements.getStyleClass().addAll(imageBtnStyle, "clements");
+		eckhardt.getStyleClass().addAll(imageBtnStyle, "eckhardt");
 		
 		Label ballImage = new Label("Ball Image: ");
 		ballImage.getStyleClass().add(labelStyle);
 
 		// add to box and format		
-		ballImageBox.getChildren().addAll(ballImage, falessi, mammen);
+		ballImageBox.getChildren().addAll(ballImage, falessi, mammen, gharibyan, eckhardt, lupo, staley, clements);
 		ballImageBox.setAlignment(Pos.CENTER);
 		ballImageBox.setSpacing(10.0);
 	
@@ -148,6 +157,36 @@ public class Settings extends Window {
 		mammen.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even) {
     			sv.setBallImage("mammen");
+    		}
+    	});
+
+		gharibyan.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even) {
+    			sv.setBallImage("gharibyan");
+    		}
+    	});
+    	
+    	lupo.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even) {
+    			sv.setBallImage("lupo");
+    		}
+    	});
+		
+		staley.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even) {
+    			sv.setBallImage("staley");
+    		}
+    	});
+		
+		clements.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even) {
+    			sv.setBallImage("clements");
+    		}
+    	});
+
+		eckhardt.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even) {
+    			sv.setBallImage("eckhardt");
     		}
     	});
 		

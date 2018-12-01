@@ -56,6 +56,27 @@
 .falessi {
 	-fx-background-image: url(../../images/falessihead.png);
 }
+
 .mammen {
 	-fx-background-image: url(../../images/mammenhead.png);	
+}
+
+.gharibyan {
+	-fx-background-image: url(../../images/gharibyeanhead.png);	
+}
+
+.lupo {
+	-fx-background-image: url(../../images/lupohead.png);	
+}
+
+.staley {
+	-fx-background-image: url(../../images/staleyhead.png);	
+}
+
+.clements {
+	-fx-background-image: url(../../images/clementshead.png);	
+}
+
+.eckhardt {
+	-fx-background-image: url(../../images/eckhardthead.png);	
 }
