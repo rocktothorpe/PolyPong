@@ -13,11 +13,13 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.*;
+import java.util.logging.*;
 
 public class Menu extends  Window {
 	
 	private GameController gc;
-	
+	private final static Logger LOGGER =  
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME); 
 	public Menu(GameController gc) {
 		super();
 		this.gc = gc;
@@ -25,7 +27,7 @@ public class Menu extends  Window {
 
 	@Override
 	public Scene drawWindow() {
-		this.setStyle("-fx-background-color: #005f00;");
+		this.setStyle("-fx-background-color: #002000;");
 		Button playGame = new Button("Play Game");
 		Button viewScoreboard = new Button("Scoreboard");
 		Button settings  = new Button("Settings");
@@ -35,7 +37,7 @@ public class Menu extends  Window {
 			logo.setFill(new ImagePattern(logoImage));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-			System.out.println("file was not found - oh no");
+			LOGGER.log(Level.WARNING,"file was not found - oh no");
 		}
 		
         Scene scene = new Scene(this, width, height, Color.BLACK);
@@ -62,7 +64,7 @@ public class Menu extends  Window {
         logoBox.setAlignment(Pos.TOP_CENTER);
         logoBox.getChildren().addAll(logo);
         menuBox.setAlignment(Pos.CENTER);
-        menuBox.setSpacing(20.0);
+        menuBox.setSpacing(10.0);
         menuBox.getChildren().addAll(playGame, viewScoreboard, settings);
         this.getChildren().addAll(logoBox, menuBox);
         this.setAlignment(Pos.CENTER);

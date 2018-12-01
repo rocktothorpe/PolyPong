@@ -1,7 +1,7 @@
 package proj.polypong;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Vector;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -18,7 +18,7 @@ public class Scoreboard extends Window {
 	
 	private GameController gc;
 	
-	private Vector<Score> scores = new Vector<Score>();
+	private ArrayList<Score> scores = new ArrayList<Score>();
 	
 	class ScoreComparator implements Comparator<Score> {
 	    public int compare(Score o1, Score o2) {
@@ -34,7 +34,6 @@ public class Scoreboard extends Window {
 	
 	@Override
 	public Scene drawWindow() {
-		
 		this.scores = Score.getScores();
 		Comparator<Score> comparator = new ScoreComparator();
 		Collections.sort(this.scores, comparator);
@@ -64,10 +63,9 @@ public class Scoreboard extends Window {
         allScores.setAlignment(Pos.CENTER);
         allScores.getChildren().add(scoresTitle);
         
-        Color colors[] = new Color[]{Color.RED, Color.BLUE, Color.GREEN};
         for (int i = 0; i < this.scores.size(); i++) {
-        	HBox scores = new HBox();
-            scores.setAlignment(Pos.CENTER);
+        	HBox scoresBox = new HBox();
+            scoresBox.setAlignment(Pos.CENTER);
             Label name = new Label(this.scores.get(i).name);
             name.getStyleClass().add(labelStyle);
             name.setTextFill(Color.WHITE);
@@ -77,8 +75,8 @@ public class Scoreboard extends Window {
             score.getStyleClass().add(labelStyle);
             score.setTextFill(Color.WHITE);
             
-            scores.getChildren().addAll(name, spacer, score);
-            allScores.getChildren().add(scores);
+            scoresBox.getChildren().addAll(name, spacer, score);
+            allScores.getChildren().add(scoresBox);
         }        
         
         this.getChildren().addAll(allScores, back);

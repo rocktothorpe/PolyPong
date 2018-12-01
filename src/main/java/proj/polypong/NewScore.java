@@ -1,6 +1,6 @@
 package proj.polypong;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -51,7 +51,7 @@ public class NewScore extends Window {
 		
 		EventHandler<ActionEvent> saveScore = new EventHandler<ActionEvent>() { 
             public void handle(ActionEvent e) { 
-            	Vector<Score> scores = Score.getScores();
+            	ArrayList<Score> scores = Score.getScores();
             	boolean exists = false;
             	for (int i = 0; i < scores.size(); i++) {
             		if (usernameField.getText().equals(scores.get(i).name)) {

@@ -5,8 +5,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Vector;
 
 public class Score {
 	String name;
@@ -18,7 +18,7 @@ public class Score {
 	public String toString() {
 		return name + " " + score.toString();
 	}
-	public static Vector<Score> getScores() {
+	public static ArrayList<Score> getScores() {
 		File file = new File("scores.txt");
 		try {
 			file.createNewFile();
@@ -26,7 +26,7 @@ public class Score {
 			e1.printStackTrace();
 		}
 		Scanner sc;
-		Vector<Score> scores = new Vector<Score>();
+		ArrayList<Score> scores = new ArrayList<Score>();
 		try {
 			sc = new Scanner(file);
 		    while (sc.hasNextLine()) {
@@ -41,7 +41,7 @@ public class Score {
 		}
 		return scores;
 	}
-	public static void writeToFile(Vector<Score> scores) {
+	public static void writeToFile(ArrayList<Score> scores) {
 	    BufferedWriter writer;
 		try {
 			writer = new BufferedWriter(new FileWriter("scores.txt"));

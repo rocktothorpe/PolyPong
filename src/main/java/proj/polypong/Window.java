@@ -12,8 +12,7 @@ public class Window extends StackPane{
 	public static final Color backgroundcolor = Color.rgb(0, 0, 0);
 
 	public Scene drawWindow() {
-		Scene scene = new Scene(this, width, height);
-		return scene;
+		return new Scene(this, width, height);
 	}
 	
 	public static String toRGBCode( Color color )
