@@ -6,6 +6,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -42,19 +44,30 @@ public class Settings extends Window {
 	private HBox genPaddleBox() {
 		// paddle controls
 		HBox paddleBox = new HBox();
-		Button small = new Button("SMALL");
-		Button medium = new Button("MEDIUM");
-		Button large = new Button("LARGE");
+		ToggleButton small = new ToggleButton("SMALL");
+		ToggleButton medium = new ToggleButton("MEDIUM");
+		ToggleButton large = new ToggleButton("LARGE");
+		
+		// add to a toggle group
+		ToggleGroup paddleGroup = new ToggleGroup();
+		small.setToggleGroup(paddleGroup);
+		medium.setToggleGroup(paddleGroup);
+		large.setToggleGroup(paddleGroup);
+		
+		// add button style
 		small.getStyleClass().add(toggleBtnStyle);
 		medium.getStyleClass().add(toggleBtnStyle);
 		large.getStyleClass().add(toggleBtnStyle);
+		
 		Label paddleSize = new Label("Paddle Size: ");
 		paddleSize.getStyleClass().add(labelStyle);
+		
+		// add to box and format
 		paddleBox.getChildren().addAll(paddleSize, small, medium, large);
 		paddleBox.setAlignment(Pos.CENTER);
 		paddleBox.setSpacing(10.0);
 		
-        // trash code to get this barely working
+        // button actions
         small.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even) {
     			sv.setPaddleSize("small");
@@ -95,19 +108,37 @@ public class Settings extends Window {
 	}
 	
 	private HBox genBallImageBox() {
+		String imageBtnStyle = "image-button";
+
 		// ball image controls
 		HBox ballImageBox = new HBox();
-		//ballImageBox.getStyleClass().add("settings-box");
-		Button falessi = new Button("");
-		Button mammen = new Button("");
-		falessi.getStyleClass().add("falessi-button");
-		mammen.getStyleClass().add("mammen-button");
+		ToggleButton falessi = new ToggleButton("");
+		ToggleButton mammen = new ToggleButton("");
+		ToggleButton gharibyan = new ToggleButton("");
+		ToggleButton lupo = new ToggleButton("");
+		ToggleButton staley = new ToggleButton("");
+		ToggleButton clements = new ToggleButton("");
+		ToggleButton eckhardt = new ToggleButton("");
+		
+		// add to a toggle group
+		ToggleGroup ballImageGroup = new ToggleGroup();
+		falessi.setToggleGroup(ballImageGroup);
+		mammen.setToggleGroup(ballImageGroup);
+		gharibyan.setToggleGroup(ballImageGroup);
+		
+		// add button style
+		falessi.getStyleClass().addAll(imageBtnStyle, "falessi");
+		mammen.getStyleClass().addAll(imageBtnStyle, "mammen");
+		
 		Label ballImage = new Label("Ball Image: ");
 		ballImage.getStyleClass().add(labelStyle);
+
+		// add to box and format		
 		ballImageBox.getChildren().addAll(ballImage, falessi, mammen);
 		ballImageBox.setAlignment(Pos.CENTER);
 		ballImageBox.setSpacing(10.0);
 	
+        // button actions
 		falessi.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even) {
     			sv.setBallImage("falessi");
