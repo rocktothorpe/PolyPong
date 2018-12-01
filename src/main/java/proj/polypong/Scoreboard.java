@@ -2,6 +2,7 @@ package proj.polypong;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -18,11 +19,11 @@ public class Scoreboard extends Window {
 	
 	private GameController gc;
 	
-	private ArrayList<Score> scores = new ArrayList<Score>();
+	private List<Score> scores = new ArrayList<>();
 	
 	class ScoreComparator implements Comparator<Score> {
 	    public int compare(Score o1, Score o2) {
-	        return o2.score.compareTo(o1.score);
+	        return o2.scoreVal.compareTo(o1.scoreVal);
 	    }
 	}
 	
@@ -71,7 +72,7 @@ public class Scoreboard extends Window {
             name.setTextFill(Color.WHITE);
             Label spacer = new Label("      ");
             spacer.getStyleClass().add(labelStyle);
-            Label score = new Label("" + this.scores.get(i).score);
+            Label score = new Label("" + this.scores.get(i).scoreVal);
             score.getStyleClass().add(labelStyle);
             score.setTextFill(Color.WHITE);
             

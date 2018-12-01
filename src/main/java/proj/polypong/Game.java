@@ -24,9 +24,9 @@ public class Game extends Window {
 	public static final String P2UP = "UP";
 	public static final String PAUSEBUTTON = "P";
 	public static final String RESTARTBUTTON = "R";
-	public static double BALLSPEED = -1.05;
-	public static String GAMEBACKGROUNDCOLOR = "#80A4ED";
-	public static double PADDLEHEIGHT = 100.0;
+	public double ballSpeed = -1.05;
+	public static String gameBackgroundColor = "#80A4ED";
+	public double paddleHeight = 100.0;
 	
 	private GameStatus gameStatus = GameStatus.PAUSE;
 	private GameController gc;
@@ -37,7 +37,7 @@ public class Game extends Window {
 	public Paddle p2Paddle;
 	public StatusBar statusBar;
 	private Timeline timeline;
-	private Pane pane;
+	
 	
 	public Game(GameController gc, SettingsValues sv) {
 		super();
@@ -49,17 +49,17 @@ public class Game extends Window {
 	private void initGame() {
 		ball = new Ball(BALLRADIUS, Color.WHITE);
 		ball.changeFill(sv.ballImage);
-		PADDLEHEIGHT = sv.getPaddleSize();
-		BALLSPEED = sv.getBallSpeed();
+		paddleHeight = sv.getPaddleSize();
+		ballSpeed = sv.getBallSpeed();
         ball.relocate(width/2, height/2 - BALLRADIUS/2);
-        p1Paddle = new Paddle(5, height/2 - PADDLEHEIGHT/2, 10, PADDLEHEIGHT, Color.WHITE);
-        p2Paddle = new Paddle(width - 15, height/2 - PADDLEHEIGHT/2, 10, PADDLEHEIGHT, Color.WHITE);
+        p1Paddle = new Paddle(5, height/2 - paddleHeight/2, 10, paddleHeight, Color.WHITE);
+        p2Paddle = new Paddle(width - 15, height/2 - paddleHeight/2, 10, paddleHeight, Color.WHITE);
         statusBar = new StatusBar(width, STATUSBARHEIGHT, gc);
 	}
     
     @Override
 	public Scene drawWindow() {
-        pane = new Pane();
+        Pane pane = new Pane();
         pane.getChildren().addAll(ball, p1Paddle, p2Paddle, statusBar);
         pane.setStyle("-fx-background-color: "+ sv.getBackgroundColor() + ";");
         Scene scene = new Scene(pane, width, height, Color.WHITE);
@@ -141,16 +141,16 @@ public class Game extends Window {
 	public void checkCollisions(Pane canvas, Timeline timeline) {
     	if (ball.hitLeftWall()) {
         	if (p1Paddle.ballCollides(ball)) {
-        		ball.xVelocity *= BALLSPEED;
-        		ball.ballRot*=BALLSPEED;
+        		ball.xVelocity *= ballSpeed;
+        		ball.ballRot*=ballSpeed;
         	} else {
         		timeline.pause();
         		gc.changetoScene("NewScore");
         	}
         } else if (ball.hitRightWall(width)) {
         	if (p2Paddle.ballCollides(ball)) {
-        		ball.xVelocity *= BALLSPEED;
-        		ball.ballRot*=BALLSPEED;
+        		ball.xVelocity *= ballSpeed;
+        		ball.ballRot*=ballSpeed;
         	} else {
         		timeline.pause();
         		gc.changetoScene("NewScore");

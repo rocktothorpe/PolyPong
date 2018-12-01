@@ -15,9 +15,14 @@ public class GameController extends Application {
     @Override
     public void start(Stage stage) {
     	stage.setTitle(GAMETITLE);
+    	staticValues(stage);
+    	changetoScene("Menu");
+    }
+    
+    private static void staticValues(Stage stage)
+    {
     	sv = new SettingsValues();
     	theStage = stage;
-    	changetoScene("Menu");
     }
     
     public void changetoScene(String scene) {

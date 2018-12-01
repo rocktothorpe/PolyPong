@@ -18,7 +18,7 @@ import java.util.logging.*;
 public class Menu extends  Window {
 	
 	private GameController gc;
-	private final static Logger LOGGER =  
+	private static final Logger LOGGER =  
             Logger.getLogger(Logger.GLOBAL_LOGGER_NAME); 
 	public Menu(GameController gc) {
 		super();
