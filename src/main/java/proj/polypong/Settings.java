@@ -127,6 +127,23 @@ public class Settings extends Window {
 		ballSpeedBox.setSpacing(10.0);
 		
         // button actions
+        slowSpeed.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even) {
+    			sv.setBallSpeed("slow");
+    		}
+    	});
+		
+        mediumSpeed.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even) {
+    			sv.setBallSpeed("medium");
+    		}
+    	});
+		
+		fastSpeed.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even) {
+    			sv.setBallSpeed("fast");
+    		}
+    	});
 		return ballSpeedBox;
 	}
 	

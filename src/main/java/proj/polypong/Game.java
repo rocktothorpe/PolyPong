@@ -16,16 +16,17 @@ public class Game extends Window {
 	
 	enum GameStatus { PLAY, PAUSE }
 	public static final double BALLRADIUS = 40.0;
-	public static final double BALLSPEED = -1.05;
+	
 	public static final Color GAMEBACKGROUNDCOLOR = Color.rgb(0, 0, 0);
 	public static final double STATUSBARHEIGHT = 40.0;
-	public static double PADDLEHEIGHT = 100.0;
 	public static final String P1DOWN = "S";
 	public static final String P1UP = "W";
 	public static final String P2DOWN = "DOWN";
 	public static final String P2UP = "UP";
 	public static final String PAUSEBUTTON = "P";
 	public static final String RESTARTBUTTON = "R";
+	public static double BALLSPEED = -1.05;
+	public static double PADDLEHEIGHT = 100.0;
 	
 	private GameStatus gameStatus = GameStatus.PAUSE;
 	private GameController gc;
@@ -49,6 +50,7 @@ public class Game extends Window {
 		ball = new Ball(BALLRADIUS, Color.WHITE);
 		ball.changeFill(sv.ballImage);
 		PADDLEHEIGHT = sv.getPaddleSize();
+		BALLSPEED = sv.getBallSpeed();
         ball.relocate(width/2, height/2 - BALLRADIUS/2);
         p1Paddle = new Paddle(5, height/2 - PADDLEHEIGHT/2, 10, PADDLEHEIGHT, Color.WHITE);
         p2Paddle = new Paddle(width - 15, height/2 - PADDLEHEIGHT/2, 10, PADDLEHEIGHT, Color.WHITE);

@@ -8,34 +8,42 @@ import javafx.scene.image.Image;
 public class SettingsValues {
 	public Image ballImage;
 	public String paddleSize;
+	public String ballSpeed;
 	
 	public SettingsValues() {
 		paddleSize = "small";
+		ballSpeed = "medium";
 		setBallImage("falessi");
 	}
 	
 	public void setBallImage(String head) {
 		try {
-			if (head == "mammen") {
-				ballImage = new Image(new FileInputStream("images/mammenhead.png"));
-			}
-			else if (head == "falessi") {
-				ballImage = new Image(new FileInputStream("images/falessihead.png"));
-			}
-			else if (head == "gharibyan") {
-				ballImage = new Image(new FileInputStream("images/gharibyeanhead.png"));
-			}
-			else if (head == "lupo") {
-				ballImage = new Image(new FileInputStream("images/lupohead.png"));
-			}
-			else if (head == "staley") {
-				ballImage = new Image(new FileInputStream("images/staleyhead.png"));
-			}
-			else if (head == "clements") {
-				ballImage = new Image(new FileInputStream("images/clementshead.png"));
-			}
-			else if (head == "eckhardt") {
-				ballImage = new Image(new FileInputStream("images/eckhardthead.png"));
+			switch(head)
+			{
+				case "mammen":
+					ballImage = new Image(new FileInputStream("images/mammenhead.png"));
+					break;
+				case "falessi":
+					ballImage = new Image(new FileInputStream("images/falessihead.png"));
+					break;
+				case "gharibyan":
+					ballImage = new Image(new FileInputStream("images/gharibyeanhead.png"));
+					break;
+				case "lupo":
+					ballImage = new Image(new FileInputStream("images/lupohead.png"));
+					break;
+				case "staley":
+					ballImage = new Image(new FileInputStream("images/staleyhead.png"));
+					break;
+				case "clements":
+					ballImage = new Image(new FileInputStream("images/clementshead.png"));
+					break;
+				case "eckhardt":
+					ballImage = new Image(new FileInputStream("images/eckhardthead.png"));
+					break;
+				default:
+					ballImage = new Image(new FileInputStream("images/falessihead.png"));
+					break;
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -48,16 +56,37 @@ public class SettingsValues {
 		}
 	}
 	
-	public double getPaddleSize() {
-		
-		if (paddleSize == "small") {
-			return 50.0; 
+	public double getPaddleSize() {	
+		switch(paddleSize)
+		{
+			case "small":
+				return 50.0;
+			case "medium":
+				return 75.0;
+			case "large":
+				return 100.0;
+			default:
+				return 75.0;	
 		}
-		
-		if (paddleSize == "medium") {
-			return 75.0;
+	}
+
+	public void setBallSpeed(String speed) {
+		if (speed == "slow" || speed == "medium" || speed == "fast") {
+			ballSpeed = speed;
 		}
-		
-		return 100.0;
+	}
+	
+	public double getBallSpeed() {
+		switch(ballSpeed)
+		{
+			case "slow":
+				return -1.05; 
+			case "medium":
+				return -1.2;
+			case "fast":
+				return -1.25;
+			default:
+				return -1.05;	
+		}
 	}
 }
