@@ -19,7 +19,7 @@ public class TestsStoyan {
 		
 		double ballRadius = 40.0;
 		SettingsValues sv = new SettingsValues();
-		Ball ball = new Ball(ballRadius, Color.WHITE, sv.ballImage);
+		Ball ball = new Ball(ballRadius, Color.WHITE);
 		assertTrue(ball.hitLeftWall());
 		
 	}
@@ -29,7 +29,7 @@ public class TestsStoyan {
 		
 		double ballRadius = 40.0;
 		SettingsValues sv = new SettingsValues();
-		Ball ball = new Ball(ballRadius, Color.WHITE, sv.ballImage);
+		Ball ball = new Ball(ballRadius, Color.WHITE);
 		assertTrue(!ball.hitRightWall(400.0));
 		
 	}
