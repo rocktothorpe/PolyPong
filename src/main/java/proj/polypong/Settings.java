@@ -14,6 +14,8 @@ public class Settings extends Window {
 	
 	private GameController gc;
 	private SettingsValues sv;
+	private String toggleBtnStyle = "custom-button";
+	private String labelStyle = "settings-label";
 	
 	public Settings(GameController gc, SettingsValues sv) {
 		super();
@@ -21,56 +23,78 @@ public class Settings extends Window {
 		this.sv = sv;
 	}
 	
-	@Override
-	public Scene drawWindow() {
-        Scene scene = new Scene(this, width, height);
-        scene.getStylesheets().add("stylesheet.css");
-		this.setStyle("-fx-background-color: #22262f;");
-		String buttonStyle = "custom-button";
-		String labelStyle = "settings-label";
-		
-		windowTitle = new Label("SETTINGS");
-		
+	private HBox genModeBox() {
 		// game mode controls
 		HBox modeBox = new HBox();
 		Button multiPlayer = new Button("PLAYER VS PLAYER");
 		Button singlePlayer = new Button("PLAYER VS MACHINE");
-		multiPlayer.getStyleClass().add(buttonStyle);
-		singlePlayer.getStyleClass().add(buttonStyle);
+		multiPlayer.getStyleClass().add(toggleBtnStyle);
+		singlePlayer.getStyleClass().add(toggleBtnStyle);
 		Label mode = new Label("Mode: ");
 		mode.getStyleClass().add(labelStyle);
 		modeBox.getChildren().addAll(mode, multiPlayer, singlePlayer);
 		modeBox.setAlignment(Pos.CENTER);
 		modeBox.setSpacing(10.0);
 		
+		return modeBox;
+	}
+	
+	private HBox genPaddleBox() {
 		// paddle controls
 		HBox paddleBox = new HBox();
 		Button small = new Button("SMALL");
 		Button medium = new Button("MEDIUM");
 		Button large = new Button("LARGE");
-		small.getStyleClass().add(buttonStyle);
-		medium.getStyleClass().add(buttonStyle);
-		large.getStyleClass().add(buttonStyle);
+		small.getStyleClass().add(toggleBtnStyle);
+		medium.getStyleClass().add(toggleBtnStyle);
+		large.getStyleClass().add(toggleBtnStyle);
 		Label paddleSize = new Label("Paddle Size: ");
 		paddleSize.getStyleClass().add(labelStyle);
 		paddleBox.getChildren().addAll(paddleSize, small, medium, large);
 		paddleBox.setAlignment(Pos.CENTER);
 		paddleBox.setSpacing(10.0);
 		
+        // trash code to get this barely working
+        small.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even) {
+    			sv.setPaddleSize("small");
+    		}
+    	});
+		
+        medium.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even) {
+    			sv.setPaddleSize("medium");
+    		}
+    	});
+		
+		large.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even) {
+    			sv.setPaddleSize("large");
+    		}
+    	});
+		
+		return paddleBox;
+	}
+	
+	private HBox genBallSpeedBox() {
 		// ball speed controls
 		HBox ballSpeedBox = new HBox();
 		Button slowSpeed = new Button("SLOW");
 		Button mediumSpeed = new Button("MEDIUM");
 		Button fastSpeed = new Button("FAST");
-		slowSpeed.getStyleClass().add(buttonStyle);
-		mediumSpeed.getStyleClass().add(buttonStyle);
-		fastSpeed.getStyleClass().add(buttonStyle);
+		slowSpeed.getStyleClass().add(toggleBtnStyle);
+		mediumSpeed.getStyleClass().add(toggleBtnStyle);
+		fastSpeed.getStyleClass().add(toggleBtnStyle);
 		Label ballSpeed = new Label("Ball Speed: ");
 		ballSpeed.getStyleClass().add(labelStyle);
 		ballSpeedBox.getChildren().addAll(ballSpeed, slowSpeed, mediumSpeed, fastSpeed);
 		ballSpeedBox.setAlignment(Pos.CENTER);
 		ballSpeedBox.setSpacing(10.0);
 		
+		return ballSpeedBox;
+	}
+	
+	private HBox genBallImageBox() {
 		// ball image controls
 		HBox ballImageBox = new HBox();
 		//ballImageBox.getStyleClass().add("settings-box");
@@ -96,7 +120,25 @@ public class Settings extends Window {
     		}
     	});
 		
-		// adding all controls to a vbox
+		return ballImageBox;
+	}
+	
+	@Override
+	public Scene drawWindow() {
+
+        Scene scene = new Scene(this, width, height);
+        scene.getStylesheets().add("stylesheet.css");
+		this.setStyle("-fx-background-color: #22262f;");
+		
+		windowTitle = new Label("SETTINGS");
+		
+		// generate horizontal boxes
+		HBox modeBox = genModeBox();
+		HBox paddleBox = genPaddleBox();
+		HBox ballSpeedBox = genBallSpeedBox();
+		HBox ballImageBox = genBallImageBox();
+		
+		// adding all controls to a vertical box
 		VBox menuBox = new VBox();
         menuBox.setAlignment(Pos.CENTER);
         menuBox.setSpacing(10.0);
@@ -109,25 +151,6 @@ public class Settings extends Window {
         back.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even) {
     			gc.changetoScene("Menu");
-    		}
-    	});
-        
-        // trash code to get this barely working
-        small.setOnAction(new EventHandler<ActionEvent>() {
-    		public void handle(ActionEvent even) {
-    			sv.setPaddleSize("small");
-    		}
-    	});
-		
-        medium.setOnAction(new EventHandler<ActionEvent>() {
-    		public void handle(ActionEvent even) {
-    			sv.setPaddleSize("medium");
-    		}
-    	});
-		
-		large.setOnAction(new EventHandler<ActionEvent>() {
-    		public void handle(ActionEvent even) {
-    			sv.setPaddleSize("large");
     		}
     	});
 		
