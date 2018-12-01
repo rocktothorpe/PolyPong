@@ -9,10 +9,12 @@ public class SettingsValues {
 	public Image ballImage;
 	public String paddleSize;
 	public String ballSpeed;
+	public String backgroundColor;
 	
 	public SettingsValues() {
 		paddleSize = "small";
 		ballSpeed = "medium";
+		backgroundColor = "color1";
 		setBallImage("falessi");
 	}
 	
@@ -79,14 +81,34 @@ public class SettingsValues {
 	public double getBallSpeed() {
 		switch(ballSpeed)
 		{
-			case "slow":
+			case "color1":
 				return -1.05; 
-			case "medium":
+			case "color2":
 				return -1.2;
-			case "fast":
+			case "color3":
 				return -1.25;
 			default:
 				return -1.05;	
+		}
+	}
+
+	public void setBackgroundColor(String color) {
+		if (color == "color1" || color == "color2" || color == "color3") {
+			backgroundColor = color;
+		}
+	}
+	
+	public String getBackgroundColor() {
+		switch(backgroundColor)
+		{
+			case "color1":
+				return "#80A4ED"; 
+			case "color2":
+				return "#395C6B";
+			case "color3":
+				return "#E01A4F";
+			default:
+				return "#0C090D";	
 		}
 	}
 }

@@ -9,6 +9,28 @@
     -fx-text-fill: #ffffff;
 }
 
+.color-button {
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-background-color: #22262f;
+    -fx-padding: 5 22 5 22; 
+}
+.color-button:selected {
+    -fx-border-color: #f7dd72;
+}
+
+.color1 {
+    -fx-background-color: #80A4ED;
+}
+
+.color2 {
+    -fx-background-color: #395C6B;
+}
+
+.color3 {
+    -fx-background-color: #E01A4F;
+}
+
 .custom-button:selected {
     -fx-background-color: #686868;
 }

@@ -146,7 +146,55 @@ public class Settings extends Window {
     	});
 		return ballSpeedBox;
 	}
-	
+
+	private HBox genBackroungColorBox() {
+		String colorBtnStyle = "color-button";
+		// ball speed controls
+		HBox backgroundBox = new HBox();
+		ToggleButton color1 = new ToggleButton("");
+		ToggleButton color2 = new ToggleButton("");
+		ToggleButton color3 = new ToggleButton("");
+		
+		// add to a toggle group
+		ToggleGroup ballSpeedGroup = new ToggleGroup();
+		color1.setToggleGroup(ballSpeedGroup);
+		color2.setToggleGroup(ballSpeedGroup);
+		color3.setToggleGroup(ballSpeedGroup);
+
+		// add button style
+		color1.getStyleClass().addAll(colorBtnStyle, "color1");
+		color2.getStyleClass().addAll(colorBtnStyle, "color2");
+		color3.getStyleClass().addAll(colorBtnStyle, "color3");
+
+		Label ballSpeed = new Label("Backroung Color: ");
+		ballSpeed.getStyleClass().add(labelStyle);
+		
+		// add to box and format
+		backgroundBox.getChildren().addAll(ballSpeed, color1, color2, color3);
+		backgroundBox.setAlignment(Pos.CENTER);
+		backgroundBox.setSpacing(10.0);
+		
+        // button actions
+        color1.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even) {
+    			sv.setBackgroundColor("color1");
+    		}
+    	});
+		
+        color2.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even) {
+    			sv.setBackgroundColor("color2");
+    		}
+    	});
+		
+		color3.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even) {
+    			sv.setBackgroundColor("color3");
+    		}
+    	});
+		return backgroundBox;
+	}
+
 	private HBox genBallImageBox() {
 		String imageBtnStyle = "image-button";
 
@@ -247,12 +295,13 @@ public class Settings extends Window {
 		HBox paddleBox = genPaddleBox();
 		HBox ballSpeedBox = genBallSpeedBox();
 		HBox ballImageBox = genBallImageBox();
+		HBox backgroundBox = genBackroungColorBox();
 		
 		// adding all controls to a vertical box
 		VBox menuBox = new VBox();
         menuBox.setAlignment(Pos.CENTER);
         menuBox.setSpacing(10.0);
-        menuBox.getChildren().addAll(modeBox, paddleBox, ballSpeedBox, ballImageBox);
+        menuBox.getChildren().addAll(modeBox, paddleBox, ballSpeedBox, ballImageBox, backgroundBox);
         
 		// back button
 		Button back = new Button("X");

@@ -17,7 +17,6 @@ public class Game extends Window {
 	enum GameStatus { PLAY, PAUSE }
 	public static final double BALLRADIUS = 40.0;
 	
-	public static final Color GAMEBACKGROUNDCOLOR = Color.rgb(0, 0, 0);
 	public static final double STATUSBARHEIGHT = 40.0;
 	public static final String P1DOWN = "S";
 	public static final String P1UP = "W";
@@ -26,6 +25,7 @@ public class Game extends Window {
 	public static final String PAUSEBUTTON = "P";
 	public static final String RESTARTBUTTON = "R";
 	public static double BALLSPEED = -1.05;
+	public static String GAMEBACKGROUNDCOLOR = "#80A4ED";
 	public static double PADDLEHEIGHT = 100.0;
 	
 	private GameStatus gameStatus = GameStatus.PAUSE;
@@ -61,7 +61,7 @@ public class Game extends Window {
 	public Scene drawWindow() {
         pane = new Pane();
         pane.getChildren().addAll(ball, p1Paddle, p2Paddle, statusBar);
-        pane.setStyle("-fx-background-color: "+ toRGBCode(Game.GAMEBACKGROUNDCOLOR)+";");
+        pane.setStyle("-fx-background-color: "+ sv.getBackgroundColor() + ";");
         Scene scene = new Scene(pane, width, height, Color.WHITE);
         
         scene.setOnKeyPressed(event -> pressedKey(event));
