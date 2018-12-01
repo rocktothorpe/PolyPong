@@ -9,9 +9,12 @@ public class Ball extends Circle {
 	double yVelocity = 0.5;
 	int ballRot = 1;
 	
-	public Ball(double radius, Paint fill, Image image) {
-		super (radius, fill);
-		this.setFill(new ImagePattern(image)); 
+	public Ball(double radius, Paint fill) {
+		super (radius, fill); 
+	}
+	
+	public void changeFill(Image image) {
+		this.setFill(new ImagePattern(image));
 	}
 	
 	public boolean hitLeftWall() {

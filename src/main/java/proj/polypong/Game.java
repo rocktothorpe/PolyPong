@@ -46,7 +46,8 @@ public class Game extends Window {
 	}
 	
 	private void initGame() {
-		ball = new Ball(BALLRADIUS, Color.WHITE, sv.ballImage);
+		ball = new Ball(BALLRADIUS, Color.WHITE);
+		ball.changeFill(sv.ballImage);
 		PADDLEHEIGHT = sv.getPaddleSize();
         ball.relocate(width/2, height/2 - BALLRADIUS/2);
         p1Paddle = new Paddle(5, height/2 - PADDLEHEIGHT/2, 10, PADDLEHEIGHT, Color.WHITE);

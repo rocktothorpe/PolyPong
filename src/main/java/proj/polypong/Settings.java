@@ -72,14 +72,35 @@ public class Settings extends Window {
 		ballSpeedBox.setSpacing(10.0);
 		
 		// ball image controls
+		HBox ballImageBox = new HBox();
+		//ballImageBox.getStyleClass().add("settings-box");
+		Button falessi = new Button("");
+		Button mammen = new Button("");
+		falessi.getStyleClass().add("falessi-button");
+		mammen.getStyleClass().add("mammen-button");
 		Label ballImage = new Label("Ball Image: ");
 		ballImage.getStyleClass().add(labelStyle);
+		ballImageBox.getChildren().addAll(ballImage, falessi, mammen);
+		ballImageBox.setAlignment(Pos.CENTER);
+		ballImageBox.setSpacing(10.0);
+	
+		falessi.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even) {
+    			sv.setBallImage("falessi");
+    		}
+    	});
+		
+		mammen.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even) {
+    			sv.setBallImage("mammen");
+    		}
+    	});
 		
 		// adding all controls to a vbox
 		VBox menuBox = new VBox();
         menuBox.setAlignment(Pos.CENTER);
         menuBox.setSpacing(10.0);
-        menuBox.getChildren().addAll(modeBox, paddleBox, ballSpeedBox, ballImage);
+        menuBox.getChildren().addAll(modeBox, paddleBox, ballSpeedBox, ballImageBox);
         
 		// back button
 		Button back = new Button("X");

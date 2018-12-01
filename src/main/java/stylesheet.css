@@ -33,3 +33,27 @@
     -fx-font-size: 20pt;
     -fx-text-fill: #ffffff;
 }
+
+.settings-box {
+    -fx-min-height: 60px;
+}
+
+.falessi-button {
+	-fx-background-image: url(../../images/falessihead.png);
+    -fx-background-size: 25px, 25px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: #22262f;
+    -fx-border-radius: 20px;
+    -fx-min-width: 25px;
+}
+
+.mammen-button {
+	-fx-background-image: url(../../images/mammenhead.png);
+	-fx-background-size: 25px, 25px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: #22262f;
+    -fx-border-radius: 25px;
+    -fx-min-width: 25px;
+}

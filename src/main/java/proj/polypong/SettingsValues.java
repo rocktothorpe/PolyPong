@@ -11,12 +11,19 @@ public class SettingsValues {
 	
 	public SettingsValues() {
 		paddleSize = "small";
-		// set image
+		setBallImage("falessi");
+	}
+	
+	public void setBallImage(String head) {
 		try {
-			ballImage = new Image(new FileInputStream("images/mammenhead.png"));
+			if (head == "mammen") {
+				ballImage = new Image(new FileInputStream("images/mammenhead.png"));
+			}
+			else if (head == "falessi") {
+				ballImage = new Image(new FileInputStream("images/falessihead.png"));
+			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-			System.out.println("file was not found - oh no");
 		}
 	}
 	
