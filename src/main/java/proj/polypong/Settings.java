@@ -28,16 +28,27 @@ public class Settings extends Window {
 	private HBox genModeBox() {
 		// game mode controls
 		HBox modeBox = new HBox();
-		Button multiPlayer = new Button("PLAYER VS PLAYER");
-		Button singlePlayer = new Button("PLAYER VS MACHINE");
+		ToggleButton multiPlayer = new ToggleButton("PLAYER VS PLAYER");
+		ToggleButton singlePlayer = new ToggleButton("PLAYER VS MACHINE");
+
+		// add to a toggle group
+		ToggleGroup paddleGroup = new ToggleGroup();
+		multiPlayer.setToggleGroup(paddleGroup);
+		singlePlayer.setToggleGroup(paddleGroup);
+
+		// add button style
 		multiPlayer.getStyleClass().add(toggleBtnStyle);
 		singlePlayer.getStyleClass().add(toggleBtnStyle);
+		
 		Label mode = new Label("Mode: ");
 		mode.getStyleClass().add(labelStyle);
+		
+		// add to box and format
 		modeBox.getChildren().addAll(mode, multiPlayer, singlePlayer);
 		modeBox.setAlignment(Pos.CENTER);
 		modeBox.setSpacing(10.0);
 		
+        // button actions
 		return modeBox;
 	}
 	
@@ -92,18 +103,30 @@ public class Settings extends Window {
 	private HBox genBallSpeedBox() {
 		// ball speed controls
 		HBox ballSpeedBox = new HBox();
-		Button slowSpeed = new Button("SLOW");
-		Button mediumSpeed = new Button("MEDIUM");
-		Button fastSpeed = new Button("FAST");
+		ToggleButton slowSpeed = new ToggleButton("SLOW");
+		ToggleButton mediumSpeed = new ToggleButton("MEDIUM");
+		ToggleButton fastSpeed = new ToggleButton("FAST");
+		
+		// add to a toggle group
+		ToggleGroup paddleGroup = new ToggleGroup();
+		slowSpeed.setToggleGroup(paddleGroup);
+		mediumSpeed.setToggleGroup(paddleGroup);
+		fastSpeed.setToggleGroup(paddleGroup);
+
+		// add button style
 		slowSpeed.getStyleClass().add(toggleBtnStyle);
 		mediumSpeed.getStyleClass().add(toggleBtnStyle);
 		fastSpeed.getStyleClass().add(toggleBtnStyle);
+
 		Label ballSpeed = new Label("Ball Speed: ");
 		ballSpeed.getStyleClass().add(labelStyle);
+		
+		// add to box and format
 		ballSpeedBox.getChildren().addAll(ballSpeed, slowSpeed, mediumSpeed, fastSpeed);
 		ballSpeedBox.setAlignment(Pos.CENTER);
 		ballSpeedBox.setSpacing(10.0);
 		
+        // button actions
 		return ballSpeedBox;
 	}
 	
