@@ -6,7 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -28,8 +28,8 @@ public class Settings extends Window {
 	private HBox genModeBox() {
 		// game mode controls
 		HBox modeBox = new HBox();
-		ToggleButton multiPlayer = new ToggleButton("PLAYER VS PLAYER");
-		ToggleButton singlePlayer = new ToggleButton("PLAYER VS MACHINE");
+		RadioButton multiPlayer = new RadioButton("PLAYER VS PLAYER");
+		RadioButton singlePlayer = new RadioButton("PLAYER VS MACHINE");
 
 		// add to a toggle group
 		ToggleGroup paddleGroup = new ToggleGroup();
@@ -37,6 +37,8 @@ public class Settings extends Window {
 		singlePlayer.setToggleGroup(paddleGroup);
 
 		// add button style
+		multiPlayer.getStyleClass().remove("radio-button");
+		singlePlayer.getStyleClass().remove("radio-button");
 		multiPlayer.getStyleClass().add(toggleBtnStyle);
 		singlePlayer.getStyleClass().add(toggleBtnStyle);
 		
@@ -55,9 +57,9 @@ public class Settings extends Window {
 	private HBox genPaddleBox() {
 		// paddle controls
 		HBox paddleBox = new HBox();
-		ToggleButton small = new ToggleButton("SMALL");
-		ToggleButton medium = new ToggleButton("MEDIUM");
-		ToggleButton large = new ToggleButton("LARGE");
+		RadioButton small = new RadioButton("SMALL");
+		RadioButton medium = new RadioButton("MEDIUM");
+		RadioButton large = new RadioButton("LARGE");
 		
 		// add to a toggle group
 		ToggleGroup paddleGroup = new ToggleGroup();
@@ -66,6 +68,9 @@ public class Settings extends Window {
 		large.setToggleGroup(paddleGroup);
 		
 		// add button style
+		small.getStyleClass().remove("radio-button");
+		medium.getStyleClass().remove("radio-button");
+		large.getStyleClass().remove("radio-button");
 		small.getStyleClass().add(toggleBtnStyle);
 		medium.getStyleClass().add(toggleBtnStyle);
 		large.getStyleClass().add(toggleBtnStyle);
@@ -103,9 +108,9 @@ public class Settings extends Window {
 	private HBox genBallSpeedBox() {
 		// ball speed controls
 		HBox ballSpeedBox = new HBox();
-		ToggleButton slowSpeed = new ToggleButton("SLOW");
-		ToggleButton mediumSpeed = new ToggleButton("MEDIUM");
-		ToggleButton fastSpeed = new ToggleButton("FAST");
+		RadioButton slowSpeed = new RadioButton("SLOW");
+		RadioButton mediumSpeed = new RadioButton("MEDIUM");
+		RadioButton fastSpeed = new RadioButton("FAST");
 		
 		// add to a toggle group
 		ToggleGroup paddleGroup = new ToggleGroup();
@@ -114,6 +119,9 @@ public class Settings extends Window {
 		fastSpeed.setToggleGroup(paddleGroup);
 
 		// add button style
+		slowSpeed.getStyleClass().remove("radio-button");
+		mediumSpeed.getStyleClass().remove("radio-button");
+		fastSpeed.getStyleClass().remove("radio-button");
 		slowSpeed.getStyleClass().add(toggleBtnStyle);
 		mediumSpeed.getStyleClass().add(toggleBtnStyle);
 		fastSpeed.getStyleClass().add(toggleBtnStyle);
@@ -144,6 +152,18 @@ public class Settings extends Window {
     			sv.setBallSpeed("fast");
     		}
     	});
+		
+		// decision tree for current setting
+		if (sv.ballSpeed == "slow") {
+			slowSpeed.setSelected(true);
+		}
+		else if (sv.ballSpeed == "medium") {
+			mediumSpeed.setSelected(true);
+		}
+		else if (sv.ballSpeed == "fast") {
+			fastSpeed.setSelected(true);
+		}
+		
 		return ballSpeedBox;
 	}
 
@@ -151,9 +171,9 @@ public class Settings extends Window {
 		String colorBtnStyle = "color-button";
 		// ball speed controls
 		HBox backgroundBox = new HBox();
-		ToggleButton color1 = new ToggleButton("");
-		ToggleButton color2 = new ToggleButton("");
-		ToggleButton color3 = new ToggleButton("");
+		RadioButton color1 = new RadioButton("");
+		RadioButton color2 = new RadioButton("");
+		RadioButton color3 = new RadioButton("");
 		
 		// add to a toggle group
 		ToggleGroup ballSpeedGroup = new ToggleGroup();
@@ -162,11 +182,14 @@ public class Settings extends Window {
 		color3.setToggleGroup(ballSpeedGroup);
 
 		// add button style
+		color1.getStyleClass().remove("radio-button");
+		color2.getStyleClass().remove("radio-button");
+		color3.getStyleClass().remove("radio-button");
 		color1.getStyleClass().addAll(colorBtnStyle, "color1");
 		color2.getStyleClass().addAll(colorBtnStyle, "color2");
 		color3.getStyleClass().addAll(colorBtnStyle, "color3");
 
-		Label ballSpeed = new Label("Backroung Color: ");
+		Label ballSpeed = new Label("Background Color: ");
 		ballSpeed.getStyleClass().add(labelStyle);
 		
 		// add to box and format
@@ -200,13 +223,13 @@ public class Settings extends Window {
 
 		// ball image controls
 		HBox ballImageBox = new HBox();
-		ToggleButton falessi = new ToggleButton("");
-		ToggleButton mammen = new ToggleButton("");
-		ToggleButton gharibyan = new ToggleButton("");
-		ToggleButton lupo = new ToggleButton("");
-		ToggleButton staley = new ToggleButton("");
-		ToggleButton clements = new ToggleButton("");
-		ToggleButton eckhardt = new ToggleButton("");
+		RadioButton falessi = new RadioButton("");
+		RadioButton mammen = new RadioButton("");
+		RadioButton gharibyan = new RadioButton("");
+		RadioButton lupo = new RadioButton("");
+		RadioButton staley = new RadioButton("");
+		RadioButton clements = new RadioButton("");
+		RadioButton eckhardt = new RadioButton("");
 		
 		// add to a toggle group
 		ToggleGroup ballImageGroup = new ToggleGroup();
@@ -219,6 +242,13 @@ public class Settings extends Window {
 		eckhardt.setToggleGroup(ballImageGroup);
 		
 		// add button style
+		falessi.getStyleClass().remove("radio-button");
+		mammen.getStyleClass().remove("radio-button");
+		gharibyan.getStyleClass().remove("radio-button");
+		lupo.getStyleClass().remove("radio-button");
+		staley.getStyleClass().remove("radio-button");
+		clements.getStyleClass().remove("radio-button");
+		eckhardt.getStyleClass().remove("radio-button");
 		falessi.getStyleClass().addAll(imageBtnStyle, "falessi");
 		mammen.getStyleClass().addAll(imageBtnStyle, "mammen");
 		gharibyan.getStyleClass().addAll(imageBtnStyle, "gharibyan");
