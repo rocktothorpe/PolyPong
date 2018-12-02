@@ -174,37 +174,4 @@ public class Game extends Window {
         	ball.yVelocity = -ball.yVelocity;
         }
     }
-	
-//	public void promptUserName() {
-//		usernameField = new TextField();
-//		usernameField.setLayoutY((height/2) - (usernameField.getHeight()/2));
-//		usernameField.setLayoutX((width/2) - (usernameField.getWidth()/2));
-//		
-//		EventHandler<ActionEvent> saveScore = new EventHandler<ActionEvent>() { 
-//            public void handle(ActionEvent e) { 
-//            	Vector<Score> scores = Score.getScores();
-//            	boolean exists = false;
-//            	for (int i = 0; i < scores.size(); i++) {
-//            		if (usernameField.getText().equals(scores.get(i).name)) {
-//            			scores.get(i).score++;
-//            			exists = true;
-//            		}
-//            	}
-//            	if (!exists) {
-//            		scores.add(new Score(usernameField.getText(), 1));
-//            	}
-//            	Score.writeToFile(scores);
-//            } 
-//        }; 
-//		
-//		saveScoreButton = new Button();
-//		saveScoreButton.setText("Save");
-//		saveScoreButton.setLayoutY((height/2) - (usernameField.getHeight()/2) + 50);
-//		saveScoreButton.setLayoutX((width/2) - (saveScoreButton.getWidth()/2));
-//		saveScoreButton.setOnAction(saveScore); 
-//		
-//		pane.getChildren().addAll(usernameField, saveScoreButton);
-//	}
-	
-	
 }
