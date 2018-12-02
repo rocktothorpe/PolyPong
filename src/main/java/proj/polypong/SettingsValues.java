@@ -10,14 +10,14 @@ public class SettingsValues {
 	public String paddleSize;
 	public String ballSpeed;
 	public String backgroundColor;
-	private final static String COLOR1 = "color1";
-	private final static String COLOR2 = "color2";
-	private final static String COLOR3 = "color3";
-	private final static String SMALL = "small";
-	private final static String MEDIUM = "medium";
-	private final static String LARGE = "large";
-	private final static String SLOW = "slow";
-	private final static String FAST = "fast";
+	private static final String COLOR1 = "color1";
+	private static final String COLOR2 = "color2";
+	private static final String COLOR3 = "color3";
+	private static final String SMALL = "small";
+	private static final String MEDIUM = "medium";
+	private static final String LARGE = "large";
+	private static final String SLOW = "slow";
+	private static final String FAST = "fast";
 	
 	public SettingsValues() {
 		paddleSize = SMALL;

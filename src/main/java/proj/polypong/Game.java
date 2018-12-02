@@ -24,9 +24,9 @@ public class Game extends Window {
 	public static final String P2UP = "UP";
 	public static final String PAUSEBUTTON = "P";
 	public static final String RESTARTBUTTON = "R";
-	public static double ballSpeed = -1.05;
-	public static String gameBackgroundColor = "#80A4ED";
-	public static double paddleHeight = 100.0;
+	public  double ballSpeed = -1.05;
+	public  String gameBackgroundColor = "#80A4ED";
+	public  double paddleHeight = 100.0;
 	
 	private GameStatus gameStatus = GameStatus.PAUSE;
 	private GameController gc;
@@ -63,50 +63,61 @@ public class Game extends Window {
         pane.getChildren().addAll(ball, p1Paddle, p2Paddle, statusBar);
         pane.setStyle("-fx-background-color: "+ sv.getBackgroundColor() + ";");
         Scene scene = new Scene(pane, width, height, Color.WHITE);
-        //scene.setOnKeyPressed(event -> pressedKey(event));
+        
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() { 
         	public void handle(KeyEvent event) {
             String codeString = event.getCode().toString();
-            if (codeString.equals(P1DOWN)) {
-                p1Paddle.isLowering = true;
-            } else if (codeString.equals(P1UP)) {
-                p1Paddle.isRaising = true;
-            }
-            
-            if (codeString.equals(P2DOWN)) {
-                p2Paddle.isLowering = true;
-            } else if (codeString.equals(P2UP)) {
-                p2Paddle.isRaising = true;
-            }
-            
-            if (codeString.equals(RESTARTBUTTON)) {
-            	gc.changetoScene("Game");
-            }
-            
-            if (codeString.equals(PAUSEBUTTON)) {
-                if (gameStatus == GameStatus.PAUSE) {
-                    timeline.play();
-                    gameStatus = GameStatus.PLAY;
-                } else {
-                    timeline.pause();
-                    gameStatus = GameStatus.PAUSE;
-                }
+            switch(codeString)
+            {
+            	case P1DOWN:  
+            		p1Paddle.isLowering = true;
+            		break;
+            	case P1UP:
+            		p1Paddle.isRaising = true;
+            		break;
+            	case P2DOWN:
+            		p2Paddle.isLowering = true;
+            		break;
+            	case P2UP:
+            		 p2Paddle.isRaising = true;
+            		 break;
+            	case RESTARTBUTTON:
+            		gc.changetoScene("Game");
+            		break;
+            	case PAUSEBUTTON:
+            		if (gameStatus == GameStatus.PAUSE) {
+                        timeline.play();
+                        gameStatus = GameStatus.PLAY;
+                    } else {
+                        timeline.pause();
+                        gameStatus = GameStatus.PAUSE;
+                    }
+            		break;
+            	default:
+            		break;		
             }
         }	
         });
-       //scene.setOnKeyReleased(event -> releasedKey(event));
+       
         scene.setOnKeyReleased( new EventHandler<KeyEvent>() {
         	public void handle(KeyEvent event) {
             String codeString = event.getCode().toString();
-            if (codeString.equals(P1DOWN)) {
-                p1Paddle.isLowering = false;
-            } else if (codeString.equals(P1UP)) {
-                p1Paddle.isRaising = false;
-            } 
-            if (codeString.equals(P2DOWN)) {
-                p2Paddle.isLowering = false;
-            } else if (codeString.equals(P2UP)) {
-                p2Paddle.isRaising = false;
+            switch(codeString)
+            {
+            	case P1DOWN:  
+            		p1Paddle.isLowering = false;
+            		break;
+            	case P1UP:
+            		p1Paddle.isRaising = false;
+            		break;
+            	case P2DOWN:
+            		p2Paddle.isLowering = false;
+            		break;
+            	case P2UP:
+            		 p2Paddle.isRaising = false;
+            		 break;
+            	default:
+            		break;
             }
         }
     });
@@ -124,51 +135,6 @@ public class Game extends Window {
         timeline.setCycleCount(Timeline.INDEFINITE);
         return scene;
     }
-    
-    public void releasedKey(KeyEvent event) {
-        String codeString = event.getCode().toString();
-        if (codeString.equals(P1DOWN)) {
-            p1Paddle.isLowering = false;
-        } else if (codeString.equals(P1UP)) {
-            p1Paddle.isRaising = false;
-        } 
-        if (codeString.equals(P2DOWN)) {
-            p2Paddle.isLowering = false;
-        } else if (codeString.equals(P2UP)) {
-            p2Paddle.isRaising = false;
-        }
-    }
-// here if for easy move back if the code smell doesn't go away   
-//    public void pressedKey(KeyEvent event) {
-//        String codeString = event.getCode().toString();
-//        if (codeString.equals(P1DOWN)) {
-//            p1Paddle.isLowering = true;
-//        } else if (codeString.equals(P1UP)) {
-//            p1Paddle.isRaising = true;
-//        }
-//        
-//        if (codeString.equals(P2DOWN)) {
-//            p2Paddle.isLowering = true;
-//        } else if (codeString.equals(P2UP)) {
-//            p2Paddle.isRaising = true;
-//        }
-//        
-//        if (codeString.equals(RESTARTBUTTON)) {
-//        	gc.changetoScene("Game");
-//        }
-//        
-//        if (codeString.equals(PAUSEBUTTON)) {
-//            if (gameStatus == GameStatus.PAUSE) {
-//                timeline.play();
-//                gameStatus = GameStatus.PLAY;
-//            } else {
-//                timeline.pause();
-//                gameStatus = GameStatus.PAUSE;
-//            }
-//        }
-//    }
-    
-   
     
 	public void movePaddles() {
     	if (p1Paddle.isLowering) {
