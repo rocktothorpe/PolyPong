@@ -1,5 +1,5 @@
-package proj.polypong;
-import java.util.ArrayList;
+package proj.polypong; 
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
