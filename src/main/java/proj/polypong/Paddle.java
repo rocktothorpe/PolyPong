@@ -24,6 +24,7 @@ public class Paddle extends Rectangle {
 		}
 	}
 	public boolean ballCollides(Ball ball) {
+		
 		double ballMin = ball.localToScreen(ball.getBoundsInLocal()).getMinY();
 		double ballMax = ball.localToScreen(ball.getBoundsInLocal()).getMaxY();
 		

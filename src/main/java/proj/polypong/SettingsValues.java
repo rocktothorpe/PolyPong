@@ -10,50 +10,32 @@ public class SettingsValues {
 	public String paddleSize;
 	public String ballSpeed;
 	public String backgroundColor;
+	private final static String COLOR1 = "color1";
+	private final static String COLOR2 = "color2";
+	private final static String COLOR3 = "color3";
+	private final static String SMALL = "small";
+	private final static String MEDIUM = "medium";
+	private final static String LARGE = "large";
+	private final static String SLOW = "slow";
+	private final static String FAST = "fast";
 	
 	public SettingsValues() {
-		paddleSize = "small";
-		ballSpeed = "medium";
-		backgroundColor = "color1";
+		paddleSize = SMALL;
+		ballSpeed = MEDIUM;
+		backgroundColor = COLOR1;
 		setBallImage("falessi");
 	}
 	
 	public void setBallImage(String head) {
 		try {
-			switch(head)
-			{
-				case "mammen":
-					ballImage = new Image(new FileInputStream("images/mammenhead.png"));
-					break;
-				case "falessi":
-					ballImage = new Image(new FileInputStream("images/falessihead.png"));
-					break;
-				case "gharibyan":
-					ballImage = new Image(new FileInputStream("images/gharibyeanhead.png"));
-					break;
-				case "lupo":
-					ballImage = new Image(new FileInputStream("images/lupohead.png"));
-					break;
-				case "staley":
-					ballImage = new Image(new FileInputStream("images/staleyhead.png"));
-					break;
-				case "clements":
-					ballImage = new Image(new FileInputStream("images/clementshead.png"));
-					break;
-				case "eckhardt":
-					ballImage = new Image(new FileInputStream("images/eckhardthead.png"));
-					break;
-				default:
-					ballImage = new Image(new FileInputStream("images/falessihead.png"));
-					break;
-			}
+			ballImage = new Image(new FileInputStream("images/" + head + "head.png"));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
 	
 	public void setPaddleSize(String size) {
-		if (size == "small" || size == "medium" || size == "large") {
+		if (size == SMALL|| size == MEDIUM || size == LARGE) {
 			paddleSize = size;
 		}
 	}
@@ -61,11 +43,11 @@ public class SettingsValues {
 	public double getPaddleSize() {	
 		switch(paddleSize)
 		{
-			case "small":
+			case SMALL:
 				return 50.0;
-			case "medium":
+			case MEDIUM:
 				return 75.0;
-			case "large":
+			case LARGE:
 				return 100.0;
 			default:
 				return 75.0;	
@@ -73,7 +55,7 @@ public class SettingsValues {
 	}
 
 	public void setBallSpeed(String speed) {
-		if (speed == "slow" || speed == "medium" || speed == "fast") {
+		if (speed == SLOW || speed == MEDIUM || speed == FAST) {
 			ballSpeed = speed;
 		}
 	}
@@ -81,11 +63,11 @@ public class SettingsValues {
 	public double getBallSpeed() {
 		switch(ballSpeed)
 		{
-			case "color1":
+			case COLOR1:
 				return -1.05; 
-			case "color2":
+			case COLOR2:
 				return -1.2;
-			case "color3":
+			case COLOR3:
 				return -1.25;
 			default:
 				return -1.05;	
@@ -93,7 +75,7 @@ public class SettingsValues {
 	}
 
 	public void setBackgroundColor(String color) {
-		if (color == "color1" || color == "color2" || color == "color3") {
+		if (color == COLOR1 || color == COLOR2 || color == COLOR3) {
 			backgroundColor = color;
 		}
 	}
@@ -101,11 +83,11 @@ public class SettingsValues {
 	public String getBackgroundColor() {
 		switch(backgroundColor)
 		{
-			case "color1":
+			case COLOR1:
 				return "#80A4ED"; 
-			case "color2":
+			case COLOR2:
 				return "#395C6B";
-			case "color3":
+			case COLOR3:
 				return "#E01A4F";
 			default:
 				return "#0C090D";	

@@ -19,7 +19,7 @@ public class Scoreboard extends Window {
 	
 	private GameController gc;
 	
-	private List<Score> scores = new ArrayList<>();
+	
 	
 	class ScoreComparator implements Comparator<Score> {
 	    public int compare(Score o1, Score o2) {
@@ -35,9 +35,10 @@ public class Scoreboard extends Window {
 	
 	@Override
 	public Scene drawWindow() {
-		this.scores = Score.getScores();
+		List<Score> scores = new ArrayList<>();
+		scores = Score.getScores();
 		Comparator<Score> comparator = new ScoreComparator();
-		Collections.sort(this.scores, comparator);
+		Collections.sort(scores, comparator);
 		
 		Scene scene = new Scene(this, width, height);
 		scene.getStylesheets().add("stylesheet.css");
@@ -64,15 +65,15 @@ public class Scoreboard extends Window {
         allScores.setAlignment(Pos.CENTER);
         allScores.getChildren().add(scoresTitle);
         
-        for (int i = 0; i < this.scores.size(); i++) {
+        for (int i = 0; i < scores.size(); i++) {
         	HBox scoresBox = new HBox();
             scoresBox.setAlignment(Pos.CENTER);
-            Label name = new Label(this.scores.get(i).name);
+            Label name = new Label(scores.get(i).name);
             name.getStyleClass().add(labelStyle);
             name.setTextFill(Color.WHITE);
             Label spacer = new Label("      ");
             spacer.getStyleClass().add(labelStyle);
-            Label score = new Label("" + this.scores.get(i).scoreVal);
+            Label score = new Label("" + scores.get(i).scoreVal);
             score.getStyleClass().add(labelStyle);
             score.setTextFill(Color.WHITE);
             
