@@ -5,10 +5,15 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Bounds;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
 import javafx.scene.transform.Rotate;
 
@@ -37,6 +42,10 @@ public class Game extends Window {
 	public Paddle p2Paddle;
 	public StatusBar statusBar;
 	private Timeline timeline;
+	
+	VBox pauseLabelBG = new VBox();
+	Label bg = new Label();
+	Label pauseLabel = new Label("PAUSED");
 	
 	
 	public Game(GameController gc, SettingsValues sv) {
@@ -86,10 +95,24 @@ public class Game extends Window {
             		break;
             	case PAUSEBUTTON:
             		if (gameStatus == GameStatus.PAUSE) {
+            			pane.getChildren().remove(bg);
+            			pane.getChildren().remove(pauseLabelBG);
+            			pauseLabelBG.getChildren().remove(pauseLabel);
                         timeline.play();
                         gameStatus = GameStatus.PLAY;
                     } else {
                         timeline.pause();
+                        pauseLabelBG.setMinHeight(height);
+                        pauseLabelBG.setMinWidth(width);
+                        pauseLabelBG.setAlignment(Pos.CENTER);
+                        bg = new Label();
+                        bg.setStyle("-fx-background-color: black;");
+                        bg.setOpacity(0.5);
+                        bg.setMinWidth(width);
+                        bg.setMinHeight(height);
+                        pauseLabel.setTextFill(Color.WHITE);
+                        pauseLabelBG.getChildren().addAll(pauseLabel);
+                        pane.getChildren().addAll(bg, pauseLabelBG);
                         gameStatus = GameStatus.PAUSE;
                     }
             		break;
@@ -128,7 +151,6 @@ public class Game extends Window {
             ball.getTransforms().add(new Rotate(ball.ballRot,0,0));
             movePaddles();
             checkCollisions(pane, timeline);
-
         };
         
         timeline = new Timeline(new KeyFrame(Duration.millis(5), eventHandler));
