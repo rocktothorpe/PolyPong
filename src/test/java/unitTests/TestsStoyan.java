@@ -6,7 +6,6 @@ package unitTests;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import javafx.scene.paint.Color;
@@ -18,7 +17,6 @@ public class TestsStoyan {
 	public void testHitLeftWall() {
 		
 		double ballRadius = 40.0;
-		SettingsValues sv = new SettingsValues();
 		Ball ball = new Ball(ballRadius, Color.WHITE);
 		assertTrue(ball.hitLeftWall());
 		
@@ -28,7 +26,6 @@ public class TestsStoyan {
 	public void testHitRightWall() {
 		
 		double ballRadius = 40.0;
-		SettingsValues sv = new SettingsValues();
 		Ball ball = new Ball(ballRadius, Color.WHITE);
 		assertTrue(!ball.hitRightWall(400.0));
 		
