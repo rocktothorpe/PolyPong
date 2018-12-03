@@ -18,6 +18,8 @@ public class Settings extends Window {
 	private SettingsValues sv;
 	private String toggleBtnStyle = "custom-button";
 	private String labelStyle = "settings-label";
+	private static final String RADIOBUTTON = "radio-button";
+	private static final String MEDIUM = "MEDIUM";
 	
 	public Settings(GameController gc, SettingsValues sv) {
 		super();
@@ -37,8 +39,8 @@ public class Settings extends Window {
 		singlePlayer.setToggleGroup(paddleGroup);
 
 		// add button style
-		multiPlayer.getStyleClass().remove("radio-button");
-		singlePlayer.getStyleClass().remove("radio-button");
+		multiPlayer.getStyleClass().remove(RADIOBUTTON);
+		singlePlayer.getStyleClass().remove(RADIOBUTTON);
 		multiPlayer.getStyleClass().add(toggleBtnStyle);
 		singlePlayer.getStyleClass().add(toggleBtnStyle);
 		
@@ -58,7 +60,7 @@ public class Settings extends Window {
 		// paddle controls
 		HBox paddleBox = new HBox();
 		RadioButton small = new RadioButton("SMALL");
-		RadioButton medium = new RadioButton("MEDIUM");
+		RadioButton medium = new RadioButton(MEDIUM);
 		RadioButton large = new RadioButton("LARGE");
 		
 		// add to a toggle group
@@ -68,9 +70,9 @@ public class Settings extends Window {
 		large.setToggleGroup(paddleGroup);
 		
 		// add button style
-		small.getStyleClass().remove("radio-button");
-		medium.getStyleClass().remove("radio-button");
-		large.getStyleClass().remove("radio-button");
+		small.getStyleClass().remove(RADIOBUTTON);
+		medium.getStyleClass().remove(RADIOBUTTON);
+		large.getStyleClass().remove(RADIOBUTTON);
 		small.getStyleClass().add(toggleBtnStyle);
 		medium.getStyleClass().add(toggleBtnStyle);
 		large.getStyleClass().add(toggleBtnStyle);
@@ -92,7 +94,7 @@ public class Settings extends Window {
 		
         medium.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even) {
-    			sv.setPaddleSize("medium");
+    			sv.setPaddleSize(MEDIUM);
     		}
     	});
 		
@@ -109,7 +111,7 @@ public class Settings extends Window {
 		// ball speed controls
 		HBox ballSpeedBox = new HBox();
 		RadioButton slowSpeed = new RadioButton("SLOW");
-		RadioButton mediumSpeed = new RadioButton("MEDIUM");
+		RadioButton mediumSpeed = new RadioButton(MEDIUM);
 		RadioButton fastSpeed = new RadioButton("FAST");
 		
 		// add to a toggle group
@@ -119,9 +121,9 @@ public class Settings extends Window {
 		fastSpeed.setToggleGroup(paddleGroup);
 
 		// add button style
-		slowSpeed.getStyleClass().remove("radio-button");
-		mediumSpeed.getStyleClass().remove("radio-button");
-		fastSpeed.getStyleClass().remove("radio-button");
+		slowSpeed.getStyleClass().remove(RADIOBUTTON);
+		mediumSpeed.getStyleClass().remove(RADIOBUTTON);
+		fastSpeed.getStyleClass().remove(RADIOBUTTON);
 		slowSpeed.getStyleClass().add(toggleBtnStyle);
 		mediumSpeed.getStyleClass().add(toggleBtnStyle);
 		fastSpeed.getStyleClass().add(toggleBtnStyle);
@@ -143,7 +145,7 @@ public class Settings extends Window {
 		
         mediumSpeed.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even) {
-    			sv.setBallSpeed("medium");
+    			sv.setBallSpeed(MEDIUM);
     		}
     	});
 		
@@ -182,9 +184,9 @@ public class Settings extends Window {
 		color3.setToggleGroup(ballSpeedGroup);
 
 		// add button style
-		color1.getStyleClass().remove("radio-button");
-		color2.getStyleClass().remove("radio-button");
-		color3.getStyleClass().remove("radio-button");
+		color1.getStyleClass().remove(RADIOBUTTON);
+		color2.getStyleClass().remove(RADIOBUTTON);
+		color3.getStyleClass().remove(RADIOBUTTON);
 		color1.getStyleClass().addAll(colorBtnStyle, "color1");
 		color2.getStyleClass().addAll(colorBtnStyle, "color2");
 		color3.getStyleClass().addAll(colorBtnStyle, "color3");
@@ -242,13 +244,13 @@ public class Settings extends Window {
 		eckhardt.setToggleGroup(ballImageGroup);
 		
 		// add button style
-		falessi.getStyleClass().remove("radio-button");
-		mammen.getStyleClass().remove("radio-button");
-		gharibyan.getStyleClass().remove("radio-button");
-		lupo.getStyleClass().remove("radio-button");
-		staley.getStyleClass().remove("radio-button");
-		clements.getStyleClass().remove("radio-button");
-		eckhardt.getStyleClass().remove("radio-button");
+		falessi.getStyleClass().remove(RADIOBUTTON);
+		mammen.getStyleClass().remove(RADIOBUTTON);
+		gharibyan.getStyleClass().remove(RADIOBUTTON);
+		lupo.getStyleClass().remove(RADIOBUTTON);
+		staley.getStyleClass().remove(RADIOBUTTON);
+		clements.getStyleClass().remove(RADIOBUTTON);
+		eckhardt.getStyleClass().remove(RADIOBUTTON);
 		falessi.getStyleClass().addAll(imageBtnStyle, "falessi");
 		mammen.getStyleClass().addAll(imageBtnStyle, "mammen");
 		gharibyan.getStyleClass().addAll(imageBtnStyle, "gharibyan");
