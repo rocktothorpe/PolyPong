@@ -15,12 +15,12 @@ public class Paddle extends Rectangle {
 	}
 	public void slideDown(double gameHeight) {
 		if (this.getY() < gameHeight-this.getHeight()) {
-			this.setY(this.getY() + 5);
+			this.setY(this.getY() + 2);
 		}
 	}
 	public void slideUp(double statusBarHeight) {
 		if (this.getY() > statusBarHeight) {
-			this.setY(this.getY() - 5);
+			this.setY(this.getY() - 2);
 		}
 	}
 	public boolean ballCollides(Ball ball) {
