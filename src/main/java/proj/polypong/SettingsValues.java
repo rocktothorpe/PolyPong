@@ -7,9 +7,11 @@ import javafx.scene.image.Image;
 
 public class SettingsValues {
 	public Image ballImage;
+	public String gameMode = "singlePlayer";
 	public String paddleSize;
 	public String ballSpeed;
 	public String backgroundColor;
+	public String curhead;
 	private static final String COLOR1 = "color1";
 	private static final String COLOR2 = "color2";
 	private static final String COLOR3 = "color3";
@@ -28,6 +30,7 @@ public class SettingsValues {
 	
 	public void setBallImage(String head) {
 		try {
+			curhead = head;
 			ballImage = new Image(new FileInputStream("images/" + head + "head.png"));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

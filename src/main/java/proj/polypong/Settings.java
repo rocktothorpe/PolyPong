@@ -30,8 +30,8 @@ public class Settings extends Window {
 	private HBox genModeBox() {
 		// game mode controls
 		HBox modeBox = new HBox();
-		RadioButton multiPlayer = new RadioButton("PLAYER VS PLAYER");
-		RadioButton singlePlayer = new RadioButton("PLAYER VS MACHINE");
+		RadioButton multiPlayer = new RadioButton("PLAYER VS MACHINE");
+		RadioButton singlePlayer = new RadioButton("PLAYER VS PLAYER");
 
 		// add to a toggle group
 		ToggleGroup paddleGroup = new ToggleGroup();
@@ -48,10 +48,18 @@ public class Settings extends Window {
 		mode.getStyleClass().add(labelStyle);
 		
 		// add to box and format
-		modeBox.getChildren().addAll(mode, multiPlayer, singlePlayer);
+		modeBox.getChildren().addAll(mode, singlePlayer, multiPlayer);
 		modeBox.setAlignment(Pos.CENTER);
 		modeBox.setSpacing(10.0);
 		
+		// decision tree for current setting
+		if (sv.gameMode == "multiPlayer") {
+			multiPlayer.setSelected(true);
+		}
+		else if (sv.gameMode == "singlePlayer") {
+			singlePlayer.setSelected(true);
+		}
+
         // button actions
 		return modeBox;
 	}
@@ -103,6 +111,18 @@ public class Settings extends Window {
     			sv.setPaddleSize("large");
     		}
     	});
+
+
+		// decision tree for current setting
+		if (sv.paddleSize == "small") {
+			small.setSelected(true);
+		}
+		else if (sv.paddleSize == MEDIUM) {
+			medium.setSelected(true);
+		}
+		else if (sv.paddleSize == "large") {
+			large.setSelected(true);
+		}
 		
 		return paddleBox;
 	}
@@ -217,6 +237,17 @@ public class Settings extends Window {
     			sv.setBackgroundColor("color3");
     		}
     	});
+				
+		// decision tree for current setting
+		if (sv.backgroundColor == "color1") {
+			color1.setSelected(true);
+		}
+		else if (sv.backgroundColor == "color2") {
+			color2.setSelected(true);
+		}
+		else if (sv.backgroundColor == "color3") {
+			color3.setSelected(true);
+		}
 		return backgroundBox;
 	}
 
@@ -310,6 +341,29 @@ public class Settings extends Window {
     		}
     	});
 		
+		// decision tree for current setting
+		if (sv.curhead == "falessi") {
+			falessi.setSelected(true);
+		}
+		else if (sv.curhead == "gharibyan") {
+			gharibyan.setSelected(true);
+		}
+		else if (sv.curhead == "clements") {
+			clements.setSelected(true);
+		}
+		else if (sv.curhead == "eckhardt") {
+			eckhardt.setSelected(true);
+		}
+		else if (sv.curhead == "staley") {
+			staley.setSelected(true);
+		}
+		else if (sv.curhead == "lupo") {
+			lupo.setSelected(true);
+		}
+		else if (sv.curhead == "mammen") {
+			mammen.setSelected(true);
+		}
+
 		return ballImageBox;
 	}
 	
