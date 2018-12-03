@@ -63,11 +63,11 @@ public class SettingsValues {
 	public double getBallSpeed() {
 		switch(ballSpeed)
 		{
-			case COLOR1:
+			case SLOW:
 				return -1.05; 
-			case COLOR2:
+			case MEDIUM:
 				return -1.2;
-			case COLOR3:
+			case FAST:
 				return -1.25;
 			default:
 				return -1.05;	

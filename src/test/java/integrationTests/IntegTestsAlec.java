@@ -14,6 +14,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import proj.polypong.Game;
 import proj.polypong.GameController;
+import proj.polypong.NewScore;
+import proj.polypong.Settings;
 import proj.polypong.SettingsValues;
 
 public class IntegTestsAlec {
@@ -23,12 +25,18 @@ public class IntegTestsAlec {
 		double paddleStartLoc, paddleEndLoc;
 		GameController gc = new GameController();
 		SettingsValues set = new SettingsValues();
+
+		Settings s = new Settings(gc, set);
+		String ballSpeed = "medium";
+		set.setBallSpeed(ballSpeed);
 		
 		//String size = "large";
 		//set.setPaddleSize(size);
 		//gc.changetoScene("Game");
-		Game g = new Game(gc,set);
+		//Game g = new Game(gc,set);
 	
+		//NewScore s= new NewScore(gc);
+		//s.drawWindow();
 		/**
 		//set paddle starting location
 		paddleStartLoc = g.p1Paddle.getY();
@@ -37,9 +45,9 @@ public class IntegTestsAlec {
 		g.p1Paddle.isLowering = false;
 		paddleEndLoc = g.p1Paddle.getY();
 
-		
-		assertTrue(paddleStartLoc != paddleEndLoc);
 		**/
+		assertTrue(s.windowTitle.equals(gc.GAMETITLE));
+		
 	}
 
 }
