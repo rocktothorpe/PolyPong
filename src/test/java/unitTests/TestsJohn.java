@@ -25,11 +25,11 @@ public class TestsJohn {
 	@Test
 	public void testGetBallSpeedS() {
 		SettingsValues set = new SettingsValues();
-		set.ballSpeed = "SLOW";
+		set.ballSpeed = "slow";
 		double output = set.getBallSpeed();
 		double correct = -1.05;
 		
-		assertEquals(output, correct, 0.01);
+		assertEquals(correct, output, 0.01);
 		
 	}
 	
