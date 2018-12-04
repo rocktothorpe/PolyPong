@@ -25,7 +25,7 @@ public class IntegTestsJohn {
 		p.slideUp(10);
 		
 	
-		assertEquals(p.getY(),initialPos,.001);		
+		assertEquals(initialPos,p.getY(),.001);		
 	}
 
 	@Test
@@ -33,7 +33,7 @@ public class IntegTestsJohn {
 		
 		Score s = new Score("John", 42);
 		String bob = s.toString();
-		assertEquals(bob,"John 42");			
+		assertEquals("John 42", bob);			
 	}
 
 }
