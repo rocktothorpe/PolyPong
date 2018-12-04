@@ -16,10 +16,21 @@ public class Settings extends Window {
 	
 	private GameController gc;
 	private SettingsValues sv;
-	private String toggleBtnStyle = "custom-button";
-	private String labelStyle = "settings-label";
+	private static final String TOGGLEBTNSTYLE = "custom-button";
+	private static final String LABELSTYLE = "settings-label";
 	private static final String RADIOBUTTON = "radio-button";
 	private static final String MEDIUM = "MEDIUM";
+	private static final String COLOR1 = "color1";
+	private static final String COLOR2 = "color2";
+	private static final String COLOR3 = "color3";
+	private static final String FALESSI = "falessi";
+	private static final String GHARIBYAN = "gharibyan";
+	private static final String CLEMENTS = "clements";
+	private static final String ECKHARDT = "eckhardt";
+	private static final String STALEY = "staley";
+	private static final String LUPO = "lupo";
+	private static final String MAMMEN = "mammen";
+	private static final String MIXED = "mixed";
 	
 	public Settings(GameController gc, SettingsValues sv) {
 		super();
@@ -41,11 +52,11 @@ public class Settings extends Window {
 		// add button style
 		multiPlayer.getStyleClass().remove(RADIOBUTTON);
 		singlePlayer.getStyleClass().remove(RADIOBUTTON);
-		multiPlayer.getStyleClass().add(toggleBtnStyle);
-		singlePlayer.getStyleClass().add(toggleBtnStyle);
+		multiPlayer.getStyleClass().add(TOGGLEBTNSTYLE);
+		singlePlayer.getStyleClass().add(TOGGLEBTNSTYLE);
 		
 		Label mode = new Label("Mode: ");
-		mode.getStyleClass().add(labelStyle);
+		mode.getStyleClass().add(LABELSTYLE);
 		
 		// add to box and format
 		modeBox.getChildren().addAll(mode, singlePlayer, multiPlayer);
@@ -81,12 +92,12 @@ public class Settings extends Window {
 		small.getStyleClass().remove(RADIOBUTTON);
 		medium.getStyleClass().remove(RADIOBUTTON);
 		large.getStyleClass().remove(RADIOBUTTON);
-		small.getStyleClass().add(toggleBtnStyle);
-		medium.getStyleClass().add(toggleBtnStyle);
-		large.getStyleClass().add(toggleBtnStyle);
+		small.getStyleClass().add(TOGGLEBTNSTYLE);
+		medium.getStyleClass().add(TOGGLEBTNSTYLE);
+		large.getStyleClass().add(TOGGLEBTNSTYLE);
 		
 		Label paddleSize = new Label("Paddle Size: ");
-		paddleSize.getStyleClass().add(labelStyle);
+		paddleSize.getStyleClass().add(LABELSTYLE);
 		
 		// add to box and format
 		paddleBox.getChildren().addAll(paddleSize, small, medium, large);
@@ -144,12 +155,12 @@ public class Settings extends Window {
 		slowSpeed.getStyleClass().remove(RADIOBUTTON);
 		mediumSpeed.getStyleClass().remove(RADIOBUTTON);
 		fastSpeed.getStyleClass().remove(RADIOBUTTON);
-		slowSpeed.getStyleClass().add(toggleBtnStyle);
-		mediumSpeed.getStyleClass().add(toggleBtnStyle);
-		fastSpeed.getStyleClass().add(toggleBtnStyle);
+		slowSpeed.getStyleClass().add(TOGGLEBTNSTYLE);
+		mediumSpeed.getStyleClass().add(TOGGLEBTNSTYLE);
+		fastSpeed.getStyleClass().add(TOGGLEBTNSTYLE);
 
 		Label ballSpeed = new Label("Ball Speed: ");
-		ballSpeed.getStyleClass().add(labelStyle);
+		ballSpeed.getStyleClass().add(LABELSTYLE);
 		
 		// add to box and format
 		ballSpeedBox.getChildren().addAll(ballSpeed, slowSpeed, mediumSpeed, fastSpeed);
@@ -207,12 +218,12 @@ public class Settings extends Window {
 		color1.getStyleClass().remove(RADIOBUTTON);
 		color2.getStyleClass().remove(RADIOBUTTON);
 		color3.getStyleClass().remove(RADIOBUTTON);
-		color1.getStyleClass().addAll(colorBtnStyle, "color1");
-		color2.getStyleClass().addAll(colorBtnStyle, "color2");
-		color3.getStyleClass().addAll(colorBtnStyle, "color3");
+		color1.getStyleClass().addAll(colorBtnStyle, COLOR1);
+		color2.getStyleClass().addAll(colorBtnStyle, COLOR2);
+		color3.getStyleClass().addAll(colorBtnStyle, COLOR3);
 
 		Label ballSpeed = new Label("Background Color: ");
-		ballSpeed.getStyleClass().add(labelStyle);
+		ballSpeed.getStyleClass().add(LABELSTYLE);
 		
 		// add to box and format
 		backgroundBox.getChildren().addAll(ballSpeed, color1, color2, color3);
@@ -222,30 +233,30 @@ public class Settings extends Window {
         // button actions
         color1.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even) {
-    			sv.setBackgroundColor("color1");
+    			sv.setBackgroundColor(COLOR1);
     		}
     	});
 		
         color2.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even) {
-    			sv.setBackgroundColor("color2");
+    			sv.setBackgroundColor(COLOR2);
     		}
     	});
 		
 		color3.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even) {
-    			sv.setBackgroundColor("color3");
+    			sv.setBackgroundColor(COLOR3);
     		}
     	});
 				
 		// decision tree for current setting
-		if (sv.backgroundColor == "color1") {
+		if (sv.backgroundColor == COLOR1) {
 			color1.setSelected(true);
 		}
-		else if (sv.backgroundColor == "color2") {
+		else if (sv.backgroundColor == COLOR2) {
 			color2.setSelected(true);
 		}
-		else if (sv.backgroundColor == "color3") {
+		else if (sv.backgroundColor == COLOR3) {
 			color3.setSelected(true);
 		}
 		return backgroundBox;
@@ -285,17 +296,17 @@ public class Settings extends Window {
 		clements.getStyleClass().remove(RADIOBUTTON);
 		eckhardt.getStyleClass().remove(RADIOBUTTON);
 		mixed.getStyleClass().remove(RADIOBUTTON);
-		falessi.getStyleClass().addAll(imageBtnStyle, "falessi");
-		mammen.getStyleClass().addAll(imageBtnStyle, "mammen");
-		gharibyan.getStyleClass().addAll(imageBtnStyle, "gharibyan");
-		lupo.getStyleClass().addAll(imageBtnStyle, "lupo");
-		staley.getStyleClass().addAll(imageBtnStyle, "staley");
-		clements.getStyleClass().addAll(imageBtnStyle, "clements");
-		eckhardt.getStyleClass().addAll(imageBtnStyle, "eckhardt");
-		mixed.getStyleClass().addAll(imageBtnStyle, "mixed");
+		falessi.getStyleClass().addAll(imageBtnStyle, FALESSI);
+		mammen.getStyleClass().addAll(imageBtnStyle, MAMMEN);
+		gharibyan.getStyleClass().addAll(imageBtnStyle, GHARIBYAN);
+		lupo.getStyleClass().addAll(imageBtnStyle, LUPO);
+		staley.getStyleClass().addAll(imageBtnStyle, STALEY);
+		clements.getStyleClass().addAll(imageBtnStyle, CLEMENTS);
+		eckhardt.getStyleClass().addAll(imageBtnStyle, ECKHARDT);
+		mixed.getStyleClass().addAll(imageBtnStyle, MIXED);
 		
 		Label ballImage = new Label("Ball Image: ");
-		ballImage.getStyleClass().add(labelStyle);
+		ballImage.getStyleClass().add(LABELSTYLE);
 
 		// add to box and format		
 		ballImageBox.getChildren().addAll(ballImage, falessi, mammen, gharibyan, eckhardt, lupo, staley, clements, mixed);
@@ -305,75 +316,75 @@ public class Settings extends Window {
         // button actions
 		falessi.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even) {
-    			sv.setBallImage("falessi");
+    			sv.setBallImage(FALESSI);
     		}
     	});
 		
 		mammen.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even) {
-    			sv.setBallImage("mammen");
+    			sv.setBallImage(MAMMEN);
     		}
     	});
 
 		gharibyan.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even) {
-    			sv.setBallImage("gharibyan");
+    			sv.setBallImage(GHARIBYAN);
     		}
     	});
     	
     	lupo.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even) {
-    			sv.setBallImage("lupo");
+    			sv.setBallImage(LUPO);
     		}
     	});
 		
 		staley.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even) {
-    			sv.setBallImage("staley");
+    			sv.setBallImage(STALEY);
     		}
     	});
 		
 		clements.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even) {
-    			sv.setBallImage("clements");
+    			sv.setBallImage(CLEMENTS);
     		}
     	});
 
 		eckhardt.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even) {
-    			sv.setBallImage("eckhardt");
+    			sv.setBallImage(ECKHARDT);
     		}
     	});
 		
 		mixed.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even) {
-    			sv.setBallImage("mixed");
+    			sv.setBallImage(MIXED);
     		}
     	});
 		
 		// decision tree for current setting
-		if (sv.curhead == "falessi") {
+		if (sv.curhead == FALESSI) {
 			falessi.setSelected(true);
 		}
-		else if (sv.curhead == "gharibyan") {
+		else if (sv.curhead == GHARIBYAN) {
 			gharibyan.setSelected(true);
 		}
-		else if (sv.curhead == "clements") {
+		else if (sv.curhead == CLEMENTS) {
 			clements.setSelected(true);
 		}
-		else if (sv.curhead == "eckhardt") {
+		else if (sv.curhead == ECKHARDT) {
 			eckhardt.setSelected(true);
 		}
-		else if (sv.curhead == "staley") {
+		else if (sv.curhead == STALEY) {
 			staley.setSelected(true);
 		}
-		else if (sv.curhead == "lupo") {
+		else if (sv.curhead == LUPO) {
 			lupo.setSelected(true);
 		}
-		else if (sv.curhead == "mammen") {
+		else if (sv.curhead == MAMMEN) {
 			mammen.setSelected(true);
 		}
-		else if (sv.curhead == "mixed") {
+		else if (sv.curhead == MIXED) {
 			mixed.setSelected(true);
 		}
 

@@ -181,6 +181,7 @@ public class Game extends Window {
         			try {
         				ball.changeFill(sv.nextBallImage());
         			} catch (FileNotFoundException e1) {
+        				e1.printStackTrace();
         			}
         		}
         	} else {
@@ -196,6 +197,7 @@ public class Game extends Window {
         			try {
         				ball.changeFill(sv.nextBallImage());
         			} catch (FileNotFoundException e1) {
+        				e1.printStackTrace();
         			}
     			}
         	} else {
