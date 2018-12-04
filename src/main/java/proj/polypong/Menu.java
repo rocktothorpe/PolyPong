@@ -9,6 +9,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
@@ -27,14 +28,23 @@ public class Menu extends  Window {
 
 	@Override
 	public Scene drawWindow() {
-		this.setStyle("-fx-background-color: #002000;");
-		Button playGame = new Button("Play Game");
-		Button viewScoreboard = new Button("Scoreboard");
-		Button settings  = new Button("Settings");
-		Button tutorial = new Button("Tutorial");
+		this.setStyle("-fx-background-color: #22262f;");
+        this.getStylesheets().add("stylesheet.css");
+		Button playGame = new Button("");
+		playGame.getStyleClass().remove("button");
+		playGame.getStyleClass().addAll("mainmenu-button", "play-button");
+		Button viewScoreboard = new Button("");
+		viewScoreboard.getStyleClass().remove("button");
+		viewScoreboard.getStyleClass().addAll("mainmenu-button", "scoreboard-button");
+		Button settings  = new Button("");
+		settings.getStyleClass().remove("button");
+		settings.getStyleClass().addAll("mainmenu-button", "settings-button");
+		Button tutorial = new Button("");
+		tutorial.getStyleClass().remove("button");
+		tutorial.getStyleClass().addAll("mainmenu-button", "tutorial-button");
 		Rectangle logo = new Rectangle(400,200);
 		try {
-			Image logoImage = new Image(new FileInputStream("images/Logo.png"));
+			Image logoImage = new Image(new FileInputStream("images/Logo2.png"));
 			logo.setFill(new ImagePattern(logoImage));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -68,7 +78,7 @@ public class Menu extends  Window {
     	});
         
         VBox logoBox = new VBox();
-        VBox menuBox = new VBox();
+        HBox menuBox = new HBox();
         logoBox.setAlignment(Pos.TOP_CENTER);
         logoBox.getChildren().addAll(logo);
         menuBox.setAlignment(Pos.CENTER);

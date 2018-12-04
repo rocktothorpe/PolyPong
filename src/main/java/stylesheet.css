@@ -86,6 +86,30 @@
     -fx-border-color: #f7dd72;
 }
 
+.mainmenu-button {
+    -fx-min-width: 100px;
+    -fx-min-height: 100px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 100px 100px;
+}
+
+.play-button {
+	-fx-background-image: url(../../images/playbutton.png);
+}
+
+.scoreboard-button {
+	-fx-background-image: url(../../images/scoreboardbutton.png);
+}
+
+.settings-button {
+	-fx-background-image: url(../../images/settingsbutton.png);
+}
+
+.tutorial-button {
+	-fx-background-image: url(../../images/playbutton.png);
+}
+
 .falessi {
 	-fx-background-image: url(../../images/falessihead.png);
 }
