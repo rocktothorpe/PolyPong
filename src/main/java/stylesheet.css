@@ -38,11 +38,18 @@
     -fx-border-color: #f7dd72;
 }
 
+.settings-heading {
+    -fx-min-width: 512px;
+    -fx-min-height: 123px;
+	-fx-background-image: url(../../images/settings.png);
+}
+
 .settings-label {
     -fx-text-fill: #ffffff;
     -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     -fx-font-size: 11pt;
 }
+
 
 .scoreboard-label {
     -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
@@ -64,19 +71,54 @@
 }
 
 .image-button {
-    -fx-background-size: 38px, 38px;
+    -fx-background-size: 48px, 48px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-color: #22262f;
-    -fx-border-radius: 20px;
-    -fx-min-width: 40px;
-    -fx-min-height: 40px;
+    -fx-border-radius: 30px;
+    -fx-min-width: 50px;
+    -fx-min-height: 50px;
     -fx-border-width: 2;
     -fx-border-color: #ffffff;
 }
 
 .image-button:selected {
     -fx-border-color: #f7dd72;
+}
+
+.mainmenu-button {
+    -fx-min-width: 100px;
+    -fx-min-height: 100px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: #22262f;
+    -fx-background-size: 100px 100px;
+}
+
+.logo {
+    -fx-padding: 40; 
+    -fx-min-width: 376px;
+    -fx-min-height: 170px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 376px 170px;
+	-fx-background-image: url(../../images/Logo2.png);
+}
+
+.play-button {
+	-fx-background-image: url(../../images/playbutton.png);
+}
+
+.scoreboard-button {
+	-fx-background-image: url(../../images/scoreboardbutton.png);
+}
+
+.settings-button {
+	-fx-background-image: url(../../images/settingsbutton.png);
+}
+
+.tutorial-button {
+	-fx-background-image: url(../../images/tutorialbutton.png);
 }
 
 .falessi {
@@ -105,4 +147,8 @@
 
 .eckhardt {
 	-fx-background-image: url(../../images/eckhardthead.png);	
+}
+
+.mixed {
+	-fx-background-image: url(../../images/mixed.png);
 }

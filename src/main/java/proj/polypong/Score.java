@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Score {
 	String name;
 	Integer scoreVal;
-	Score(String name, Integer score) {
+	public Score(String name, Integer score) {
 		this.name = name;
 		this.scoreVal = score;
 	}
