@@ -65,13 +65,13 @@
 }
 
 .image-button {
-    -fx-background-size: 38px, 38px;
+    -fx-background-size: 48px, 48px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-color: #22262f;
-    -fx-border-radius: 20px;
-    -fx-min-width: 40px;
-    -fx-min-height: 40px;
+    -fx-border-radius: 30px;
+    -fx-min-width: 50px;
+    -fx-min-height: 50px;
     -fx-border-width: 2;
     -fx-border-color: #ffffff;
 }
@@ -106,4 +106,8 @@
 
 .eckhardt {
 	-fx-background-image: url(../../images/eckhardthead.png);	
+}
+
+.mixed {
+	-fx-background-image: url(../../images/mixed.png);
 }

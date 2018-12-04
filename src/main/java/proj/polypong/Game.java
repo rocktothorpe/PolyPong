@@ -1,5 +1,7 @@
 package proj.polypong;
 
+import java.io.FileNotFoundException;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -174,6 +176,13 @@ public class Game extends Window {
         	if (p1Paddle.ballCollides(ball)) {
         		ball.xVelocity *= ballSpeed;
         		ball.ballRot*=ballSpeed;
+        		// change imageHead if mixed mode
+        		if (sv.curhead == "mixed") {
+        			try {
+        				ball.changeFill(sv.nextBallImage());
+        			} catch (FileNotFoundException e1) {
+        			}
+        		}
         	} else {
         		timeline.pause();
         		gc.changetoScene("NewScore");
@@ -182,6 +191,13 @@ public class Game extends Window {
         	if (p2Paddle.ballCollides(ball)) {
         		ball.xVelocity *= ballSpeed;
         		ball.ballRot*=ballSpeed;
+        		// change imageHead if mixed mode
+        		if (sv.curhead == "mixed") {
+        			try {
+        				ball.changeFill(sv.nextBallImage());
+        			} catch (FileNotFoundException e1) {
+        			}
+    			}
         	} else {
         		timeline.pause();
         		gc.changetoScene("NewScore");

@@ -12,6 +12,8 @@ public class SettingsValues {
 	public String ballSpeed;
 	public String backgroundColor;
 	public String curhead;
+	public String[] headValues = {"falessi", "mammen", "gharibyan", "lupo", "staley", "clements", "eckhardt"};
+	private int headPos = 1;
 	private static final String COLOR1 = "color1";
 	private static final String COLOR2 = "color2";
 	private static final String COLOR3 = "color3";
@@ -29,12 +31,34 @@ public class SettingsValues {
 	}
 	
 	public void setBallImage(String head) {
+
+		curhead = head;
+		if (head == "mixed") {
+			headPos = 1;
+			try {
+				ballImage = new Image(new FileInputStream("images/falessihead.png"));
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+			return;
+		}
+		
 		try {
-			curhead = head;
 			ballImage = new Image(new FileInputStream("images/" + head + "head.png"));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public Image nextBallImage() throws FileNotFoundException {
+		Image result;	
+		result = new Image(new FileInputStream("images/" + headValues[headPos] + "head.png"));
+		headPos++;
+		
+		if (headPos == headValues.length - 1) {
+			headPos = 0;
+		}
+		return result;
 	}
 	
 	public void setPaddleSize(String size) {

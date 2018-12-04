@@ -263,6 +263,7 @@ public class Settings extends Window {
 		RadioButton staley = new RadioButton("");
 		RadioButton clements = new RadioButton("");
 		RadioButton eckhardt = new RadioButton("");
+		RadioButton mixed = new RadioButton("");
 		
 		// add to a toggle group
 		ToggleGroup ballImageGroup = new ToggleGroup();
@@ -273,6 +274,7 @@ public class Settings extends Window {
 		staley.setToggleGroup(ballImageGroup);
 		clements.setToggleGroup(ballImageGroup);
 		eckhardt.setToggleGroup(ballImageGroup);
+		mixed.setToggleGroup(ballImageGroup);
 		
 		// add button style
 		falessi.getStyleClass().remove(RADIOBUTTON);
@@ -282,6 +284,7 @@ public class Settings extends Window {
 		staley.getStyleClass().remove(RADIOBUTTON);
 		clements.getStyleClass().remove(RADIOBUTTON);
 		eckhardt.getStyleClass().remove(RADIOBUTTON);
+		mixed.getStyleClass().remove(RADIOBUTTON);
 		falessi.getStyleClass().addAll(imageBtnStyle, "falessi");
 		mammen.getStyleClass().addAll(imageBtnStyle, "mammen");
 		gharibyan.getStyleClass().addAll(imageBtnStyle, "gharibyan");
@@ -289,12 +292,13 @@ public class Settings extends Window {
 		staley.getStyleClass().addAll(imageBtnStyle, "staley");
 		clements.getStyleClass().addAll(imageBtnStyle, "clements");
 		eckhardt.getStyleClass().addAll(imageBtnStyle, "eckhardt");
+		mixed.getStyleClass().addAll(imageBtnStyle, "mixed");
 		
 		Label ballImage = new Label("Ball Image: ");
 		ballImage.getStyleClass().add(labelStyle);
 
 		// add to box and format		
-		ballImageBox.getChildren().addAll(ballImage, falessi, mammen, gharibyan, eckhardt, lupo, staley, clements);
+		ballImageBox.getChildren().addAll(ballImage, falessi, mammen, gharibyan, eckhardt, lupo, staley, clements, mixed);
 		ballImageBox.setAlignment(Pos.CENTER);
 		ballImageBox.setSpacing(10.0);
 	
@@ -341,6 +345,12 @@ public class Settings extends Window {
     		}
     	});
 		
+		mixed.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even) {
+    			sv.setBallImage("mixed");
+    		}
+    	});
+		
 		// decision tree for current setting
 		if (sv.curhead == "falessi") {
 			falessi.setSelected(true);
@@ -362,6 +372,9 @@ public class Settings extends Window {
 		}
 		else if (sv.curhead == "mammen") {
 			mammen.setSelected(true);
+		}
+		else if (sv.curhead == "mixed") {
+			mixed.setSelected(true);
 		}
 
 		return ballImageBox;
