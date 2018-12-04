@@ -11,6 +11,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 public class Menu extends  Window {
+	private static final String button = "button";
+	private static final String mainbutton = "mainmenu-button";
 	
 	private GameController gc; 
 	public Menu(GameController gc) {
@@ -23,20 +25,20 @@ public class Menu extends  Window {
 		this.setStyle("-fx-background-color: #22262f;");
         this.getStylesheets().add("stylesheet.css");
 		Button playGame = new Button("");
-		playGame.getStyleClass().remove("button");
-		playGame.getStyleClass().addAll("mainmenu-button", "play-button");
+		playGame.getStyleClass().remove(button);
+		playGame.getStyleClass().addAll(mainbutton, "play-button");
 		Button viewScoreboard = new Button("");
-		viewScoreboard.getStyleClass().remove("button");
-		viewScoreboard.getStyleClass().addAll("mainmenu-button", "scoreboard-button");
+		viewScoreboard.getStyleClass().remove(button);
+		viewScoreboard.getStyleClass().addAll(mainbutton, "scoreboard-button");
 		Button settings  = new Button("");
-		settings.getStyleClass().remove("button");
-		settings.getStyleClass().addAll("mainmenu-button", "settings-button");
+		settings.getStyleClass().remove(button);
+		settings.getStyleClass().addAll(mainbutton, "settings-button");
 		Button tutorial = new Button("");
-		tutorial.getStyleClass().remove("button");
-		tutorial.getStyleClass().addAll("mainmenu-button", "tutorial-button");
+		tutorial.getStyleClass().remove(button);
+		tutorial.getStyleClass().addAll(mainbutton, "tutorial-button");
 		Label logo = new Label("");
 		logo.getStyleClass().add("logo");
-        Scene scene = new Scene(this, width, height, Color.BLACK);
+        Scene scene = new Scene(this, width, height);
         
         playGame.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even ) {
