@@ -31,6 +31,7 @@ public class Menu extends  Window {
 		Button playGame = new Button("Play Game");
 		Button viewScoreboard = new Button("Scoreboard");
 		Button settings  = new Button("Settings");
+		Button tutorial = new Button("Tutorial");
 		Rectangle logo = new Rectangle(400,200);
 		try {
 			Image logoImage = new Image(new FileInputStream("images/Logo.png"));
@@ -59,13 +60,20 @@ public class Menu extends  Window {
     			gc.changetoScene("Scoreboard");
     		}
     	});
+        
+        tutorial.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent even ) {
+    			gc.changetoScene("Tutorial");
+    		}
+    	});
+        
         VBox logoBox = new VBox();
         VBox menuBox = new VBox();
         logoBox.setAlignment(Pos.TOP_CENTER);
         logoBox.getChildren().addAll(logo);
         menuBox.setAlignment(Pos.CENTER);
         menuBox.setSpacing(10.0);
-        menuBox.getChildren().addAll(playGame, viewScoreboard, settings);
+        menuBox.getChildren().addAll(playGame,tutorial, viewScoreboard, settings);
         this.getChildren().addAll(logoBox, menuBox);
         this.setAlignment(Pos.CENTER);
         return scene;

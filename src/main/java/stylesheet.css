@@ -44,6 +44,14 @@
     -fx-font-size: 11pt;
 }
 
+.tutorial-label {
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 16pt;
+}
+
+
+
 .scoreboard-label {
     -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     -fx-font-size: 13pt;
