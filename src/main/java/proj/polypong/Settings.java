@@ -387,7 +387,8 @@ public class Settings extends Window {
         scene.getStylesheets().add("stylesheet.css");
 		this.setStyle("-fx-background-color: #22262f;");
 		
-		windowTitle = new Label("SETTINGS");
+		Label settingsLabel = new Label("");
+		settingsLabel.getStyleClass().add("settings-heading");
 		
 		// generate horizontal boxes
 		HBox modeBox = genModeBox();
@@ -399,7 +400,7 @@ public class Settings extends Window {
 		// adding all controls to a vertical box
 		VBox menuBox = new VBox();
         menuBox.setAlignment(Pos.CENTER);
-        menuBox.setSpacing(10.0);
+        menuBox.setSpacing(15.0);
         menuBox.getChildren().addAll(modeBox, paddleBox, ballSpeedBox, ballImageBox, backgroundBox);
         
 		// back button
@@ -413,9 +414,9 @@ public class Settings extends Window {
     	});
 		
         StackPane.setAlignment(back, Pos.TOP_LEFT);
-        StackPane.setAlignment(windowTitle, Pos.TOP_CENTER);
+        StackPane.setAlignment(settingsLabel, Pos.TOP_CENTER);
         StackPane.setAlignment(menuBox, Pos.CENTER);
-        this.getChildren().addAll(menuBox, back);
+        this.getChildren().addAll(settingsLabel, menuBox, back);
         return scene;
 	}
 }

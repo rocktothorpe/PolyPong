@@ -38,6 +38,12 @@
     -fx-border-color: #f7dd72;
 }
 
+.settings-heading {
+    -fx-min-width: 512px;
+    -fx-min-height: 123px;
+	-fx-background-image: url(../../images/settings.png);
+}
+
 .settings-label {
     -fx-text-fill: #ffffff;
     -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
