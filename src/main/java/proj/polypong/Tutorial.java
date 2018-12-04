@@ -38,10 +38,10 @@ public class Tutorial extends Window {
 		
 		
 		Scene scene = new Scene(this, width, height);
-		scene.getStylesheets().add("stylesheet.css");
-		this.setStyle("-fx-background-color: #22262f;");
-		String labelStyle = "tutorial-label";
-		
+//		scene.getStylesheets().add("stylesheet.css");
+//		this.setStyle("-fx-background-color: #22262f;");
+//		String labelStyle = "tutorial-label";
+//		
 		// back button
 		Button back = new Button("X");
 		back.getStyleClass().add("back-button");
@@ -55,17 +55,6 @@ public class Tutorial extends Window {
         StackPane.setAlignment(back, Pos.TOP_LEFT);
         
         VBox output = new VBox();
-        Label objective = new Label("objective: hit the ball past your opponent's paddle");
-        Label controls = new Label("use W, S, Up arrow, Down arrow to move your paddle");
-        Label morecontrols = new Label("\tP - play game/ pause game\n" + "\tR - replay/reset game");
-        objective.setTextFill(Color.WHITE);
-        objective.getStyleClass().add(labelStyle);
-        controls.setTextFill(Color.WHITE);
-        controls.getStyleClass().add(labelStyle);
-        morecontrols.setTextFill(Color.WHITE);
-        morecontrols.getStyleClass().add(labelStyle);
-        output.setAlignment(Pos.CENTER);
-        output.getChildren().addAll(objective,controls,morecontrols);
         this.getChildren().addAll(output, back);
 		
 		return scene;
