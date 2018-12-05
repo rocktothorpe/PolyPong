@@ -8,8 +8,8 @@
 package integrationTests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import proj.polypong.SettingsValues;
@@ -21,11 +21,11 @@ public class IntegTestAllen {
 		SettingsValues setting = new SettingsValues();
 		String newBackground = "color1";
 		setting.setBackgroundColor(newBackground);
-		assertEquals(setting.backgroundColor, "color1");
+		assertEquals("color1", setting.backgroundColor);
 		
 		String colorString = setting.getBackgroundColor();
 		
-		assertEquals(colorString, "#80A4ED");
+		assertTrue(colorString == "#80A4ED");
 	}
 	
 	@Test
@@ -33,10 +33,10 @@ public class IntegTestAllen {
 		SettingsValues setting = new SettingsValues();
 		String newBackground = "color3";
 		setting.setBackgroundColor(newBackground);
-		assertEquals(setting.backgroundColor, "color3");
+		assertEquals("color3", setting.backgroundColor);
 		
 		String colorString = setting.getBackgroundColor();
-		assertEquals(colorString, "#E01A4F");
+		assertTrue(colorString == "#E01A4F");
 	}
 	
 }

@@ -17,7 +17,7 @@ import proj.polypong.Score;
 
 public class IntegTestsJohn {
 	@Test
-	public void testpaddleslidesupanddown() {
+	public void testPaddleUpDown() {
 		
 		int initialPos = 150;
 		Paddle p = new Paddle(5, initialPos, 10, 100, Color.WHEAT);
@@ -29,10 +29,10 @@ public class IntegTestsJohn {
 	}
 
 	@Test
-	public void testPaddlesnotmovingupatstartofGame() {
+	public void testSetScore() {
 		
 		Score s = new Score("John", 42);
-		String bob = s.toString();
+		String bob = s.toString(); // Nate overloaded this
 		assertEquals("John 42", bob);			
 	}
 
