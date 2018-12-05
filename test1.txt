@@ -1,0 +1,3 @@
+rocki 3
+nate 2
+stoystoy 1
