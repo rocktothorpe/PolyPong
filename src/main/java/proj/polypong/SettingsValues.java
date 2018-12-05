@@ -108,17 +108,7 @@ public class SettingsValues {
 	}
 
 	public String getBackgroundColorS() {
-		switch(backgroundColor)
-		{
-			case COLOR1:
-				return "color1"; 
-			case COLOR2:
-				return "color2";
-			case COLOR3:
-				return "color3";
-			default:
-				return "color1";	
-		}
+		return backgroundColor;
 	}
 	
 	public String getBackgroundColor() {
@@ -131,7 +121,7 @@ public class SettingsValues {
 			case COLOR3:
 				return "#5C6B8B";
 			default:
-				return "826FC4";	
+				return "#826FC4";	
 		}
 	}
 }

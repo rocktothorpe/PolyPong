@@ -25,7 +25,7 @@ public class IntegTestAllen {
 		
 		String colorString = setting.getBackgroundColor();
 		
-		assertTrue(colorString == "#80A4ED");
+		assertTrue(colorString == "#336967");
 	}
 	
 	@Test
@@ -36,7 +36,7 @@ public class IntegTestAllen {
 		assertEquals("color3", setting.backgroundColor);
 		
 		String colorString = setting.getBackgroundColor();
-		assertTrue(colorString == "#E01A4F");
+		assertTrue(colorString == "#5C6B8B");
 	}
 	
 }

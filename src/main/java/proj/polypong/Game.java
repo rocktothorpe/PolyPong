@@ -71,7 +71,6 @@ public class Game extends Window {
         Pane pane = new Pane();
         pane.getChildren().addAll(ball, p1Paddle, p2Paddle, statusBar);
 		pane.getStylesheets().add("stylesheet.css");
-//        pane.setStyle("-fx-background-color: "+ sv.getBackgroundColor() + ";");
         pane.getStyleClass().add(sv.getBackgroundColorS());
         Scene scene = new Scene(pane, width, height, Color.WHITE);
         
