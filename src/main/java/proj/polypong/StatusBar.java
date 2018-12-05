@@ -9,7 +9,7 @@ public class StatusBar extends HBox {
 	
 	public StatusBar(double gameWidth, double statusBarHeight, GameController gc) {
 		super ();
-		this.setStyle("-fx-background-color: rgb(166, 161, 159);");
+		this.setStyle("-fx-background-color: #22262f;");
 		this.setPrefWidth(gameWidth);
 		Button back = new Button("X");
 		back.getStyleClass().add("back-button");

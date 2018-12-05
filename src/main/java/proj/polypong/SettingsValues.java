@@ -106,18 +106,32 @@ public class SettingsValues {
 			backgroundColor = color;
 		}
 	}
+
+	public String getBackgroundColorS() {
+		switch(backgroundColor)
+		{
+			case COLOR1:
+				return "color1"; 
+			case COLOR2:
+				return "color2";
+			case COLOR3:
+				return "color3";
+			default:
+				return "color1";	
+		}
+	}
 	
 	public String getBackgroundColor() {
 		switch(backgroundColor)
 		{
 			case COLOR1:
-				return "#80A4ED"; 
+				return "#336967"; 
 			case COLOR2:
-				return "#395C6B";
+				return "#3E4F74";
 			case COLOR3:
-				return "#E01A4F";
+				return "#5C6B8B";
 			default:
-				return "#0C090D";	
+				return "826FC4";	
 		}
 	}
 }

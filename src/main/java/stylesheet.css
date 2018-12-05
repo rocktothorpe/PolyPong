@@ -22,15 +22,15 @@
 }
 
 .color1 {
-    -fx-background-color: #80A4ED;
+    -fx-background-color: #336967;
 }
 
 .color2 {
-    -fx-background-color: #395C6B;
+    -fx-background-color: #3E4F74;
 }
 
 .color3 {
-    -fx-background-color: #E01A4F;
+    -fx-background-color: #826FC4;
 }
 
 .custom-button:selected {
