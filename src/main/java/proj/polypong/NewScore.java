@@ -29,6 +29,7 @@ public class NewScore extends Window {
 	
 	@Override
 	public Scene drawWindow() {
+		this.getStylesheets().add("stylesheet.css");
         this.setStyle("-fx-background-color: #000000;");
         Scene scene = new Scene(this, width, height, Color.WHITE);
         
@@ -68,6 +69,7 @@ public class NewScore extends Window {
         }; 
 		
 		saveScoreButton = new Button();
+        saveScoreButton.getStyleClass().add("custom-button");
 		saveScoreButton.setDisable(true);
 		saveScoreButton.setText("Save");
 		saveScoreButton.setLayoutY((height/2) - (usernameField.getHeight()/2) + 50);
