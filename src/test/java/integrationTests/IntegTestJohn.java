@@ -17,7 +17,7 @@ public class IntegTestJohn {
 		SettingsValues settingValues = new SettingsValues();
 		settingValues.setBackgroundColor("color2");
 		
-		assertTrue("#395C6B" == settingValues.getBackgroundColor());
+		assertTrue("#3E4F74" == settingValues.getBackgroundColor());
 		
 	}
 	
