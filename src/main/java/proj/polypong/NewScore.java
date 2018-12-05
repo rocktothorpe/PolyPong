@@ -52,7 +52,7 @@ public class NewScore extends Window {
 		
 		EventHandler<ActionEvent> saveScore = new EventHandler<ActionEvent>() { 
             public void handle(ActionEvent e) { 
-            	List<Score> scores = Score.getScores();
+            	List<Score> scores = Score.getScores("scores.txt");
             	boolean exists = false;
             	for (int i = 0; i < scores.size(); i++) {
             		if (usernameField.getText().equals(scores.get(i).name)) {
@@ -63,7 +63,7 @@ public class NewScore extends Window {
             	if (!exists) {
             		scores.add(new Score(usernameField.getText(), 1));
             	}
-            	Score.writeToFile(scores);
+            	Score.writeToFile(scores, "scores.txt");
             	gc.changetoScene("Scoreboard");
             } 
         }; 

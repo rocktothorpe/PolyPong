@@ -19,8 +19,8 @@ public class Score {
 	public String toString() {
 		return name + " " + scoreVal.toString();
 	}
-	public static List<Score> getScores() {
-		File file = new File("scores.txt");
+	public static List<Score> getScores(String filename) {
+		File file = new File(filename);
 		try {
 			file.createNewFile();
 		} catch (IOException e1) {
@@ -42,10 +42,10 @@ public class Score {
 		}
 		return scores;
 	}
-	public static void writeToFile(List<Score> scores) {
+	public static void writeToFile(List<Score> scores, String filename) {
 	    BufferedWriter writer;
 		try {
-			writer = new BufferedWriter(new FileWriter("scores.txt"));
+			writer = new BufferedWriter(new FileWriter(filename));
 		    for (int i = 0; i < scores.size(); i++) {
 		    	writer.write(scores.get(i).toString() + "\n");
 	    	}

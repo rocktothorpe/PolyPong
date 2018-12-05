@@ -35,7 +35,7 @@ public class Scoreboard extends Window {
 	
 	@Override
 	public Scene drawWindow() {
-		 List<Score> scores = Score.getScores();
+		 List<Score> scores = Score.getScores("scores.txt");
 		Comparator<Score> comparator = new ScoreComparator();
 		Collections.sort(scores, comparator);
 		
