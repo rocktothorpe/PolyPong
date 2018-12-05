@@ -1,18 +1,15 @@
 package unitTests;
 
+import org.junit.Test;
+
+import junit.framework.TestCase;
+import proj.polypong.SettingsValues;
+
 /*
  * Allen Deng's 2 Unit Tests
  */
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Test;
-
-import junit.framework.Assert;
-import junit.framework.TestCase;
-import proj.polypong.SettingsValues;
-
-class TestsAllen {
+public class TestsAllen extends TestCase {
 
 	
 	@Test
