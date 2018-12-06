@@ -22,13 +22,22 @@ public class SettingsValues {
 	private static final String LARGE = "large";
 	private static final String SLOW = "slow";
 	private static final String FAST = "fast";
+    private static SettingsValues single_instance = null; 
 	
-	public SettingsValues() {
+	private SettingsValues() {
 		paddleSize = SMALL;
 		ballSpeed = MEDIUM;
 		backgroundColor = COLOR1;
 		setBallImage("falessi");
 	}
+	
+	public static SettingsValues getInstance() 
+    { 
+        if (single_instance == null) 
+            single_instance = new SettingsValues(); 
+  
+        return single_instance; 
+    } 
 	
 	public void setBallImage(String head) {
 

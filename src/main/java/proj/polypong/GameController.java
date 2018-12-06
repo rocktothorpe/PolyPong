@@ -10,7 +10,7 @@ public class GameController extends Application {
 	public static final Color BACKGROUNDCOLOR = Color.rgb(29, 32, 44);
 	public static final String GAMETITLE = "PolyPong";
 	public static Stage theStage;
-	public static SettingsValues sv;
+	private static SettingsValues sv;
 	
     @Override
     public void start(Stage stage) {
@@ -21,13 +21,13 @@ public class GameController extends Application {
     
     private static void staticValues(Stage stage)
     {
-    	sv = new SettingsValues();
+    	sv = SettingsValues.getInstance();
     	theStage = stage;
     }
     
     public void changetoScene(String scene) {
     	if (scene == "Game") {
-    		Window game = new Game(this, sv);
+    		Window game = new Game(this);
     		Scene gameScene = game.drawWindow();
     		theStage.setScene(gameScene);
     	} else if (scene == "Menu") {
@@ -35,7 +35,7 @@ public class GameController extends Application {
     		Scene menuScene = menu.drawWindow();
     		theStage.setScene(menuScene);
 		} else if (scene == "Settings") {
-			Window settings = new Settings(this, sv);
+			Window settings = new Settings(this);
 			Scene settingsScene = settings.drawWindow();
 			theStage.setScene(settingsScene);
 		} else if (scene == "Scoreboard") {

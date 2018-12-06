@@ -48,10 +48,10 @@ public class Game extends Window {
 	Label pauseLabel = new Label("PAUSED");
 	
 	
-	public Game(GameController gc, SettingsValues sv) {
+	public Game(GameController gc) {
 		super();
 		this.gc = gc;
-		this.sv = sv;
+		this.sv = SettingsValues.getInstance();
 		initGame();
 	}
 	

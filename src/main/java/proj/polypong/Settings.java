@@ -32,10 +32,10 @@ public class Settings extends Window {
 	private static final String MAMMEN = "mammen";
 	private static final String MIXED = "mixed";
 	
-	public Settings(GameController gc, SettingsValues sv) {
+	public Settings(GameController gc) {
 		super();
 		this.gc = gc;
-		this.sv = sv;
+		this.sv = SettingsValues.getInstance();
 	}
 	
 	private HBox genModeBox() {
