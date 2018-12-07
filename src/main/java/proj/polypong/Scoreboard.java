@@ -61,17 +61,21 @@ public class Scoreboard extends Window {
         
         for (int i = 0; i < scores.size(); i++) {
         	HBox scoresBox = new HBox();
+        	scoresBox.setSpacing(20);
             scoresBox.setAlignment(Pos.CENTER);
             Label name = new Label(scores.get(i).name);
             name.getStyleClass().add(labelStyle);
             name.setTextFill(Color.WHITE);
-            Label spacer = new Label("      ");
-            spacer.getStyleClass().add(labelStyle);
+            name.setMinWidth(200);
+            name.setAlignment(Pos.CENTER_RIGHT);
+            
             Label score = new Label("" + scores.get(i).scoreVal);
             score.getStyleClass().add(labelStyle);
+            score.setMinWidth(200);
+            score.setAlignment(Pos.CENTER_LEFT);
             score.setTextFill(Color.WHITE);
             
-            scoresBox.getChildren().addAll(name, spacer, score);
+            scoresBox.getChildren().addAll(name, score);
             allScores.getChildren().add(scoresBox);
         }        
         
