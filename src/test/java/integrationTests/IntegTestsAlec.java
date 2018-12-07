@@ -7,16 +7,11 @@ package integrationTests;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-
-import proj.polypong.GameController;
-import proj.polypong.Settings;
 import proj.polypong.SettingsValues;
 
 public class IntegTestsAlec {
 	@Test
 	public void testBallSpeedMedium() {
-		
-		GameController gc = new GameController();
 		SettingsValues set = SettingsValues.getInstance();
 
 		String ballSpeed = "medium";
@@ -27,8 +22,6 @@ public class IntegTestsAlec {
 
 	@Test
 	public void testBallSpeedFast() {
-		
-		GameController gc = new GameController();
 		SettingsValues set = SettingsValues.getInstance();
 
 		String ballSpeed = "fast";

@@ -5,8 +5,6 @@
 package integrationTests;
 
 import static org.junit.Assert.assertEquals;
-
-import org.junit.Assert;
 import org.junit.Test;
 
 import proj.polypong.SettingsValues;

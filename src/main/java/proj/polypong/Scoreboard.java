@@ -28,9 +28,9 @@ public class Scoreboard extends Window {
 	}
 	
 	
-	public Scoreboard(GameController gc) {
+	public Scoreboard() {
 		super();
-		this.gc = gc;
+		this.gc = GameController.getGC();
 	}
 	
 	@Override

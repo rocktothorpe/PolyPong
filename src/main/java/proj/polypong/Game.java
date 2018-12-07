@@ -48,9 +48,9 @@ public class Game extends Window {
 	Label pauseLabel = new Label("PAUSED");
 	
 	
-	public Game(GameController gc) {
+	public Game() {
 		super();
-		this.gc = gc;
+		this.gc = GameController.getGC();
 		this.sv = SettingsValues.getInstance();
 		initGame();
 	}
@@ -63,7 +63,7 @@ public class Game extends Window {
         ball.relocate(width/2, height/2 - BALLRADIUS/2);
         p1Paddle = new Paddle(5, height/2 - paddleHeight/2, 10, paddleHeight, Color.WHITE);
         p2Paddle = new Paddle(width - 15, height/2 - paddleHeight/2, 10, paddleHeight, Color.WHITE);
-        statusBar = new StatusBar(width, STATUSBARHEIGHT, gc);
+        statusBar = new StatusBar(width, STATUSBARHEIGHT);
 	}
     
     @Override

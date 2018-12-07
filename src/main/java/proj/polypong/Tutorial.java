@@ -23,9 +23,9 @@ public class Tutorial extends Window {
 	private static final Logger LOGGER =  
             Logger.getLogger(Logger.GLOBAL_LOGGER_NAME); 
 	
-	public Tutorial(GameController gc) {
+	public Tutorial() {
 		super();
-		this.gc = gc;
+		this.gc = GameController.getGC();
 	}
 	
 	@Override

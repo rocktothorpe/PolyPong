@@ -32,9 +32,9 @@ public class Settings extends Window {
 	private static final String MAMMEN = "mammen";
 	private static final String MIXED = "mixed";
 	
-	public Settings(GameController gc) {
+	public Settings() {
 		super();
-		this.gc = gc;
+		this.gc = GameController.getGC();
 		this.sv = SettingsValues.getInstance();
 	}
 	

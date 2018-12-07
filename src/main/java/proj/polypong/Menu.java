@@ -14,9 +14,9 @@ public class Menu extends  Window {
 	private static final String MAINBUTTON = "mainmenu-button";
 	
 	private GameController gc; 
-	public Menu(GameController gc) {
+	public Menu() {
 		super();
-		this.gc = gc;
+		this.gc = GameController.getGC();
 	}
 
 	@Override

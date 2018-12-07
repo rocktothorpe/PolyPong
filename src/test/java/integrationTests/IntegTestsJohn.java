@@ -5,11 +5,7 @@
 package integrationTests;
 
 import static org.junit.Assert.assertEquals;
-
-import java.util.List;
-
 import org.junit.Test;
-
 import javafx.scene.paint.Color;
 import proj.polypong.Paddle;
 import proj.polypong.Score;

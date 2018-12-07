@@ -7,10 +7,11 @@ import javafx.scene.layout.HBox;
 
 public class StatusBar extends HBox { 
 	
-	public StatusBar(double gameWidth, double statusBarHeight, GameController gc) {
+	public StatusBar(double gameWidth, double statusBarHeight) {
 		super ();
 		this.setStyle("-fx-background-color: #22262f;");
 		this.setPrefWidth(gameWidth);
+		GameController gc = GameController.getGC();
 		Button back = new Button("X");
 		back.getStyleClass().add("back-button");
         

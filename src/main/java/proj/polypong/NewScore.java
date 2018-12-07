@@ -18,9 +18,9 @@ public class NewScore extends Window {
 	private TextField usernameField;
 	private Button saveScoreButton;
 	
-	public NewScore(GameController gc) {
+	public NewScore() {
 		super();
-		this.gc = gc;
+		this.gc = GameController.getGC();
 	}
 	
 	private boolean validName(String input) {
