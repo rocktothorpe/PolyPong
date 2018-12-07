@@ -34,7 +34,6 @@ public class Game extends Window {
 	public  double paddleHeight = 100.0;
 	
 	private GameStatus gameStatus = GameStatus.PAUSE;
-	private GameController gc;
 	private SettingsValues sv;
 	
 	public Ball ball;
@@ -50,7 +49,6 @@ public class Game extends Window {
 	
 	public Game() {
 		super();
-		this.gc = GameController.getGC();
 		this.sv = SettingsValues.getInstance();
 		initGame();
 	}
@@ -92,7 +90,7 @@ public class Game extends Window {
             		 p2Paddle.isRaising = true;
             		 break;
             	case RESTARTBUTTON:
-            		gc.changetoScene("Game");
+            		GameController.changetoScene("Game");
             		break;
             	case PAUSEBUTTON:
             		if (gameStatus == GameStatus.PAUSE) {
@@ -180,7 +178,7 @@ public class Game extends Window {
         		switchBall(ball);
         	} else {
         		timeline.pause();
-        		gc.changetoScene("NewScore");
+        		GameController.changetoScene("NewScore");
         	}
         } else if (ball.hitRightWall(width)) {
         	if (p2Paddle.ballCollides(ball)) {
@@ -189,7 +187,7 @@ public class Game extends Window {
         		switchBall(ball);
         	} else {
         		timeline.pause();
-        		gc.changetoScene("NewScore");
+        		GameController.changetoScene("NewScore");
         	}
         }
     	Bounds bounds = canvas.getBoundsInParent();

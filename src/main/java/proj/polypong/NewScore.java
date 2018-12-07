@@ -12,15 +12,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 public class NewScore extends Window {
-	
-	private GameController gc;
-	
 	private TextField usernameField;
 	private Button saveScoreButton;
 	
 	public NewScore() {
 		super();
-		this.gc = GameController.getGC();
 	}
 	
 	private boolean validName(String input) {
@@ -64,7 +60,7 @@ public class NewScore extends Window {
             		scores.add(new Score(usernameField.getText(), 1));
             	}
             	Score.writeToFile(scores, "scores.txt");
-            	gc.changetoScene("Scoreboard");
+            	GameController.changetoScene("Scoreboard");
             } 
         }; 
 		

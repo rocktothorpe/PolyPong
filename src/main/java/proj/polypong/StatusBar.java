@@ -11,13 +11,12 @@ public class StatusBar extends HBox {
 		super ();
 		this.setStyle("-fx-background-color: #22262f;");
 		this.setPrefWidth(gameWidth);
-		GameController gc = GameController.getGC();
 		Button back = new Button("X");
 		back.getStyleClass().add("back-button");
         
         back.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even) {
-    			gc.changetoScene("Menu");
+    			GameController.changetoScene("Menu");
     		}
     	});
 		this.getChildren().addAll(back);

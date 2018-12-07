@@ -18,14 +18,11 @@ import javafx.scene.shape.Rectangle;
 
 public class Tutorial extends Window {
 	
-	private GameController gc;
-	
 	private static final Logger LOGGER =  
             Logger.getLogger(Logger.GLOBAL_LOGGER_NAME); 
 	
 	public Tutorial() {
 		super();
-		this.gc = GameController.getGC();
 	}
 	
 	@Override
@@ -43,7 +40,7 @@ public class Tutorial extends Window {
         
         back.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even) {
-    			gc.changetoScene("Menu");
+    			GameController.changetoScene("Menu");
     		}
     	});
         

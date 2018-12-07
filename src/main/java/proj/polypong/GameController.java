@@ -10,16 +10,7 @@ public class GameController extends Application {
 	public static final Color BACKGROUNDCOLOR = Color.rgb(29, 32, 44);
 	public static final String GAMETITLE = "PolyPong";
 	public static Stage theStage;
-	private static GameController singleInstance = null; 
 	
-
-	public static GameController getGC() 
-    { 
-        if (singleInstance == null) 
-            singleInstance = new GameController(); 
-  
-        return singleInstance; 
-    } 
 	
     @Override
     public void start(Stage stage) {
@@ -34,7 +25,7 @@ public class GameController extends Application {
     	theStage = stage;
     }
     
-    public void changetoScene(String scene) {
+    public static void changetoScene(String scene) {
     	if (scene == "Game") {
     		Window game = new Game();
     		Scene gameScene = game.drawWindow();

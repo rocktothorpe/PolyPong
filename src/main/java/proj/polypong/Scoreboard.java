@@ -16,11 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 public class Scoreboard extends Window {
-	
-	private GameController gc;
-	
-	
-	
+
 	class ScoreComparator implements Comparator<Score> {
 	    public int compare(Score o1, Score o2) {
 	        return o2.scoreVal.compareTo(o1.scoreVal);
@@ -30,7 +26,6 @@ public class Scoreboard extends Window {
 	
 	public Scoreboard() {
 		super();
-		this.gc = GameController.getGC();
 	}
 	
 	@Override
@@ -50,7 +45,7 @@ public class Scoreboard extends Window {
         
         back.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even) {
-    			gc.changetoScene("Menu");
+    			GameController.changetoScene("Menu");
     		}
     	});
         

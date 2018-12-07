@@ -13,10 +13,8 @@ public class Menu extends  Window {
 	private static final String BUTTON = "BUTTON";
 	private static final String MAINBUTTON = "mainmenu-button";
 	
-	private GameController gc; 
 	public Menu() {
 		super();
-		this.gc = GameController.getGC();
 	}
 
 	@Override
@@ -41,25 +39,25 @@ public class Menu extends  Window {
         
         playGame.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even ) {
-    			gc.changetoScene("Game");
+    			GameController.changetoScene("Game");
     		}
     	});
         
         settings.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even ) {
-    			gc.changetoScene("Settings");
+    			GameController.changetoScene("Settings");
     		}
     	});
         
         viewScoreboard.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even ) {
-    			gc.changetoScene("Scoreboard");
+    			GameController.changetoScene("Scoreboard");
     		}
     	});
         
         tutorial.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even ) {
-    			gc.changetoScene("Tutorial");
+    			GameController.changetoScene("Tutorial");
     		}
     	});
         

@@ -13,8 +13,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 public class Settings extends Window {
-	
-	private GameController gc;
+
 	private SettingsValues sv;
 	private static final String TOGGLEBTNSTYLE = "custom-button";
 	private static final String LABELSTYLE = "settings-label";
@@ -34,7 +33,6 @@ public class Settings extends Window {
 	
 	public Settings() {
 		super();
-		this.gc = GameController.getGC();
 		this.sv = SettingsValues.getInstance();
 	}
 	
@@ -420,7 +418,7 @@ public class Settings extends Window {
         
         back.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent even) {
-    			gc.changetoScene("Menu");
+    			GameController.changetoScene("Menu");
     		}
     	});
 		
