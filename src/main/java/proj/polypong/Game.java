@@ -170,12 +170,16 @@ public class Game extends Window {
     	}
     }
 	
+	public void checkResetBallSpeed() {
+		if (Math.abs(ball.xVelocity * ballSpeed) > 9) {
+			ballSpeed = -1.0;
+		}
+	}
+	
 	public void checkCollisions(Pane canvas, Timeline timeline) {
     	if (ball.hitLeftWall()) {
         	if (p1Paddle.ballCollides(ball)) {
-        		if (Math.abs(ball.xVelocity * ballSpeed) > 9) {
-        			ballSpeed = -1.0;
-        		}
+        		checkResetBallSpeed();
         		ball.xVelocity *= ballSpeed;
         		ball.ballRot*=ballSpeed;
         		switchBall(ball);
@@ -185,9 +189,7 @@ public class Game extends Window {
         	}
         } else if (ball.hitRightWall(width)) {
         	if (p2Paddle.ballCollides(ball)) {
-        		if (Math.abs(ball.xVelocity * ballSpeed) > 9) {
-        			ballSpeed = -1.0;
-        		}
+        		checkResetBallSpeed();
         		ball.xVelocity *= ballSpeed;
         		ball.ballRot*=ballSpeed;
         		switchBall(ball);
