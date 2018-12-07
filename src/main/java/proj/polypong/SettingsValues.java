@@ -22,7 +22,7 @@ public class SettingsValues {
 	private static final String LARGE = "large";
 	private static final String SLOW = "slow";
 	private static final String FAST = "fast";
-    private static SettingsValues single_instance = null; 
+    private static SettingsValues singleInstance = null; 
 	
 	private SettingsValues() {
 		paddleSize = SMALL;
@@ -33,10 +33,10 @@ public class SettingsValues {
 	
 	public static SettingsValues getInstance() 
     { 
-        if (single_instance == null) 
-            single_instance = new SettingsValues(); 
+        if (singleInstance == null) 
+            singleInstance = new SettingsValues(); 
   
-        return single_instance; 
+        return singleInstance; 
     } 
 	
 	public void setBallImage(String head) {

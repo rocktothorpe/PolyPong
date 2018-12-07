@@ -10,15 +10,15 @@ public class GameController extends Application {
 	public static final Color BACKGROUNDCOLOR = Color.rgb(29, 32, 44);
 	public static final String GAMETITLE = "PolyPong";
 	public static Stage theStage;
-    private static GameController single_instance = null; 
+	private static GameController singleInstance = null; 
 	
 
 	public static GameController getGC() 
     { 
-        if (single_instance == null) 
-            single_instance = new GameController(); 
+        if (singleInstance == null) 
+            singleInstance = new GameController(); 
   
-        return single_instance; 
+        return singleInstance; 
     } 
 	
     @Override
@@ -26,8 +26,12 @@ public class GameController extends Application {
     	stage.setTitle(GAMETITLE);
     	// Instantiate setting values
     	SettingsValues.getInstance();
-    	theStage = stage;
+    	GameController.setStage(stage);
     	changetoScene("Menu");
+    }
+    
+    public static void setStage(Stage stage) {
+    	theStage = stage;
     }
     
     public void changetoScene(String scene) {
