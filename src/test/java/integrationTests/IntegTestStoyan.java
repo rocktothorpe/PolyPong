@@ -17,7 +17,7 @@ public class IntegTestStoyan {
 	@Test
 	public void testSetAndGetBallSpeedMedium() {
 		
-		SettingsValues set = new SettingsValues();
+		SettingsValues set = SettingsValues.getInstance();
 		String speed = "medium";
 		set.setBallSpeed(speed);
 		double ballSpeed = set.getBallSpeed();
@@ -31,7 +31,7 @@ public class IntegTestStoyan {
 	@Test
 	public void testSetGetBallSpeedFast() {
 		
-		SettingsValues set = new SettingsValues();
+		SettingsValues set = SettingsValues.getInstance();
 		String speed = "fast";
 		set.setBallSpeed(speed);
 		double output = set.getBallSpeed();

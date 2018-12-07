@@ -14,7 +14,7 @@ public class IntegTestJohn {
 
 	@Test
 	public void testSetAndGetColor2Background() {
-		SettingsValues settingValues = new SettingsValues();
+		SettingsValues settingValues = SettingsValues.getInstance();
 		settingValues.setBackgroundColor("color2");
 		
 		assertTrue("#3E4F74" == settingValues.getBackgroundColor());
@@ -23,7 +23,7 @@ public class IntegTestJohn {
 	
 	@Test
 	public void testSetAndGetBallImage() {
-		SettingsValues settingValues = new SettingsValues();
+		SettingsValues settingValues = SettingsValues.getInstance();
 		settingValues.setBallImage("clements");
 		assertTrue("clements" == settingValues.curhead);
 		

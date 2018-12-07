@@ -14,7 +14,7 @@ public class TestsNathan {
 		
 	@Test
 	public void testGetPaddleSizeMedium() {
-		SettingsValues set = new SettingsValues();
+		SettingsValues set = SettingsValues.getInstance();
 		set.paddleSize = "medium";
 		
 		double size = set.getPaddleSize();
@@ -24,7 +24,7 @@ public class TestsNathan {
 	}
 	@Test
 	public void testGetPaddleSizeLarge() {
-		SettingsValues set = new SettingsValues();
+		SettingsValues set = SettingsValues.getInstance();
 		set.paddleSize = "large";
 		
 		double size = set.getPaddleSize();

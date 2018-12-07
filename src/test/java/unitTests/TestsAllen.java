@@ -14,7 +14,7 @@ public class TestsAllen extends TestCase {
 	
 	@Test
 	public void testSetBallSpeedM() {
-		SettingsValues set = new SettingsValues();
+		SettingsValues set = SettingsValues.getInstance();
 		String speed = "medium";
 		set.setBallSpeed(speed);
 		
@@ -24,7 +24,7 @@ public class TestsAllen extends TestCase {
 	
 	@Test
 	public void testGetBallSpeedM() {
-		SettingsValues set = new SettingsValues();
+		SettingsValues set = SettingsValues.getInstance();
 		set.ballSpeed = "medium";
 		double output = set.getBallSpeed();
 		double correct = -1.2;

@@ -15,7 +15,7 @@ public class IntegTestsNathan {
 	@Test
 	public void testSetAndGetPaddleSizeMedium() {
 		
-		SettingsValues set = new SettingsValues();
+		SettingsValues set = SettingsValues.getInstance();
 		String size = "large";
 		set.setPaddleSize(size);
 		double getsize = set.getPaddleSize();
@@ -29,7 +29,7 @@ public class IntegTestsNathan {
 	@Test
 	public void testSetGetBallSpeedS() {
 		
-		SettingsValues set = new SettingsValues();
+		SettingsValues set = SettingsValues.getInstance();
 		String speed = "slow";
 		set.setBallSpeed(speed);
 		double output = set.getBallSpeed();

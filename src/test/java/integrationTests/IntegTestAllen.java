@@ -18,7 +18,7 @@ public class IntegTestAllen {
 	
 	@Test
 	public void testSetAndGetColor1Background() {
-		SettingsValues setting = new SettingsValues();
+		SettingsValues setting = SettingsValues.getInstance();
 		String newBackground = "color1";
 		setting.setBackgroundColor(newBackground);
 		assertEquals("color1", setting.backgroundColor);
@@ -30,7 +30,7 @@ public class IntegTestAllen {
 	
 	@Test
 	public void testSetAndGetColor3BackGround() {
-		SettingsValues setting = new SettingsValues();
+		SettingsValues setting = SettingsValues.getInstance();
 		String newBackground = "color3";
 		setting.setBackgroundColor(newBackground);
 		assertEquals("color3", setting.backgroundColor);

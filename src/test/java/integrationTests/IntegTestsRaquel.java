@@ -15,7 +15,7 @@ public class IntegTestsRaquel {
 	@Test
 	public void testSetAndGetPaddleSizeSmall() {
 		
-		SettingsValues set = new SettingsValues();
+		SettingsValues set = SettingsValues.getInstance();
 		String size = "small";
 		set.setPaddleSize(size);
 		double getsize = set.getPaddleSize();
@@ -28,7 +28,7 @@ public class IntegTestsRaquel {
 	@Test
 	public void testSetAndGetPaddleSizeMedium() {
 		
-		SettingsValues set = new SettingsValues();
+		SettingsValues set = SettingsValues.getInstance();
 		String size = "medium";
 		set.setPaddleSize(size);
 		double getsize = set.getPaddleSize();

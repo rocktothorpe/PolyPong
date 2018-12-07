@@ -17,7 +17,7 @@ public class IntegTestsAlec {
 	public void testBallSpeedMedium() {
 		
 		GameController gc = new GameController();
-		SettingsValues set = new SettingsValues();
+		SettingsValues set = SettingsValues.getInstance();
 
 		String ballSpeed = "medium";
 		set.setBallSpeed(ballSpeed);
@@ -29,7 +29,7 @@ public class IntegTestsAlec {
 	public void testBallSpeedFast() {
 		
 		GameController gc = new GameController();
-		SettingsValues set = new SettingsValues();
+		SettingsValues set = SettingsValues.getInstance();
 
 		String ballSpeed = "fast";
 		set.setBallSpeed(ballSpeed);

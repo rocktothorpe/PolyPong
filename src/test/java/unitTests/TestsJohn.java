@@ -15,7 +15,7 @@ public class TestsJohn {
 	@Test
 	public void testSetBallSpeedS() {
 		
-		SettingsValues set = new SettingsValues();
+		SettingsValues set = SettingsValues.getInstance();
 		String speed = "slow";
 		set.setBallSpeed(speed);
 		
@@ -24,7 +24,7 @@ public class TestsJohn {
 	
 	@Test
 	public void testGetBallSpeedS() {
-		SettingsValues set = new SettingsValues();
+		SettingsValues set = SettingsValues.getInstance();
 		set.ballSpeed = "slow";
 		double output = set.getBallSpeed();
 		double correct = -1.05;

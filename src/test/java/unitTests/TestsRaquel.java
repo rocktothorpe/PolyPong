@@ -15,7 +15,7 @@ public class TestsRaquel {
 	@Test
 	public void testSetPaddleSize() {
 		
-		SettingsValues set = new SettingsValues();
+		SettingsValues set = SettingsValues.getInstance();
 		String size = "small";
 		set.setPaddleSize(size);
 		
@@ -24,7 +24,7 @@ public class TestsRaquel {
 	
 	@Test
 	public void testGetPaddleSizeSmall() {
-		SettingsValues set = new SettingsValues();
+		SettingsValues set = SettingsValues.getInstance();
 		set.paddleSize = "small";
 		
 		double size = set.getPaddleSize();
